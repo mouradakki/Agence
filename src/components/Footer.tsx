@@ -126,7 +126,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                <span className="text-background/70">
+                <span className="text-background/70 hover:text-primary transition-colors cursor-pointer">
                   {t("location.addressValue")}
                   {t("location.addressValue2") && t("location.addressValue2") !== "location.addressValue2" && (
                     <>
