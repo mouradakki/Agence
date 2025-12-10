@@ -1,3 +1,5 @@
+"use client";
+
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";

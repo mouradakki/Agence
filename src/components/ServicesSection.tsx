@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Car, Truck, Building2, Plane, Heart, FileCheck, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
