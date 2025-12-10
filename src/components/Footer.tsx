@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2026;
   const { t } = useLanguage();
 
   return (
@@ -37,25 +37,25 @@ const Footer = () => {
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-[#1877F2]/20 transition-colors group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5 text-[#1877F2] group-hover:scale-110 transition-transform" />
+                <Facebook className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#FCAF45] transition-all group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5 text-[#E4405F] group-hover:scale-110 transition-transform" />
+                <Instagram className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-black/20 transition-colors group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
                 aria-label="TikTok"
               >
                 <svg
-                  className="w-5 h-5 text-black dark:text-white group-hover:scale-110 transition-transform"
+                  className="w-5 h-5 text-primary group-hover:scale-110 transition-transform"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +65,10 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-[#1DA1F2]/20 transition-colors group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5 text-[#1DA1F2] group-hover:scale-110 transition-transform" />
+                <Twitter className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
@@ -79,7 +79,6 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { href: "#services", label: t("nav.services") },
-                { href: "#how-it-works", label: t("nav.howItWorks") },
                 { href: "#advantages", label: t("nav.advantages") },
                 { href: "#testimonials", label: t("nav.testimonials") },
                 { href: "#faq", label: t("nav.faq") },
@@ -129,10 +128,18 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 <span className="text-background/70">
                   {t("location.addressValue")}
-                  <br />
-                  {t("location.addressValue2")}
-                  <br />
-                  {t("location.addressValue3")}
+                  {t("location.addressValue2") && t("location.addressValue2") !== "location.addressValue2" && (
+                    <>
+                      <br />
+                      {t("location.addressValue2")}
+                    </>
+                  )}
+                  {t("location.addressValue3") && t("location.addressValue3") !== "location.addressValue3" && (
+                    <>
+                      <br />
+                      {t("location.addressValue3")}
+                    </>
+                  )}
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -164,14 +171,6 @@ const Footer = () => {
         <div className="container-custom py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
             <p>© {currentYear} {t("header.brandName")}. {t("footer.allRights")}.</p>
-            <div className="flex gap-6">
-              <a href="#" className="hover:text-primary transition-colors">
-                {t("footer.privacyPolicy")}
-              </a>
-              <a href="#" className="hover:text-primary transition-colors">
-                {t("footer.terms")}
-              </a>
-            </div>
             <p className="text-xs">
               {t("footer.license")}: XXX-XXXX-XXXX
             </p>

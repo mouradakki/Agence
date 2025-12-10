@@ -4,7 +4,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
 import AdvantagesSection from "@/components/AdvantagesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactSection from "@/components/ContactSection";
@@ -29,7 +28,7 @@ export default function Home() {
     email: "contact@example.com",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "شارع محمد الخامس، رقم 123",
+      streetAddress: "شارع أمالو, مقابل لبوسطة أمالوا، إغريين، لافتة Atlas Sanad",
       addressLocality: "الدار البيضاء",
       addressCountry: "MA",
     },
@@ -80,7 +79,6 @@ export default function Home() {
         <main>
           <HeroSection />
           <ServicesSection />
-          <HowItWorksSection />
           <AdvantagesSection />
           <TestimonialsSection />
           <ContactSection />

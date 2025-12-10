@@ -10,7 +10,7 @@ import {
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQSection = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
   
   const faqs = [
     {
@@ -44,7 +44,7 @@ const FAQSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Header */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: dir === "rtl" ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -66,16 +66,17 @@ const FAQSection = () => {
               </p>
               <a
                 href="#contact"
-                className="text-primary font-semibold hover:underline"
+                className="text-primary font-semibold hover:underline flex items-center gap-2"
               >
-                {t("faq.contactNow")} ←
+                {t("faq.contactNow")}
+                <span className={dir === "rtl" ? "←" : "→"} />
               </a>
             </div>
           </motion.div>
 
           {/* FAQ Accordion */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: dir === "rtl" ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -87,10 +88,10 @@ const FAQSection = () => {
                   value={`item-${index}`}
                   className="bg-card rounded-xl border border-border px-6 data-[state=open]:shadow-lg transition-shadow"
                 >
-                  <AccordionTrigger className="text-right font-bold text-foreground hover:text-primary py-5 text-base">
+                  <AccordionTrigger className={`${dir === "rtl" ? "text-right" : "text-left"} font-bold text-foreground py-5 text-base cursor-pointer hover:no-underline`}>
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 leading-relaxed">
+                  <AccordionContent className={`${dir === "rtl" ? "text-right" : "text-left"} text-muted-foreground pb-5 leading-relaxed`}>
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -47,10 +47,18 @@ const LocationSection = () => {
                   <h3 className="font-bold text-foreground mb-2">{t("location.address")}</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     {t("location.addressValue")}
-                    <br />
-                    {t("location.addressValue2")}
-                    <br />
-                    {t("location.addressValue3")}
+                    {t("location.addressValue2") && t("location.addressValue2") !== "location.addressValue2" && (
+                      <>
+                        <br />
+                        {t("location.addressValue2")}
+                      </>
+                    )}
+                    {t("location.addressValue3") && t("location.addressValue3") !== "location.addressValue3" && (
+                      <>
+                        <br />
+                        {t("location.addressValue3")}
+                      </>
+                    )}
                   </p>
                 </div>
               </div>

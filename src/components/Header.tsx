@@ -21,7 +21,7 @@ const Header = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Detect active section
-      const sections = ["services", "how-it-works", "advantages", "testimonials", "faq", "contact"];
+      const sections = ["services", "advantages", "testimonials", "faq", "contact"];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -59,7 +59,6 @@ const Header = () => {
 
   const navLinks = [
     { href: "#services", label: t("nav.services") },
-    { href: "#how-it-works", label: t("nav.howItWorks") },
     { href: "#advantages", label: t("nav.advantages") },
     { href: "#testimonials", label: t("nav.testimonials") },
     { href: "#faq", label: t("nav.faq") },
