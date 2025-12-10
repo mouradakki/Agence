@@ -3,47 +3,49 @@
 import { motion } from "framer-motion";
 import { Car, Truck, Building2, Plane, Heart, FileCheck, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: Car,
-    title: "تأمين السيارات",
-    description: "حماية شاملة لسيارتك ضد جميع المخاطر مع تغطية الأضرار والحوادث والسرقة.",
-    features: ["تغطية الأضرار", "المسؤولية المدنية", "الحماية القانونية"],
-  },
-  {
-    icon: Truck,
-    title: "تأمين الشاحنات",
-    description: "حلول تأمينية متكاملة لأسطول الشاحنات والنقل التجاري مع ضمانات موسعة.",
-    features: ["تأمين الأسطول", "تغطية البضائع", "المسؤولية المهنية"],
-  },
-  {
-    icon: Building2,
-    title: "تأمين الشركات",
-    description: "باقات تأمينية مخصصة للمؤسسات والشركات تشمل الممتلكات والموظفين.",
-    features: ["تأمين الممتلكات", "تأمين الموظفين", "المسؤولية المهنية"],
-  },
-  {
-    icon: Plane,
-    title: "خدمات السفر",
-    description: "تأمين السفر وخدمات دفع جوازات السفر مع تغطية طبية دولية شاملة.",
-    features: ["تأمين طبي دولي", "إلغاء الرحلات", "فقدان الأمتعة"],
-  },
-  {
-    icon: Heart,
-    title: "التأمين الصحي",
-    description: "تغطية صحية شاملة لك ولعائلتك مع شبكة واسعة من المستشفيات والأطباء.",
-    features: ["العلاج الطبي", "الأدوية", "الفحوصات الدورية"],
-  },
-  {
-    icon: FileCheck,
-    title: "خدمات إدارية",
-    description: "مساعدة في إجراءات التأمين والوثائق الإدارية المتعلقة بالسفر والمركبات.",
-    features: ["استخراج الوثائق", "تجديد العقود", "متابعة الملفات"],
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
+  const { t } = useLanguage();
+  
+  const services = [
+    {
+      icon: Car,
+      title: t("services.carInsurance"),
+      description: t("services.carInsuranceDesc"),
+      features: [t("services.feature1"), t("services.feature2"), t("services.feature3")],
+    },
+    {
+      icon: Truck,
+      title: t("services.truckInsurance"),
+      description: t("services.truckInsuranceDesc"),
+      features: [t("services.feature4"), t("services.feature5"), t("services.feature6")],
+    },
+    {
+      icon: Building2,
+      title: t("services.companyInsurance"),
+      description: t("services.companyInsuranceDesc"),
+      features: [t("services.feature7"), t("services.feature8"), t("services.feature6")],
+    },
+    {
+      icon: Plane,
+      title: t("services.travelInsurance"),
+      description: t("services.travelInsuranceDesc"),
+      features: [t("services.feature9"), t("services.feature10"), t("services.feature11")],
+    },
+    {
+      icon: Heart,
+      title: t("services.healthInsurance"),
+      description: t("services.healthInsuranceDesc"),
+      features: [t("services.feature12"), t("services.feature13"), t("services.feature14")],
+    },
+    {
+      icon: FileCheck,
+      title: t("services.adminServices"),
+      description: t("services.adminDesc"),
+      features: [t("services.feature15"), t("services.feature16"), t("services.feature17")],
+    },
+  ];
   return (
     <section id="services" className="section-padding bg-background">
       <div className="container-custom">
@@ -56,13 +58,13 @@ const ServicesSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
-            خدماتنا
+            {t("services.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            حلول تأمينية شاملة
+            {t("services.mainTitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            نقدم مجموعة متكاملة من خدمات التأمين المصممة لحماية ما يهمك أكثر
+            {t("services.mainSubtitle")}
           </p>
         </motion.div>
 
@@ -105,7 +107,7 @@ const ServicesSection = () => {
               {/* CTA */}
               <Button variant="ghost" className="w-full group/btn" asChild>
                 <a href="#contact">
-                  <span>اطلب عرض سعر</span>
+                  <span>{t("services.requestQuote")}</span>
                   <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1" />
                 </a>
               </Button>

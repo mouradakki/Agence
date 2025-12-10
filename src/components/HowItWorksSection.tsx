@@ -2,29 +2,31 @@
 
 import { motion } from "framer-motion";
 import { MessageCircle, FileText, CheckCircle } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: MessageCircle,
-    title: "التواصل معنا",
-    description: "تواصل معنا عبر الهاتف أو الواتساب أو زيارة مكتبنا لمناقشة احتياجاتك التأمينية.",
-  },
-  {
-    number: "02",
-    icon: FileText,
-    title: "الحصول على عرض سعر",
-    description: "نقوم بدراسة متطلباتك ونقدم لك عرض سعر مفصل يناسب ميزانيتك واحتياجاتك.",
-  },
-  {
-    number: "03",
-    icon: CheckCircle,
-    title: "إتمام العقد واستلام البوليصة",
-    description: "بعد الموافقة، نقوم بإتمام الإجراءات وتسليمك وثيقة التأمين في أسرع وقت.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorksSection = () => {
+  const { t } = useLanguage();
+  
+  const steps = [
+    {
+      number: "01",
+      icon: MessageCircle,
+      title: t("howItWorks.step1Title"),
+      description: t("howItWorks.step1Desc"),
+    },
+    {
+      number: "02",
+      icon: FileText,
+      title: t("howItWorks.step2Title"),
+      description: t("howItWorks.step2Desc"),
+    },
+    {
+      number: "03",
+      icon: CheckCircle,
+      title: t("howItWorks.step3Title"),
+      description: t("howItWorks.step3Desc"),
+    },
+  ];
   return (
     <section id="how-it-works" className="section-padding bg-muted/30">
       <div className="container-custom">
@@ -37,13 +39,13 @@ const HowItWorksSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
-            كيف نعمل
+            {t("howItWorks.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            ثلاث خطوات بسيطة
+            {t("howItWorks.mainTitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            نجعل عملية الحصول على التأمين سهلة وسريعة من خلال ثلاث خطوات واضحة
+            {t("howItWorks.mainSubtitle")}
           </p>
         </motion.div>
 

@@ -2,41 +2,43 @@
 
 import { motion } from "framer-motion";
 import { Shield, Clock, Users, BadgeCheck, HeadphonesIcon, Banknote } from "lucide-react";
-
-const advantages = [
-  {
-    icon: BadgeCheck,
-    title: "وكالة معتمدة رسمياً",
-    description: "شريك رسمي لـ Atlanta Sanad مع جميع التراخيص والاعتمادات اللازمة.",
-  },
-  {
-    icon: Clock,
-    title: "إجراءات سريعة وواضحة",
-    description: "نضمن لك سرعة في المعاملات والحصول على وثيقة التأمين في أقصر وقت.",
-  },
-  {
-    icon: Users,
-    title: "دعم محلي متميز",
-    description: "فريق عمل محلي متخصص لخدمتك ومساعدتك في جميع احتياجاتك التأمينية.",
-  },
-  {
-    icon: Banknote,
-    title: "تسليم التعويضات بضمان",
-    description: "تسليم التعويضات عبر الشركة الأم Atlanta Sanad بكل موثوقية وشفافية.",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "خدمة عملاء على مدار الساعة",
-    description: "نحن متاحون دائماً للإجابة على استفساراتكم ومساعدتكم في أي وقت.",
-  },
-  {
-    icon: Shield,
-    title: "تغطية شاملة ومتنوعة",
-    description: "نوفر لك باقات تأمينية متكاملة تلبي جميع احتياجاتك وبأسعار تنافسية.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AdvantagesSection = () => {
+  const { t } = useLanguage();
+  
+  const advantages = [
+    {
+      icon: BadgeCheck,
+      title: t("advantages.approved"),
+      description: t("advantages.approvedDesc"),
+    },
+    {
+      icon: Clock,
+      title: t("advantages.fast"),
+      description: t("advantages.fastDesc"),
+    },
+    {
+      icon: Users,
+      title: t("advantages.support"),
+      description: t("advantages.supportDesc"),
+    },
+    {
+      icon: Banknote,
+      title: t("advantages.compensationGuaranteed"),
+      description: t("advantages.compensationGuaranteedDesc"),
+    },
+    {
+      icon: HeadphonesIcon,
+      title: t("advantages.customerService"),
+      description: t("advantages.customerServiceDesc"),
+    },
+    {
+      icon: Shield,
+      title: t("advantages.diverseCoverage"),
+      description: t("advantages.diverseCoverageDesc"),
+    },
+  ];
   return (
     <section id="advantages" className="section-padding bg-background">
       <div className="container-custom">
@@ -49,30 +51,29 @@ const AdvantagesSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
-              لماذا تختارنا
+              {t("advantages.badge")}
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              مميزات تجعلنا
-              <span className="text-gradient block">الخيار الأفضل</span>
+              {t("advantages.mainTitle")}
+              <span className="text-gradient block">{t("advantages.mainTitleHighlight")}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              نحرص على تقديم أفضل خدمات التأمين مع التزامنا بالجودة والشفافية في كل تعاملاتنا، 
-              مما يجعلنا الشريك الموثوق لآلاف العملاء.
+              {t("advantages.mainDesc")}
             </p>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 p-6 bg-muted/50 rounded-2xl">
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">+5000</p>
-                <p className="text-sm text-muted-foreground">عميل سعيد</p>
+                <p className="text-sm text-muted-foreground">{t("advantages.stats.clients")}</p>
               </div>
               <div className="text-center border-x border-border">
                 <p className="text-3xl font-bold text-primary">15+</p>
-                <p className="text-sm text-muted-foreground">سنة خبرة</p>
+                <p className="text-sm text-muted-foreground">{t("advantages.stats.experience")}</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">24/7</p>
-                <p className="text-sm text-muted-foreground">دعم متاح</p>
+                <p className="text-sm text-muted-foreground">{t("advantages.stats.support")}</p>
               </div>
             </div>
           </motion.div>

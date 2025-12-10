@@ -1635,11 +1635,22 @@ video {
 .bg-transparent {
   background-color: transparent;
 }
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+.bg-\[\#25D366\]\/10 {
+  background-color: rgb(37 211 102 / 0.1);
+}
 .fill-accent {
   fill: hsl(var(--accent));
 }
 .fill-current {
   fill: currentColor;
+}
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .p-0 {
   padding: 0px;
@@ -1947,6 +1958,26 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+.text-\[\#1877F2\] {
+  --tw-text-opacity: 1;
+  color: rgb(24 119 242 / var(--tw-text-opacity, 1));
+}
+.text-\[\#1DA1F2\] {
+  --tw-text-opacity: 1;
+  color: rgb(29 161 242 / var(--tw-text-opacity, 1));
+}
+.text-\[\#E4405F\] {
+  --tw-text-opacity: 1;
+  color: rgb(228 64 95 / var(--tw-text-opacity, 1));
+}
+.text-black {
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+.text-\[\#25D366\] {
+  --tw-text-opacity: 1;
+  color: rgb(37 211 102 / var(--tw-text-opacity, 1));
 }
 .underline {
   text-decoration-line: underline;
@@ -2382,6 +2413,45 @@ video {
 
 .hover\:bg-sidebar-accent:hover {
   background-color: hsl(var(--sidebar-accent));
+}
+
+.hover\:bg-\[\#1877F2\]\/20:hover {
+  background-color: rgb(24 119 242 / 0.2);
+}
+
+.hover\:bg-\[\#1DA1F2\]\/20:hover {
+  background-color: rgb(29 161 242 / 0.2);
+}
+
+.hover\:bg-black\/20:hover {
+  background-color: rgb(0 0 0 / 0.2);
+}
+
+.hover\:bg-\[\#25D366\]\/10:hover {
+  background-color: rgb(37 211 102 / 0.1);
+}
+
+.hover\:bg-\[\#25D366\]\/20:hover {
+  background-color: rgb(37 211 102 / 0.2);
+}
+
+.hover\:bg-gradient-to-br:hover {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.hover\:from-\[\#833AB4\]:hover {
+  --tw-gradient-from: #833AB4 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(131 58 180 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.hover\:via-\[\#FD1D1D\]:hover {
+  --tw-gradient-to: rgb(253 29 29 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #FD1D1D var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.hover\:to-\[\#FCAF45\]:hover {
+  --tw-gradient-to: #FCAF45 var(--tw-gradient-to-position);
 }
 
 .hover\:text-accent:hover {
@@ -3309,6 +3379,11 @@ video {
 
 .dark\:border-destructive:is(.dark *) {
   border-color: hsl(var(--destructive));
+}
+
+.dark\:text-white:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 640px) {

@@ -1,8 +1,11 @@
 "use client";
 
+"use client";
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Shield } from "lucide-react";
+import { Menu, X, Phone, MessageCircle } from "lucide-react";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageToggle from "./LanguageToggle";
@@ -85,11 +88,18 @@ const Header = () => {
             }}
           >
             <motion.div
-              className="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300"
+              className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white"
               whileHover={{ rotate: [0, -5, 5, -5, 0] }}
               transition={{ duration: 0.5 }}
             >
-              <Shield className="w-7 h-7 text-primary-foreground" />
+              <Image
+                src="/logo-1.png"
+                alt="Logo"
+                width={48}
+                height={48}
+                className="object-contain"
+                priority
+              />
             </motion.div>
             <div className="hidden sm:block">
               <p className={`font-bold text-lg transition-colors duration-200 ${
@@ -153,7 +163,7 @@ const Header = () => {
               <LanguageToggle />
             </div>
             <motion.a
-              href="tel:+212600000000"
+              href="tel:0535383218"
               className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
                 isScrolled
                   ? "text-primary hover:bg-primary/10"
@@ -163,19 +173,23 @@ const Header = () => {
               whileTap={{ scale: 0.95 }}
             >
               <Phone className="w-5 h-5" />
-              <span className="hidden xl:inline">+212 600 000 000</span>
+              <span className="hidden xl:inline">0535383218</span>
             </motion.a>
-            <Button
-              size="default"
-              asChild
-              className={`shadow-md hover:shadow-lg transition-shadow duration-200 ${
-                !isScrolled && "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+            <motion.a
+              href="https://wa.me/212535383218"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
+                isScrolled
+                  ? "text-[#25D366] hover:bg-[#25D366]/10"
+                  : "text-[#25D366] hover:bg-[#25D366]/10"
               }`}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
-                {t("header.getQuote")}
-              </a>
-            </Button>
+              <MessageCircle className="w-5 h-5" />
+              <span className="hidden xl:inline">0535383218</span>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -265,18 +279,23 @@ const Header = () => {
                   className="mt-4 space-y-3"
                 >
                   <a
-                    href="tel:+212600000000"
+                    href="tel:0535383218"
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-primary font-semibold bg-primary/10 hover:bg-primary/20 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     <Phone className="w-5 h-5" />
-                    <span>+212 600 000 000</span>
+                    <span>0535383218</span>
                   </a>
-                  <Button className="w-full" asChild>
-                    <a href="#contact" onClick={(e) => handleNavClick(e, "#contact")}>
-                      {t("header.getQuote")}
-                    </a>
-                  </Button>
+                  <a
+                    href="https://wa.me/212535383218"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-[#25D366] font-semibold bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <MessageCircle className="w-5 h-5" />
+                    <span>0535383218</span>
+                  </a>
                 </motion.div>
               </nav>
             </motion.div>

@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { MapPin, Clock, Phone, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LocationSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="location" className="section-padding bg-muted/30">
       <div className="container-custom">
@@ -17,13 +19,13 @@ const LocationSection = () => {
           className="text-center mb-12"
         >
           <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
-            موقعنا
+            {t("location.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            زورونا في مكتبنا
+            {t("location.mainTitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            نرحب بكم في مكتبنا للحصول على استشارة مجانية ومباشرة
+            {t("location.mainSubtitle")}
           </p>
         </motion.div>
 
@@ -42,13 +44,13 @@ const LocationSection = () => {
                   <MapPin className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">العنوان</h3>
+                  <h3 className="font-bold text-foreground mb-2">{t("location.address")}</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    شارع محمد الخامس، رقم 123
+                    {t("location.addressValue")}
                     <br />
-                    الحي التجاري، الدار البيضاء
+                    {t("location.addressValue2")}
                     <br />
-                    المغرب
+                    {t("location.addressValue3")}
                   </p>
                 </div>
               </div>
@@ -60,11 +62,11 @@ const LocationSection = () => {
                   <Clock className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">ساعات العمل</h3>
+                  <h3 className="font-bold text-foreground mb-2">{t("location.workingHours")}</h3>
                   <div className="text-muted-foreground space-y-1">
-                    <p>الإثنين - الجمعة: 9:00 - 18:00</p>
-                    <p>السبت: 9:00 - 13:00</p>
-                    <p>الأحد: مغلق</p>
+                    <p>{t("location.workingHoursValue")}</p>
+                    <p>{t("location.workingHoursValue2")}</p>
+                    <p>{t("location.workingHoursValue3")}</p>
                   </div>
                 </div>
               </div>
@@ -76,9 +78,9 @@ const LocationSection = () => {
                   <Phone className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-2">للتواصل</h3>
+                  <h3 className="font-bold text-foreground mb-2">{t("location.contactLabel")}</h3>
                   <div className="text-muted-foreground space-y-1">
-                    <p dir="ltr">+212 600 000 000</p>
+                    <p dir="ltr">0535383218</p>
                     <p>contact@example.com</p>
                   </div>
                 </div>
@@ -92,7 +94,7 @@ const LocationSection = () => {
                 rel="noopener noreferrer"
               >
                 <ExternalLink className="w-5 h-5" />
-                افتح في خرائط Google
+                {t("location.openMaps")}
               </a>
             </Button>
           </motion.div>

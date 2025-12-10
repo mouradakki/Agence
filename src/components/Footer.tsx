@@ -1,7 +1,12 @@
-import { Shield, Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+"use client";
+
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import Image from "next/image";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="bg-foreground text-background">
@@ -11,61 +16,74 @@ const Footer = () => {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center">
-                <Shield className="w-7 h-7 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white">
+                <Image
+                  src="/logo-1.png"
+                  alt="Logo"
+                  width={48}
+                  height={48}
+                  className="object-contain"
+                />
               </div>
               <div>
-                <p className="font-bold text-lg">أتلانتا سند</p>
-                <p className="text-xs text-background/60">وكالة معتمدة</p>
+                <p className="font-bold text-lg">{t("header.brandName")}</p>
+                <p className="text-xs text-background/60">{t("header.approvedAgency")}</p>
               </div>
             </div>
             <p className="text-background/70 leading-relaxed mb-6">
-              وكالة تأمين معتمدة من Atlanta Sanad، نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.
+              {t("footer.description")}
             </p>
             {/* Social Links */}
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-[#1877F2]/20 transition-colors group"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-5 h-5 text-[#1877F2] group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#FCAF45] transition-all group"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5 text-[#E4405F] group-hover:scale-110 transition-transform" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
-                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-black/20 transition-colors group"
+                aria-label="TikTok"
               >
-                <Linkedin className="w-5 h-5" />
+                <svg
+                  className="w-5 h-5 text-black dark:text-white group-hover:scale-110 transition-transform"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:bg-[#1DA1F2]/20 transition-colors group"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5" />
+                <Twitter className="w-5 h-5 text-[#1DA1F2] group-hover:scale-110 transition-transform" />
               </a>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-lg mb-6">روابط سريعة</h3>
+            <h3 className="font-bold text-lg mb-6">{t("footer.quickLinks")}</h3>
             <ul className="space-y-3">
               {[
-                { href: "#services", label: "خدماتنا" },
-                { href: "#how-it-works", label: "كيف نعمل" },
-                { href: "#advantages", label: "مميزاتنا" },
-                { href: "#testimonials", label: "آراء العملاء" },
-                { href: "#faq", label: "الأسئلة الشائعة" },
-                { href: "#contact", label: "تواصل معنا" },
+                { href: "#services", label: t("nav.services") },
+                { href: "#how-it-works", label: t("nav.howItWorks") },
+                { href: "#advantages", label: t("nav.advantages") },
+                { href: "#testimonials", label: t("nav.testimonials") },
+                { href: "#faq", label: t("nav.faq") },
+                { href: "#contact", label: t("nav.contact") },
               ].map((link) => (
                 <li key={link.href}>
                   <a
@@ -81,15 +99,15 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-6">خدماتنا</h3>
+            <h3 className="font-bold text-lg mb-6">{t("footer.ourServices")}</h3>
             <ul className="space-y-3">
               {[
-                "تأمين السيارات",
-                "تأمين الشاحنات",
-                "تأمين الشركات",
-                "خدمات السفر",
-                "التأمين الصحي",
-                "خدمات إدارية",
+                t("footer.services.car"),
+                t("footer.services.truck"),
+                t("footer.services.company"),
+                t("footer.services.travel"),
+                t("footer.services.health"),
+                t("footer.services.admin"),
               ].map((service) => (
                 <li key={service}>
                   <a
@@ -105,24 +123,26 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-6">معلومات التواصل</h3>
+            <h3 className="font-bold text-lg mb-6">{t("footer.contactInfo")}</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
                 <span className="text-background/70">
-                  شارع محمد الخامس، رقم 123
+                  {t("location.addressValue")}
                   <br />
-                  الدار البيضاء، المغرب
+                  {t("location.addressValue2")}
+                  <br />
+                  {t("location.addressValue3")}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="tel:+212600000000"
+                  href="tel:0535383218"
                   className="text-background/70 hover:text-primary transition-colors"
                   dir="ltr"
                 >
-                  +212 600 000 000
+                  0535383218
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -143,17 +163,17 @@ const Footer = () => {
       <div className="border-t border-background/10">
         <div className="container-custom py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
-            <p>© {currentYear} أتلانتا سند. جميع الحقوق محفوظة.</p>
+            <p>© {currentYear} {t("header.brandName")}. {t("footer.allRights")}.</p>
             <div className="flex gap-6">
               <a href="#" className="hover:text-primary transition-colors">
-                سياسة الخصوصية
+                {t("footer.privacyPolicy")}
               </a>
               <a href="#" className="hover:text-primary transition-colors">
-                الشروط والأحكام
+                {t("footer.terms")}
               </a>
             </div>
             <p className="text-xs">
-              رقم الترخيص: XXX-XXXX-XXXX
+              {t("footer.license")}: XXX-XXXX-XXXX
             </p>
           </div>
         </div>

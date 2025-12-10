@@ -25,7 +25,7 @@ export default function Home() {
     url: "https://example.com",
     logo: "https://example.com/logo.png",
     image: "https://example.com/hero-image.jpg",
-    telephone: "+212600000000",
+    telephone: "0535383218",
     email: "contact@example.com",
     address: {
       "@type": "PostalAddress",

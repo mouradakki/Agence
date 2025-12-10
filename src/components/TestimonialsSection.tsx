@@ -2,32 +2,34 @@
 
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "أحمد المنصوري",
-    city: "الدار البيضاء",
-    rating: 5,
-    text: "تجربة ممتازة مع الوكالة. حصلت على تأمين سيارتي بسرعة وبسعر منافس جداً. الفريق محترف ومتعاون.",
-    avatar: "أ",
-  },
-  {
-    name: "فاطمة الزهراء بنعيسى",
-    city: "الرباط",
-    rating: 5,
-    text: "خدمة تأمين السفر كانت رائعة. ساعدوني في كل الإجراءات وكانوا متاحين للإجابة على استفساراتي.",
-    avatar: "ف",
-  },
-  {
-    name: "محمد العلوي",
-    city: "مراكش",
-    rating: 5,
-    text: "أنصح بشدة بهذه الوكالة لتأمين الشاحنات. تعاملهم محترم وأسعارهم معقولة مقارنة بالمنافسين.",
-    avatar: "م",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TestimonialsSection = () => {
+  const { t, language } = useLanguage();
+  
+  const testimonials = [
+    {
+      name: language === "ar" ? "أحمد المنصوري" : "Ahmed Mansouri",
+      city: language === "ar" ? "الدار البيضاء" : "Casablanca",
+      rating: 5,
+      text: t("testimonials.testimonial1"),
+      avatar: language === "ar" ? "أ" : "A",
+    },
+    {
+      name: language === "ar" ? "فاطمة الزهراء بنعيسى" : "Fatima Zahra Benaissa",
+      city: language === "ar" ? "الرباط" : "Rabat",
+      rating: 5,
+      text: t("testimonials.testimonial2"),
+      avatar: language === "ar" ? "ف" : "F",
+    },
+    {
+      name: language === "ar" ? "محمد العلوي" : "Mohamed Alaoui",
+      city: language === "ar" ? "مراكش" : "Marrakech",
+      rating: 5,
+      text: t("testimonials.testimonial3"),
+      avatar: language === "ar" ? "م" : "M",
+    },
+  ];
   return (
     <section id="testimonials" className="section-padding bg-muted/30">
       <div className="container-custom">
@@ -40,13 +42,13 @@ const TestimonialsSection = () => {
           className="text-center mb-16"
         >
           <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
-            آراء العملاء
+            {t("testimonials.badge")}
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            ماذا يقول عملاؤنا
+            {t("testimonials.mainTitle")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            ثقة عملائنا هي أكبر شهادة على جودة خدماتنا
+            {t("testimonials.mainSubtitle")}
           </p>
         </motion.div>
 
