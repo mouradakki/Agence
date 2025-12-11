@@ -39,9 +39,9 @@ const FAQSection = () => {
     },
   ];
   return (
-    <section id="faq" className="section-padding bg-background">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <section id="faq" className="bg-background pt-8 md:pt-10 lg:pt-12 pb-0">
+      <div className="container-custom pb-8 md:pb-10 lg:pb-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, x: dir === "rtl" ? 30 : -30 }}
@@ -52,9 +52,6 @@ const FAQSection = () => {
             <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
               {t("faq.title")}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              {t("faq.title")}
-            </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
               {t("faq.subtitle")}
             </p>
@@ -100,8 +97,29 @@ const FAQSection = () => {
           </motion.div>
         </div>
       </div>
+      {/* Mountain-like wave shape at the bottom */}
+      <div className="relative">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-20 md:h-24 lg:h-32"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M0,120 C240,80 480,40 720,60 C960,80 1200,100 1440,80 L1440,120 L0,120 Z"
+            fill="hsl(var(--foreground))"
+          />
+          <path
+            d="M0,100 C300,60 600,20 900,50 C1200,80 1350,90 1440,70 L1440,120 L0,120 Z"
+            fill="hsl(var(--foreground))"
+            opacity="0.9"
+          />
+        </svg>
+      </div>
     </section>
   );
 };
 
 export default FAQSection;
+

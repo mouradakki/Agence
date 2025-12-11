@@ -1,6 +1,13 @@
 "use client";
 
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Twitter,
+} from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -27,7 +34,9 @@ const Footer = () => {
               </div>
               <div>
                 <p className="font-bold text-lg">{t("header.brandName")}</p>
-                <p className="text-xs text-background/60">{t("header.approvedAgency")}</p>
+                <p className="text-xs text-background/60">
+                  {t("header.approvedAgency")}
+                </p>
               </div>
             </div>
             <p className="text-background/70 leading-relaxed mb-6">
@@ -37,25 +46,25 @@ const Footer = () => {
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <Facebook className="w-5 h-5 text-white" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <Instagram className="w-5 h-5 text-white" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="TikTok"
               >
                 <svg
-                  className="w-5 h-5 text-primary group-hover:scale-110 transition-transform"
+                  className="w-5 h-5 text-white"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
@@ -65,10 +74,10 @@ const Footer = () => {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center group"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
+                <Twitter className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -81,8 +90,8 @@ const Footer = () => {
                 { href: "#services", label: t("nav.services") },
                 { href: "#advantages", label: t("nav.advantages") },
                 { href: "#testimonials", label: t("nav.testimonials") },
-                { href: "#faq", label: t("nav.faq") },
                 { href: "#contact", label: t("nav.contact") },
+                { href: "#faq", label: t("nav.faq") },
               ].map((link) => (
                 <li key={link.href}>
                   <a
@@ -98,7 +107,9 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-lg mb-6">{t("footer.ourServices")}</h3>
+            <h3 className="font-bold text-lg mb-6">
+              {t("footer.ourServices")}
+            </h3>
             <ul className="space-y-3">
               {[
                 t("footer.services.car"),
@@ -122,25 +133,36 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-lg mb-6">{t("footer.contactInfo")}</h3>
+            <h3 className="font-bold text-lg mb-6">
+              {t("footer.contactInfo")}
+            </h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
-                <span className="text-background/70 hover:text-primary transition-colors cursor-pointer">
+                <a
+                  href="https://www.google.com/maps"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-background/70 hover:text-primary transition-colors"
+                >
                   {t("location.addressValue")}
-                  {t("location.addressValue2") && t("location.addressValue2") !== "location.addressValue2" && (
-                    <>
-                      <br />
-                      {t("location.addressValue2")}
-                    </>
-                  )}
-                  {t("location.addressValue3") && t("location.addressValue3") !== "location.addressValue3" && (
-                    <>
-                      <br />
-                      {t("location.addressValue3")}
-                    </>
-                  )}
-                </span>
+                  {t("location.addressValue2") &&
+                    t("location.addressValue2") !==
+                      "location.addressValue2" && (
+                      <>
+                        <br />
+                        {t("location.addressValue2")}
+                      </>
+                    )}
+                  {t("location.addressValue3") &&
+                    t("location.addressValue3") !==
+                      "location.addressValue3" && (
+                      <>
+                        <br />
+                        {t("location.addressValue3")}
+                      </>
+                    )}
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
@@ -155,10 +177,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:contact@example.com"
+                  href="mailto:ag.assuranceskhenifra@atlantasanad.ma"
                   className="text-background/70 hover:text-primary transition-colors"
                 >
-                  contact@example.com
+                  ag.assuranceskhenifra@atlantasanad.ma
                 </a>
               </li>
             </ul>
@@ -170,10 +192,10 @@ const Footer = () => {
       <div className="border-t border-background/10">
         <div className="container-custom py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
-            <p>© {currentYear} {t("header.brandName")}. {t("footer.allRights")}.</p>
-            <p className="text-xs">
-              {t("footer.license")}: XXX-XXXX-XXXX
+            <p>
+              © {currentYear} {t("header.brandName")}. {t("footer.allRights")}.
             </p>
+            <p className="text-xs">{t("footer.license")}: XXX-XXXX-XXXX</p>
           </div>
         </div>
       </div>

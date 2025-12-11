@@ -14,21 +14,25 @@ import Script from "next/script";
 
 export default function Home() {
   const { dir } = useLanguage();
-  
+
   // JSON-LD Structured Data for Local Business
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma";
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
     name: "وكالة أتلانتا سند للتأمين",
-    description: "وكالة تأمين معتمدة من Atlanta Sanad. خدمات تأمين السيارات والشاحنات والشركات والسفر.",
-    url: "https://example.com",
-    logo: "https://example.com/logo.png",
-    image: "https://example.com/hero-image.jpg",
+    description:
+      "وكالة تأمين معتمدة من Atlanta Sanad. خدمات تأمين السيارات والشاحنات والشركات والسفر.",
+    url: siteUrl,
+    logo: `${siteUrl}/logo-1.png`,
+    image: `${siteUrl}/agence-photo.jpg`,
     telephone: "0535383218",
-    email: "contact@example.com",
+    email: "ag.assuranceskhenifra@atlantasanad.ma",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "شارع أمالو, مقابل لبوسطة أمالوا، إغريين، لافتة Atlas Sanad",
+      streetAddress:
+        "شارع أمالو, مقابل لبوسطة أمالوا، إغريين، لافتة Atlas Sanad",
       addressLocality: "الدار البيضاء",
       addressCountry: "MA",
     },
@@ -52,9 +56,10 @@ export default function Home() {
       },
     ],
     sameAs: [
-      "https://www.facebook.com/example",
-      "https://www.instagram.com/example",
-      "https://www.linkedin.com/company/example",
+      // Add your social media links here when available
+      // "https://www.facebook.com/yourpage",
+      // "https://www.instagram.com/yourpage",
+      // "https://www.linkedin.com/company/yourcompany",
     ],
     parentOrganization: {
       "@type": "Organization",
@@ -74,7 +79,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen" dir={dir}>
+      <div className="min-h-screen" dir={dir} style={{ margin: 0, padding: 0 }}>
         <Header />
         <main>
           <HeroSection />
@@ -90,4 +95,3 @@ export default function Home() {
     </>
   );
 }
-

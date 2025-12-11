@@ -42,34 +42,31 @@ const AdvantagesSection = () => {
   return (
     <section id="advantages" className="section-padding bg-background">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="overflow-visible"
           >
             <span className="inline-block bg-primary/10 text-primary font-semibold px-4 py-2 rounded-full text-sm mb-4">
               {t("advantages.badge")}
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6" style={{ lineHeight: '1.4', overflow: 'visible' }}>
               {t("advantages.mainTitle")}
-              <span className="text-gradient block">{t("advantages.mainTitleHighlight")}</span>
+              <span className="text-gradient">{t("advantages.mainTitleHighlight")}</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed" style={{ overflow: 'visible' }}>
               {t("advantages.mainDesc")}
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 p-6 bg-muted/50 rounded-2xl">
+            <div className="flex flex-row justify-around items-center p-6 bg-muted/50 rounded-2xl">
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">+5000</p>
                 <p className="text-sm text-muted-foreground">{t("advantages.stats.clients")}</p>
-              </div>
-              <div className="text-center border-x border-border">
-                <p className="text-3xl font-bold text-primary">15+</p>
-                <p className="text-sm text-muted-foreground">{t("advantages.stats.experience")}</p>
               </div>
               <div className="text-center">
                 <p className="text-3xl font-bold text-primary">24/7</p>
@@ -84,7 +81,7 @@ const AdvantagesSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid sm:grid-cols-2 gap-4"
+            className="grid sm:grid-cols-2 gap-3"
           >
             {advantages.map((advantage, index) => (
               <motion.div

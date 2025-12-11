@@ -22,7 +22,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "تواصل معنا",
     "header.getQuote": "احصل على عرض سعر",
     "header.approvedAgency": "وكالة معتمدة",
-    "header.brandName": "أتلانتا سند",
+    "header.brandName": "AGENCE Fouad ABI",
     
     // Hero
     "hero.title": "حماية ما يهمّك",
@@ -151,7 +151,6 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.namePlaceholder": "أدخل اسمك الكامل",
     "contact.phonePlaceholder": "أدخل رقم هاتفك",
     "contact.emailPlaceholder": "أدخل بريدك الإلكتروني",
-    "contact.messagePlaceholder": "اكتب رسالتك أو استفسارك هنا...",
     "contact.sending": "جاري الإرسال...",
     "contact.send": "إرسال الطلب",
     "contact.other": "أخرى",
@@ -167,8 +166,6 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.healthInsurance": "التأمين الصحي",
     "contact.message": "رسالتك",
     "contact.messagePlaceholder": "اكتب رسالتك هنا...",
-    "contact.send": "إرسال الطلب",
-    "contact.sending": "جاري الإرسال...",
     "contact.success": "تم إرسال طلبك بنجاح!",
     "contact.successDesc": "سنتواصل معك في أقرب وقت ممكن.",
     "contact.callUs": "اتصل بنا",
@@ -238,7 +235,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.contact": "Contact",
     "header.getQuote": "Demander un devis",
     "header.approvedAgency": "Agence agréée",
-    "header.brandName": "Atlanta Sanad",
+    "header.brandName": "AGENCE Fouad ABI",
     
     // Hero
     "hero.title": "Protégez ce qui compte",
@@ -382,9 +379,6 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.travelInsurance": "Services Voyage",
     "contact.healthInsurance": "Assurance Santé",
     "contact.message": "Votre message",
-    "contact.messagePlaceholder": "Écrivez votre message ici...",
-    "contact.send": "Envoyer la demande",
-    "contact.sending": "Envoi en cours...",
     "contact.success": "Votre demande a été envoyée !",
     "contact.successDesc": "Nous vous contacterons dans les plus brefs délais.",
     "contact.callUs": "Appelez-nous",

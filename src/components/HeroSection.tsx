@@ -4,11 +4,15 @@ import { motion } from "framer-motion";
 import { Shield, CheckCircle2, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Image from "next/image";
 
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden">
+    <section
+      className="relative min-h-screen flex items-center hero-gradient overflow-hidden"
+      style={{ border: "none", outline: "none" }}
+    >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary-foreground rounded-full blur-3xl" />
@@ -16,11 +20,11 @@ const HeroSection = () => {
       </div>
 
       {/* Grid Pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-5"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
+          backgroundSize: "50px 50px",
         }}
       />
 
@@ -41,13 +45,17 @@ const HeroSection = () => {
               className="inline-flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 rounded-full px-4 py-2 mb-8"
             >
               <Shield className="w-5 h-5 text-accent" />
-              <span className="text-sm font-medium">{t("hero.approvedBadge")}</span>
+              <span className="text-sm font-medium">
+                {t("hero.approvedBadge")}
+              </span>
             </motion.div>
 
             {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {t("hero.title")}
-              <span className="block mt-2 text-accent">{t("hero.subtitle")}</span>
+              <span className="block mt-2 text-accent">
+                {t("hero.subtitle")}
+              </span>
             </h1>
 
             {/* Sub-headline */}
@@ -89,90 +97,96 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
-          {/* Visual Element */}
+          {/* Profile Image - Welcome Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.9, x: 30 }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              x: 0,
+            }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            {/* Main Card */}
-            <div className="relative bg-primary-foreground/10 backdrop-blur-xl border border-primary-foreground/20 rounded-3xl p-8 shadow-2xl">
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-2xl flex items-center justify-center shadow-lg">
-                <Shield className="w-10 h-10 text-accent-foreground" />
-              </div>
-              
-              <div className="mt-8 space-y-6">
-                <div className="flex items-center gap-4 bg-primary-foreground/5 rounded-xl p-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-xl">🚗</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary-foreground">{t("services.carInsurance")}</p>
-                    <p className="text-sm text-primary-foreground/60">{t("services.carInsuranceDesc").split(".")[0]}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4 bg-primary-foreground/5 rounded-xl p-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-xl">🚛</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary-foreground">{t("services.truckInsurance")}</p>
-                    <p className="text-sm text-primary-foreground/60">{t("services.truckInsuranceDesc").split(".")[0]}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-4 bg-primary-foreground/5 rounded-xl p-4">
-                  <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-xl">✈️</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-primary-foreground">{t("services.travelInsurance")}</p>
-                    <p className="text-sm text-primary-foreground/60">{t("services.travelInsuranceDesc").split(".")[0]}</p>
-                  </div>
-                </div>
-              </div>
+            <motion.div
+              animate={{
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {/* Decorative Elements */}
+              <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl z-0" />
+              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary-foreground/10 rounded-full blur-2xl z-0" />
 
-              {/* Stats */}
-              <div className="mt-8 pt-6 border-t border-primary-foreground/20 grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-2xl font-bold text-accent">+5000</p>
-                  <p className="text-xs text-primary-foreground/60">{t("hero.trustedClients").split(" ")[3]}</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-accent">15+</p>
-                  <p className="text-xs text-primary-foreground/60">{t("advantages.pricesDesc").split(" ")[0]}</p>
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-accent">98%</p>
-                  <p className="text-xs text-primary-foreground/60">{t("testimonials.subtitle").split(" ")[2]}</p>
-                </div>
-              </div>
-            </div>
+              {/* Main Image Container */}
+              <div className="relative z-10">
+                {/* Outer Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary-foreground/20 to-transparent rounded-3xl blur-xl -z-10" />
 
-            {/* Floating Elements */}
-            <div className="absolute -bottom-6 -left-6 bg-primary-foreground rounded-2xl p-4 shadow-xl animate-float">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-accent rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-6 h-6 text-accent-foreground" />
+                {/* Image Frame */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-primary-foreground/30 bg-primary-foreground/5 backdrop-blur-sm group">
+                  {/* Gradient Overlay for better integration */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
+
+                  <Image
+                    src="/profile-Fouad.jpg"
+                    priority
+                    alt="Fouad ABI - وكالة تأمين معتمدة"
+                    width={600}
+                    height={800}
+                    className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                  />
+
+                  {/* Bottom Accent Bar */}
+                  <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-accent via-primary to-accent z-20" />
                 </div>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{t("advantages.approved")}</p>
-                  <p className="text-xs text-muted-foreground">Atlanta Sanad</p>
-                </div>
+
+                {/* Floating Badge */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.8, duration: 0.6 }}
+                  className="absolute -bottom-6 -left-6 bg-primary-foreground rounded-2xl p-4 shadow-xl border-2 border-accent/30 z-20"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center shadow-lg">
+                      <Shield className="w-6 h-6 text-accent-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-foreground text-sm">
+                        {t("advantages.approved")}
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Atlanta Sanad
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
 
       {/* Wave Divider */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div
+        className="absolute bottom-0 left-0 right-0"
+        style={{ border: "none", outline: "none" }}
+      >
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ display: "block" }}
+        >
           <path
             d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="hsl(var(--background))"
+            style={{ stroke: "none" }}
           />
         </svg>
       </div>

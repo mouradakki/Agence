@@ -16,7 +16,7 @@ const LanguageToggle = () => {
       variant="outline"
       size="sm"
       onClick={toggleLanguage}
-      className="flex items-center gap-2 bg-background/10 border-border/30 hover:bg-background/20"
+      className="flex items-center gap-2 bg-background/10 border-border/30 text-primary hover:bg-background/20 hover:text-primary transition-all duration-200 [&:hover]:text-primary"
     >
       <Globe className="w-4 h-4" />
       <span className="font-medium">{language === "ar" ? "FR" : "العربية"}</span>

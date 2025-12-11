@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
@@ -14,46 +12,113 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      
+      const scrolled = window.scrollY > 10;
+      setIsScrolled(scrolled);
+
       // Detect active section
-      const sections = ["services", "advantages", "testimonials", "faq", "contact"];
+      const sections = [
+        "services",
+        "advantages",
+        "testimonials",
+        "faq",
+        "contact",
+      ];
       const scrollPosition = window.scrollY + 100;
-      
+
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(`#${section}`);
             break;
           }
         }
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll(); // Check on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - headerHeight;
+    e.stopPropagation();
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+    // Extract the ID from href (e.g., "#services" -> "services")
+    const sectionId = href.replace("#", "");
+
+    // Function to scroll to section
+    const scrollToSection = () => {
+      // Try getElementById first
+      let element = document.getElementById(sectionId);
+
+      if (!element) {
+        // Try querySelector as fallback
+        element = document.querySelector(href) as HTMLElement;
+      }
+
+      if (element) {
+        const headerHeight = 80;
+
+        // Method 1: Use scrollIntoView with offset
+        // First, scroll to element
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+
+        // Then adjust for header height
+        setTimeout(() => {
+          const currentScroll =
+            window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({
+            top: Math.max(0, currentScroll - headerHeight),
+            behavior: "smooth",
+          });
+        }, 100);
+
+        // Method 2: Direct calculation (as backup)
+        const rect = element.getBoundingClientRect();
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop || 0;
+        const elementTop = rect.top + scrollTop;
+        const offsetPosition = elementTop - headerHeight;
+
+        // Try direct scroll as well
+        setTimeout(() => {
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: "smooth",
+          });
+        }, 200);
+
+        return true;
+      } else {
+        return false;
+      }
+    };
+
+    // Try immediately
+    if (!scrollToSection()) {
+      // If not found, try again after delays (for React hydration)
+      setTimeout(() => {
+        if (!scrollToSection()) {
+          setTimeout(() => {
+            scrollToSection();
+          }, 300);
+        }
+      }, 100);
     }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -61,29 +126,40 @@ const Header = () => {
     { href: "#services", label: t("nav.services") },
     { href: "#advantages", label: t("nav.advantages") },
     { href: "#testimonials", label: t("nav.testimonials") },
-    { href: "#faq", label: t("nav.faq") },
     { href: "#contact", label: t("nav.contact") },
+    { href: "#faq", label: t("nav.faq") },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border/40"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        isScrolled ? "shadow-xl border-b border-border/40" : "shadow-md"
       }`}
+      style={{
+        margin: 0,
+        padding: 0,
+        width: "100%",
+        background: isScrolled
+          ? "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(59, 130, 246, 0.2) 100%)"
+          : "linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(59, 130, 246, 0.05) 100%)",
+        backdropFilter: isScrolled ? "blur(20px)" : "blur(8px)",
+        WebkitBackdropFilter: isScrolled ? "blur(20px)" : "blur(8px)",
+        boxShadow: isScrolled
+          ? "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)"
+          : "0 4px 20px -5px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center h-20">
           {/* Logo */}
           <motion.a
-            href="#"
-            className="flex items-center gap-3 group"
+            href="/"
+            className="flex items-center gap-3 group flex-shrink-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={(e) => {
               e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.location.reload();
             }}
           >
             <motion.div
@@ -97,29 +173,22 @@ const Header = () => {
                 width={48}
                 height={48}
                 className="object-contain"
-                priority
+                loading="eager"
+                unoptimized
               />
             </motion.div>
             <div className="hidden sm:block">
-              <p className={`font-bold text-lg transition-colors duration-200 ${
-                isScrolled 
-                  ? "text-foreground group-hover:text-primary" 
-                  : "text-primary-foreground group-hover:text-accent"
-              }`}>
+              <p className="font-bold text-lg transition-colors duration-200 text-black group-hover:text-primary">
                 {t("header.brandName")}
               </p>
-              <p className={`text-xs transition-colors duration-200 ${
-                isScrolled 
-                  ? "text-muted-foreground" 
-                  : "text-primary-foreground/70"
-              }`}>
+              <p className="text-xs transition-colors duration-200 text-gray-700">
                 {t("header.approvedAgency")}
               </p>
             </div>
           </motion.a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          {/* Desktop Navigation - Takes full right side */}
+          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-end">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
@@ -127,47 +196,36 @@ const Header = () => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
-                    isScrolled
-                      ? isActive
-                        ? "text-primary"
-                        : "text-foreground/80 hover:text-primary"
-                      : isActive
-                        ? "text-accent"
-                        : "text-primary-foreground/90 hover:text-accent"
+                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
+                    isActive ? "text-primary" : "text-black hover:text-primary"
                   }`}
                 >
                   {link.label}
                   {isActive && (
                     <motion.div
-                      className={`absolute bottom-0 left-0 right-0 h-0.5 rounded-full ${
-                        isScrolled ? "bg-primary" : "bg-accent"
-                      }`}
+                      className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-primary"
                       layoutId="activeSection"
                       initial={false}
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
                     />
                   )}
-                  <span className={`absolute inset-0 rounded-lg opacity-0 hover:opacity-100 transition-opacity duration-200 ${
-                    isScrolled ? "bg-primary/5" : "bg-primary-foreground/10"
-                  }`} />
+                  {!isActive && (
+                    <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
+                  )}
                 </a>
               );
             })}
           </nav>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-3">
-            <div className={isScrolled ? "" : "[&_button]:border-primary-foreground/30 [&_button]:text-primary-foreground [&_button]:hover:bg-primary-foreground/10"}>
-              <LanguageToggle />
-            </div>
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-4">
             <motion.a
               href="tel:0535383218"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
-                isScrolled
-                  ? "text-primary hover:bg-primary/10"
-                  : "text-primary-foreground hover:bg-primary-foreground/10"
-              }`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-black hover:text-primary hover:bg-primary/10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -189,15 +247,14 @@ const Header = () => {
               <MessageCircle className="w-5 h-5" />
               <span className="hidden xl:inline">0535383218</span>
             </motion.a>
+            <div className="[&_button]:border-gray-300 [&_button]:text-black [&_button]:hover:bg-gray-100">
+              <LanguageToggle />
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-200 ${
-              isScrolled
-                ? "text-foreground hover:bg-primary/10"
-                : "text-primary-foreground hover:bg-primary-foreground/10"
-            }`}
+            className="lg:hidden p-2 rounded-lg transition-colors duration-200 text-black hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
             whileTap={{ scale: 0.95 }}
@@ -237,19 +294,40 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-lg z-40 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.2 }}
-              className="lg:hidden bg-background border-t border-border relative z-50 shadow-xl"
+              initial={{ opacity: 0, x: dir === "rtl" ? 100 : -100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: dir === "rtl" ? 100 : -100 }}
+              transition={{
+                duration: 0.3,
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              }}
+              className="lg:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl"
+              style={{
+                [dir === "rtl" ? "right" : "left"]: 0,
+                background:
+                  "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(59, 130, 246, 0.15) 100%)",
+                backdropFilter: "blur(20px)",
+                WebkitBackdropFilter: "blur(20px)",
+                borderBottom: "1px solid rgba(214, 32, 91, 0.1)",
+              }}
             >
-              <nav className="container-custom py-6 flex flex-col gap-2">
-                <div className="flex justify-center mb-4">
+              <nav className="container-custom pt-2 pb-6 flex flex-col gap-2">
+                <div className="flex items-center justify-between mb-4">
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="p-2 rounded-lg text-black hover:bg-primary/10 hover:text-primary transition-colors"
+                    aria-label="Close menu"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
                   <LanguageToggle />
+                  <div className="w-9"></div>
                 </div>
                 {navLinks.map((link, index) => {
                   const isActive = activeSection === link.href;
@@ -258,13 +336,13 @@ const Header = () => {
                       key={link.href}
                       href={link.href}
                       onClick={(e) => handleNavClick(e, link.href)}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: dir === "rtl" ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
                       className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                         isActive
                           ? "text-primary bg-primary/10"
-                          : "text-foreground/80 hover:text-primary hover:bg-primary/5"
+                          : "text-black hover:text-primary hover:bg-primary/5"
                       }`}
                     >
                       {link.label}

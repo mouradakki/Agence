@@ -10,10 +10,15 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005"),
   title: "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
   description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات، مع خدمات السفر وجوازات السفر. تواصل معنا الآن.",
   keywords: "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، Atlanta Sanad، المغرب، الدار البيضاء",
   authors: [{ name: "وكالة أتلانتا سند للتأمين" }],
+  icons: {
+    icon: "/logo-1.png",
+    apple: "/logo-1.png",
+  },
   openGraph: {
     title: "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
     description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات.",
@@ -27,10 +32,16 @@ export const metadata: Metadata = {
     description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad.",
     images: ["/placeholder.svg"],
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
+
+export function generateViewport() {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  };
+}
 
 export default function RootLayout({
   children,
@@ -39,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
-      <body className="font-cairo antialiased" suppressHydrationWarning>
+      <body className="font-cairo antialiased" suppressHydrationWarning style={{ margin: 0, padding: 0 }}>
         <Providers>{children}</Providers>
       </body>
     </html>
