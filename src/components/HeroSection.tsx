@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, ArrowLeft, BadgeCheck } from "lucide-react";
+import { Shield, ArrowLeft } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
@@ -140,10 +140,9 @@ const HeroSection = () => {
                         background: 'linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)'
                       }}
                     >
-                      <BadgeCheck
+                      <FontAwesomeIcon
+                        icon={faCircleCheck}
                         className="w-6 h-6 text-white"
-                        strokeWidth={2.5}
-                        fill="white"
                       />
                     </div>
                     <div>

@@ -8,9 +8,7 @@ import {
   Plane,
   Heart,
   FileCheck,
-  ArrowLeft,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ServicesSection = () => {
@@ -21,61 +19,31 @@ const ServicesSection = () => {
       icon: Car,
       title: t("services.carInsurance"),
       description: t("services.carInsuranceDesc"),
-      features: [
-        t("services.feature1"),
-        t("services.feature2"),
-        t("services.feature3"),
-      ],
     },
     {
       icon: Truck,
       title: t("services.truckInsurance"),
       description: t("services.truckInsuranceDesc"),
-      features: [
-        t("services.feature4"),
-        t("services.feature5"),
-        t("services.feature6"),
-      ],
     },
     {
       icon: Building2,
       title: t("services.companyInsurance"),
       description: t("services.companyInsuranceDesc"),
-      features: [
-        t("services.feature7"),
-        t("services.feature8"),
-        t("services.feature6"),
-      ],
     },
     {
       icon: Plane,
       title: t("services.travelInsurance"),
       description: t("services.travelInsuranceDesc"),
-      features: [
-        t("services.feature9"),
-        t("services.feature10"),
-        t("services.feature11"),
-      ],
     },
     {
       icon: Heart,
       title: t("services.healthInsurance"),
       description: t("services.healthInsuranceDesc"),
-      features: [
-        t("services.feature12"),
-        t("services.feature13"),
-        t("services.feature14"),
-      ],
     },
     {
       icon: FileCheck,
       title: t("services.adminServices"),
       description: t("services.adminDesc"),
-      features: [
-        t("services.feature15"),
-        t("services.feature16"),
-        t("services.feature17"),
-      ],
     },
   ];
   return (
@@ -117,28 +85,9 @@ const ServicesSection = () => {
                 {service.title}
               </h3>
 
-              <p className="text-muted-foreground mb-6 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
-
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-center gap-2 text-sm text-foreground/80"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              <Button variant="ghost" className="w-full group/btn" asChild>
-                <a href="#contact">
-                  <span>{t("services.requestQuote")}</span>
-                  <ArrowLeft className="w-4 h-4 transition-transform group-hover/btn:-translate-x-1" />
-                </a>
-              </Button>
             </motion.div>
           ))}
         </div>
