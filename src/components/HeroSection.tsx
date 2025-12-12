@@ -134,7 +134,12 @@ const HeroSection = () => {
                   className="absolute -bottom-6 -left-6 bg-primary-foreground rounded-2xl p-4 shadow-xl border-2 border-accent/30 z-20"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center shadow-lg">
+                    <div 
+                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
+                      style={{
+                        background: 'linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)'
+                      }}
+                    >
                       <BadgeCheck
                         className="w-6 h-6 text-white"
                         strokeWidth={2.5}
