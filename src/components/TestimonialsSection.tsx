@@ -14,7 +14,6 @@ const TestimonialsSection = () => {
       rating: 5,
       text: t("testimonials.testimonial1"),
       avatar: language === "ar" ? "م" : "M",
-      email: "akkimourad177@gmail.com",
     },
     {
       name:
