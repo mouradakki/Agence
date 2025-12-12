@@ -81,83 +81,65 @@ const Header = memo(() => {
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      try {
-        e.preventDefault();
-        e.stopPropagation();
+      e.preventDefault();
+      e.stopPropagation();
 
-        const sectionId = href.replace("#", "");
+      const sectionId = href.replace("#", "");
 
-        // إغلاق القائمة المحمولة
-        setIsMobileMenuOpen(false);
+      // إغلاق القائمة المحمولة
+      setIsMobileMenuOpen(false);
 
-        // دالة للتمرير مع إعادة المحاولة
-        const scrollToElement = (retries = 5): void => {
-          try {
+      // دالة للتمرير مع إعادة المحاولة
+      const scrollToSection = (retries = 3) => {
+        const element = document.getElementById(sectionId);
+
+        if (element) {
+          const headerHeight = 80;
+          // استخدام getBoundingClientRect للحصول على الموضع الصحيح
+          const rect = element.getBoundingClientRect();
+          const scrollTop =
+            window.scrollY ||
+            window.pageYOffset ||
+            document.documentElement.scrollTop;
+          const elementTop = rect.top + scrollTop;
+          const offsetPosition = elementTop - headerHeight;
+
+          // استخدام scrollTo مباشرة
+          window.scrollTo({
+            top: Math.max(0, offsetPosition),
+            behavior: "smooth",
+          });
+        } else if (retries > 0) {
+          // إعادة المحاولة إذا لم يتم العثور على العنصر
+          setTimeout(() => scrollToSection(retries - 1), 50);
+        } else {
+          // إذا فشلت جميع المحاولات، استخدم hash مباشرة
+          window.location.hash = href;
+          // محاولة التمرير بعد تحديث hash
+          setTimeout(() => {
             const element = document.getElementById(sectionId);
-
             if (element) {
               const headerHeight = 80;
-
-              // طريقة 1: استخدام scrollTo
-              try {
-                const elementPosition =
-                  element.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerHeight;
-                window.scrollTo({
-                  top: Math.max(0, offsetPosition),
-                  behavior: "smooth",
-                });
-              } catch (scrollError) {
-                // طريقة 2: استخدام scrollIntoView كحل بديل
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-                // تعديل الموضع بعد التمرير لمراعاة ارتفاع الهيدر
-                setTimeout(() => {
-                  window.scrollBy({
-                    top: -headerHeight,
-                    behavior: "smooth",
-                  });
-                }, 100);
-              }
-            } else if (retries > 0) {
-              // إعادة المحاولة إذا لم يتم العثور على العنصر
-              setTimeout(() => scrollToElement(retries - 1), 100);
-            } else {
-              // إذا فشلت جميع المحاولات، استخدم hash مباشرة
-              window.location.hash = href;
-              // محاولة أخيرة بعد تحديث hash
-              setTimeout(() => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                  const headerHeight = 80;
-                  const elementPosition =
-                    element.getBoundingClientRect().top + window.pageYOffset;
-                  const offsetPosition = elementPosition - headerHeight;
-                  window.scrollTo({
-                    top: Math.max(0, offsetPosition),
-                    behavior: "smooth",
-                  });
-                }
-              }, 100);
+              const rect = element.getBoundingClientRect();
+              const scrollTop =
+                window.scrollY ||
+                window.pageYOffset ||
+                document.documentElement.scrollTop;
+              const elementTop = rect.top + scrollTop;
+              const offsetPosition = elementTop - headerHeight;
+              window.scrollTo({
+                top: Math.max(0, offsetPosition),
+                behavior: "smooth",
+              });
             }
-          } catch (error) {
-            console.error("Error scrolling to section:", error);
-            // كحل أخير، استخدم hash مباشرة
-            window.location.hash = href;
-          }
-        };
+          }, 100);
+        }
+      };
 
-        // بدء التمرير بعد تأخير صغير لضمان إغلاق القائمة المحمولة
-        const delay = isMobileMenuOpen ? 150 : 0;
-        setTimeout(() => {
-          scrollToElement();
-        }, delay);
-      } catch (error) {
-        console.error("Error in handleNavClick:", error);
-        // في حالة الخطأ، اسمح للرابط بالعمل بشكل طبيعي
-        window.location.hash = href;
-      }
+      // بدء التمرير فوراً
+      scrollToSection();
     },
-    [isMobileMenuOpen]
+    []
   );
 
   const navLinks = useMemo(
@@ -173,7 +155,9 @@ const Header = memo(() => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] m-0 p-0 w-full transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 ${
+        isMobileMenuOpen ? "z-[99]" : "z-[100]"
+      } m-0 p-0 w-full transition-all duration-300 ${
         isScrolled
           ? "border-b border-border/40 bg-gradient-to-br from-white/[0.98] to-blue-500/20 backdrop-blur-[20px]"
           : "bg-gradient-to-br from-white/50 to-blue-500/5 backdrop-blur-[8px]"
@@ -222,11 +206,11 @@ const Header = memo(() => {
                 }}
               />
             </div>
-            <div className="hidden lg:block px-2 sm:px-3 py-2 rounded-lg">
-              <p className="font-bold text-sm sm:text-base lg:text-lg text-black whitespace-nowrap">
+            <div className="block px-2 sm:px-3 py-2 rounded-lg">
+              <p className="font-bold text-sm sm:text-sm md:text-base lg:text-lg text-black whitespace-nowrap">
                 {t("header.brandName")}
               </p>
-              <p className="text-xs text-gray-700">
+              <p className="text-xs sm:text-xs text-gray-700">
                 {t("header.approvedAgency")}
               </p>
             </div>
@@ -243,13 +227,17 @@ const Header = memo(() => {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative px-2 md:px-3 lg:px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-200 group flex-shrink-0 whitespace-nowrap ${
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNavClick(e, link.href);
+                  }}
+                  className={`relative px-2 md:px-3 lg:px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-200 group flex-shrink-0 whitespace-nowrap cursor-pointer z-10 ${
                     isActive
                       ? "text-primary bg-primary/10"
                       : "text-black hover:text-primary hover:bg-primary/10"
                   }`}
                   aria-current={isActive ? "page" : undefined}
+                  style={{ pointerEvents: "auto" }}
                 >
                   {link.label}
                   {isActive && (
@@ -363,19 +351,23 @@ const Header = memo(() => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`md:hidden fixed top-0 bottom-0 h-screen w-full max-w-sm z-[100] shadow-xl bg-gradient-to-br from-white via-white/95 to-blue-50/90 backdrop-blur-[80px] border-b border-pink-500/10 ${
+              className={`md:hidden fixed top-0 bottom-0 h-screen w-full max-w-sm z-[101] shadow-xl bg-gradient-to-br from-white via-white/95 to-blue-50/90 backdrop-blur-[80px] border-b border-pink-500/10 ${
                 dir === "rtl" ? "right-0" : "left-0"
               }`}
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.97)",
                 backdropFilter: "blur(80px) saturate(180%)",
+                pointerEvents: "auto",
               }}
               id="mobile-navigation"
               role="navigation"
               aria-label={t("nav.mobileNavigation") || "Mobile navigation"}
               onClick={(e) => e.stopPropagation()}
             >
-              <nav className="container-custom pt-2 pb-6 flex flex-col gap-2 h-full overflow-y-auto">
+              <nav
+                className="container-custom pt-2 pb-6 flex flex-col gap-2 h-full overflow-y-auto"
+                style={{ pointerEvents: "auto" }}
+              >
                 <div className="flex items-center justify-between mb-4 gap-4">
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -392,15 +384,19 @@ const Header = memo(() => {
                     <motion.a
                       key={link.href}
                       href={link.href}
-                      onClick={(e) => handleNavClick(e, link.href)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNavClick(e, link.href);
+                      }}
                       initial={{ opacity: 0, x: dir === "rtl" ? 20 : -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
+                      className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 cursor-pointer relative z-10 ${
                         isActive
                           ? "text-primary bg-primary/10"
                           : "text-black hover:text-primary hover:bg-primary/15"
                       }`}
+                      style={{ pointerEvents: "auto" }}
                     >
                       {link.label}
                     </motion.a>
@@ -414,8 +410,12 @@ const Header = memo(() => {
                 >
                   <a
                     href="tel:0535383218"
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-primary font-semibold bg-primary/10 hover:bg-primary/20 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-primary font-semibold bg-primary/10 hover:bg-primary/20 transition-colors cursor-pointer relative z-10"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    style={{ pointerEvents: "auto" }}
                     aria-label={`${
                       t("contact.phoneLabel") || "Phone"
                     }: 0535383218`}
@@ -427,8 +427,12 @@ const Header = memo(() => {
                     href="https://wa.me/212662640525"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-[#25D366] font-semibold bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-[#25D366] font-semibold bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors cursor-pointer relative z-10"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsMobileMenuOpen(false);
+                    }}
+                    style={{ pointerEvents: "auto" }}
                     aria-label={`${
                       t("contact.whatsapp") || "WhatsApp"
                     }: 0662640525`}

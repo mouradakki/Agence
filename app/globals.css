@@ -104,16 +104,16 @@
     scroll-behavior: smooth;
     margin: 0 !important;
     padding: 0 !important;
-    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 
   body {
     @apply bg-background text-foreground font-cairo antialiased;
     margin: 0 !important;
     padding: 0 !important;
-    height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
   }
 }
 
