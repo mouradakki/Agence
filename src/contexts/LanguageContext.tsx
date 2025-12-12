@@ -199,8 +199,9 @@ const translations: Record<Language, Record<string, string>> = {
     "location.mainSubtitle":
       "نرحب بكم في مكتبنا للحصول على استشارة مجانية ومباشرة",
     "location.address": "العنوان",
-    "location.addressValue": "شارع أمالو, مقابل لبوسطة أمالوا",
-    "location.addressValue2": "إغريين، لافتة Atlas Sanad",
+    "location.addressValue":
+      "شارع أمالو, مقابل بريد أمالو : لافتة Atlanta sanad",
+    "location.addressValue2": "",
     "location.addressValue3": "",
     "location.workingHours": "ساعات العمل",
     "location.workingHoursValue": "من 9 صباحاً إلى 7 مساءً",
@@ -252,7 +253,7 @@ const translations: Record<Language, Record<string, string>> = {
     "error.message": "نعتذر، حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
     "error.details": "تفاصيل الخطأ (للإنتاج فقط)",
     "error.reload": "إعادة تحميل الصفحة",
-    "skipToContent": "تخطي إلى المحتوى الرئيسي",
+    skipToContent: "تخطي إلى المحتوى الرئيسي",
   },
   fr: {
     // Header
@@ -498,10 +499,11 @@ const translations: Record<Language, Record<string, string>> = {
     "notFound.message": "Page non trouvée",
     "notFound.returnHome": "Retour à l'accueil",
     "error.title": "Une erreur s'est produite",
-    "error.message": "Désolé, une erreur inattendue s'est produite. Veuillez réessayer.",
+    "error.message":
+      "Désolé, une erreur inattendue s'est produite. Veuillez réessayer.",
     "error.details": "Détails de l'erreur (développement uniquement)",
     "error.reload": "Recharger la page",
-    "skipToContent": "Aller au contenu principal",
+    skipToContent: "Aller au contenu principal",
   },
 };
 

@@ -33,7 +33,7 @@ export default function Home() {
     address: {
       "@type": "PostalAddress",
       streetAddress:
-        "شارع أمالو, مقابل لبوسطة أمالوا، إغريين، لافتة Atlas Sanad",
+        "شارع أمالو, مقابل بريد أمالو : لافتة Atlanta sanad",
       addressLocality: "الدار البيضاء",
       addressCountry: "MA",
     },

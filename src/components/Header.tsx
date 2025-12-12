@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useState, useEffect, useCallback, useMemo } from "react";
+import { memo, useState, useEffect, useCallback, useMemo, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import Image from "next/image";
@@ -12,6 +12,7 @@ const Header = memo(() => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { t, dir } = useLanguage();
+  const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +47,37 @@ const Header = memo(() => {
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      // التحقق من أن النقر ليس داخل القائمة الجانبية
+      if (mobileMenuRef.current && mobileMenuRef.current.contains(target)) {
+        return;
+      }
+
+      // التحقق من أن النقر ليس على زر القائمة
+      const menuButton = document.querySelector(
+        '[aria-controls="mobile-navigation"]'
+      );
+      if (menuButton && menuButton.contains(target)) {
+        return;
+      }
+
+      // إغلاق القائمة عند النقر خارجها
+      setIsMobileMenuOpen(false);
+    };
+
+    // إضافة event listener مع capture phase لضمان العمل قبل أي handlers أخرى
+    document.addEventListener("mousedown", handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside, true);
+    };
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -105,28 +137,37 @@ const Header = memo(() => {
         <div className="flex items-center justify-between lg:justify-start h-20">
           <motion.a
             href="/"
-            className="flex items-center gap-3 group flex-shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 relative z-10"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             aria-label={t("header.brandName")}
           >
-            <div className="w-12 h-12 overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
+            <div className="w-16 h-16 sm:w-14 sm:h-14 md:w-12 md:h-12 flex-shrink-0 relative bg-white rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300 flex items-center justify-center overflow-hidden">
               <Image
                 src="/logo.jpeg"
                 alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
-                width={48}
-                height={48}
+                width={64}
+                height={64}
                 className="object-contain"
-                loading="eager"
+                priority
                 unoptimized
-                style={{ transform: "rotate(0deg)" }}
+                style={{ 
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                  display: "block"
+                }}
+                onError={(e) => {
+                  console.error("Failed to load logo image");
+                  e.currentTarget.style.display = "none";
+                }}
               />
             </div>
-            <div className="hidden sm:block px-3 py-2 rounded-lg group-hover:bg-primary/10 transition-all duration-200">
-              <p className="font-bold text-lg transition-colors duration-200 text-black group-hover:text-primary">
+            <div className="hidden min-[380px]:block px-2 sm:px-3 py-2 rounded-lg group-hover:bg-primary/10 transition-all duration-200">
+              <p className="font-bold text-sm min-[380px]:text-base sm:text-lg transition-colors duration-200 text-black group-hover:text-primary whitespace-nowrap">
                 {t("header.brandName")}
               </p>
-              <p className="text-xs transition-colors duration-200 text-gray-700 group-hover:text-primary/80">
+              <p className="hidden sm:block text-xs transition-colors duration-200 text-gray-700 group-hover:text-primary/80">
                 {t("header.approvedAgency")}
               </p>
             </div>
@@ -246,10 +287,20 @@ const Header = memo(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-xl z-[50] md:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-xl z-[99] md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
+              style={{
+                pointerEvents: "auto",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                width: "100%",
+                height: "100%",
+              }}
             />
             <motion.div
+              ref={mobileMenuRef}
               initial={{ opacity: 0, x: dir === "rtl" ? 100 : -100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: dir === "rtl" ? 100 : -100 }}
@@ -259,7 +310,7 @@ const Header = memo(() => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`md:hidden fixed top-0 bottom-0 h-screen w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white via-white/95 to-blue-50/90 backdrop-blur-[80px] border-b border-pink-500/10 ${
+              className={`md:hidden fixed top-0 bottom-0 h-screen w-full max-w-sm z-[100] shadow-xl bg-gradient-to-br from-white via-white/95 to-blue-50/90 backdrop-blur-[80px] border-b border-pink-500/10 ${
                 dir === "rtl" ? "right-0" : "left-0"
               }`}
               style={{
@@ -269,6 +320,7 @@ const Header = memo(() => {
               id="mobile-navigation"
               role="navigation"
               aria-label={t("nav.mobileNavigation") || "Mobile navigation"}
+              onClick={(e) => e.stopPropagation()}
             >
               <nav className="container-custom pt-2 pb-6 flex flex-col gap-2 h-full overflow-y-auto">
                 <div className="flex items-center justify-between mb-4 gap-4">
