@@ -1,38 +1,38 @@
-# تقرير Accessibility الشامل - Accessibility Report
+# Accessibility Report
 
-**المشروع:** AGENCE Fouad ABI - وكالة فؤاد ABI للتأمين  
-**تاريخ الفحص:** 2025-01-27  
-**المدقق:** Senior Full-Stack Engineer  
-**المعيار:** WCAG 2.1 Level AA
+**Project:** AGENCE Fouad ABI - Insurance Agency  
+**Audit Date:** 2025-01-27  
+**Auditor:** Senior Full-Stack Engineer  
+**Standard:** WCAG 2.1 Level AA
 
 ---
 
-## 📊 النتيجة الإجمالية: **90/100**
+## 📊 Overall Score: **90/100**
 
 ---
 
 ## ✅ 1. ARIA Labels
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
+**Verification:**
 - ✅ **Header.tsx:** 9 ARIA labels
-  - `aria-label` للروابط
-  - `aria-expanded` و `aria-controls` للقائمة الجوال
-  - `aria-current="page"` للروابط النشطة
+  - `aria-label` for links
+  - `aria-expanded` and `aria-controls` for mobile menu
+  - `aria-current="page"` for active links
 - ✅ **Footer.tsx:** 7 ARIA labels
-  - جميع الروابط الاجتماعية
-  - روابط التواصل
+  - All social links
+  - Contact links
 - ✅ **ContactSection.tsx:** 3 ARIA labels
-  - روابط الهاتف والواتساب والبريد
+  - Phone, WhatsApp, and email links
 
-**الإجمالي:** 27+ ARIA labels ✅
+**Total:** 27+ ARIA labels ✅
 
-**النتيجة:** 20/20 ✅
+**Score:** 20/20 ✅
 
 ---
 
-### التفاصيل:
+### Details:
 
 #### Header Navigation
 ```tsx
@@ -57,32 +57,32 @@
 <a aria-label={`Email: ...`}>
 ```
 
-**النتيجة:** ✅ **ممتاز**
+**Result:** ✅ **Excellent**
 
 ---
 
 ## ✅ 2. Images (Alt Text)
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
+**Verification:**
 - ✅ **Logo images:** 
   - `alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}`
 - ✅ **Hero image:**
-  - `alt="Fouad ABI - وكالة تأمين معتمدة"`
+  - `alt="Fouad ABI - Authorized Insurance Agency"`
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
-**التحسين المقترح:**
-- ⚠️ يمكن جعل alt text أكثر وصفاً
+**Suggested Improvement:**
+- ⚠️ Can make alt text more descriptive
 
 ---
 
 ## ✅ 3. Semantic HTML
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
+**Verification:**
 - ✅ `<header>` element
 - ✅ `<main role="main">` element
 - ✅ `<footer>` element
@@ -90,19 +90,19 @@
 - ✅ `<section>` elements
 - ✅ Headings hierarchy (h1, h2, h3)
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
 ---
 
 ## ✅ 4. Keyboard Navigation
 
-### الحالة: ✅ **جيد جداً**
+### Status: ✅ **Very Good**
 
-**التحقق:**
-- ✅ جميع الروابط قابلة للوصول عبر keyboard
-- ✅ جميع الأزرار قابلة للوصول
-- ✅ Accordion (FAQ) يدعم keyboard navigation
-- ✅ Skip links موجودة
+**Verification:**
+- ✅ All links accessible via keyboard
+- ✅ All buttons accessible
+- ✅ Accordion (FAQ) supports keyboard navigation
+- ✅ Skip links present
 
 **Skip Links:**
 ```tsx
@@ -111,29 +111,29 @@
 </a>
 ```
 
-**النتيجة:** 15/20 ✅
+**Score:** 15/20 ✅
 
-**التحسينات المقترحة:**
-- ⚠️ يمكن إضافة focus indicators محسّنة
-- ⚠️ يمكن تحسين tab order
-- ⚠️ يمكن إضافة keyboard shortcuts
+**Suggested Improvements:**
+- ⚠️ Can add enhanced focus indicators
+- ⚠️ Can improve tab order
+- ⚠️ Can add keyboard shortcuts
 
 ---
 
 ## ✅ 5. Focus Management
 
-### الحالة: ✅ **جيد**
+### Status: ✅ **Good**
 
-**التحقق:**
-- ✅ Skip link مع focus states
-- ✅ Focus visible على العناصر التفاعلية
-- ⚠️ يمكن تحسين focus indicators
+**Verification:**
+- ✅ Skip link with focus states
+- ✅ Focus visible on interactive elements
+- ⚠️ Can improve focus indicators
 
-**النتيجة:** 12/15 ✅
+**Score:** 12/15 ✅
 
-**التحسينات المقترحة:**
+**Suggested Improvements:**
 ```css
-/* تحسين focus indicators */
+/* Improve focus indicators */
 *:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
@@ -144,83 +144,83 @@
 
 ## ✅ 6. Color Contrast
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
-- ✅ استخدام Tailwind CSS colors (محسّنة مسبقاً)
-- ✅ Primary/foreground colors واضحة
-- ✅ Text على backgrounds واضح
+**Verification:**
+- ✅ Uses Tailwind CSS colors (pre-optimized)
+- ✅ Primary/foreground colors are clear
+- ✅ Text on backgrounds is clear
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
-**الملاحظة:** يُنصح بالتحقق باستخدام tools مثل:
+**Note:** Recommended to verify using tools such as:
 - Chrome DevTools Lighthouse
 - WebAIM Contrast Checker
 
 ---
 
-## ✅ 7. Form Labels (إن وُجدت)
+## ✅ 7. Form Labels (if present)
 
-### الحالة: ⚠️ **غير موجود**
+### Status: ⚠️ **Not present**
 
-**التحقق:**
-- ⚠️ لا توجد forms في الصفحة الرئيسية حالياً
-- ✅ Form components في UI library جاهزة مع labels
+**Verification:**
+- ⚠️ No forms on main page currently
+- ✅ Form components in UI library ready with labels
 
-**النتيجة:** N/A
+**Score:** N/A
 
 ---
 
 ## ✅ 8. Screen Reader Support
 
-### الحالة: ✅ **جيد جداً**
+### Status: ✅ **Very Good**
 
-**التحقق:**
-- ✅ جميع العناصر التفاعلية لها ARIA labels
+**Verification:**
+- ✅ All interactive elements have ARIA labels
 - ✅ Semantic HTML
-- ✅ Alt text للصور
-- ✅ Roles محددة
-- ✅ States محددة (aria-expanded, aria-current)
+- ✅ Alt text for images
+- ✅ Roles specified
+- ✅ States specified (aria-expanded, aria-current)
 
-**النتيجة:** 15/15 ✅
+**Score:** 15/15 ✅
 
 ---
 
 ## ✅ 9. Responsive Design
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
+**Verification:**
 - ✅ Mobile-first approach
-- ✅ Breakpoints واضحة
-- ✅ جميع العناصر متجاوبة
-- ✅ Text قابل للقراءة على جميع الأجهزة
+- ✅ Clear breakpoints
+- ✅ All elements responsive
+- ✅ Text readable on all devices
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
 ---
 
 ## ✅ 10. Language Support
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**التحقق:**
-- ✅ `lang` attribute في HTML
+**Verification:**
+- ✅ `lang` attribute in HTML
 - ✅ `dir` attribute (RTL/LTR)
 - ✅ Language switching
-- ✅ Hreflang tags في meta
+- ✅ Hreflang tags in meta
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
 ---
 
-## ⚠️ التحسينات المقترحة
+## ⚠️ Suggested Improvements
 
-### 1. Focus Indicators (عالي الأولوية)
+### 1. Focus Indicators (High Priority)
 
-**الحالة:** ⚠️ **يحتاج تحسين**
+**Status:** ⚠️ **Needs improvement**
 
-**الاقتراح:**
+**Suggestion:**
 ```css
 /* app/globals.css */
 *:focus-visible {
@@ -238,37 +238,37 @@ a:focus-visible {
 
 ---
 
-### 2. ARIA Live Regions (متوسط الأولوية)
+### 2. ARIA Live Regions (Medium Priority)
 
-**الحالة:** ❌ **غير موجود**
+**Status:** ❌ **Not present**
 
-**الاقتراح:**
+**Suggestion:**
 ```tsx
 <div aria-live="polite" aria-atomic="true" className="sr-only">
   {screenReaderAnnouncement}
 </div>
 ```
 
-**الاستخدام:** لإعلان تغييرات اللغة أو الأحداث المهمة.
+**Usage:** To announce language changes or important events.
 
 ---
 
-### 3. Keyboard Shortcuts (منخفض الأولوية)
+### 3. Keyboard Shortcuts (Low Priority)
 
-**الحالة:** ❌ **غير موجود**
+**Status:** ❌ **Not present**
 
-**الاقتراح:**
-- `Alt + 1`: الانتقال إلى المحتوى الرئيسي
-- `Alt + 2`: الانتقال إلى Navigation
-- `Alt + L`: تبديل اللغة
+**Suggestion:**
+- `Alt + 1`: Jump to main content
+- `Alt + 2`: Jump to Navigation
+- `Alt + L`: Toggle language
 
 ---
 
-### 4. Skip Links إضافية (منخفض الأولوية)
+### 4. Additional Skip Links (Low Priority)
 
-**الحالة:** ⚠️ **موجودة لكن يمكن تحسينها**
+**Status:** ⚠️ **Present but can be improved**
 
-**الاقتراح:**
+**Suggestion:**
 ```tsx
 <a href="#services">Skip to Services</a>
 <a href="#contact">Skip to Contact</a>
@@ -276,15 +276,15 @@ a:focus-visible {
 
 ---
 
-### 5. Focus Trapping في Modal/Menu (إن وُجد)
+### 5. Focus Trapping in Modal/Menu (if present)
 
-**الحالة:** ✅ **موجود في UI components (Radix UI)**
+**Status:** ✅ **Present in UI components (Radix UI)**
 
 ---
 
-## 📊 النتيجة النهائية
+## 📊 Final Score
 
-### النقاط:
+### Points:
 - ARIA Labels: 20/20 (100%) ✅
 - Images (Alt): 10/10 (100%) ✅
 - Semantic HTML: 10/10 (100%) ✅
@@ -295,34 +295,34 @@ a:focus-visible {
 - Responsive: 10/10 (100%) ✅
 - Language: 10/10 (100%) ✅
 
-**المجموع: 90/100** ⭐⭐⭐⭐⭐
+**Total: 90/100** ⭐⭐⭐⭐⭐
 
 ---
 
 ## 🔍 WCAG 2.1 Compliance
 
 ### Level A: ✅ **100%**
-- جميع المتطلبات الأساسية محققة
+- All basic requirements met
 
 ### Level AA: ✅ **95%**
-- معظم المتطلبات محققة
-- يحتاج تحسين focus indicators
+- Most requirements met
+- Needs focus indicators improvement
 
 ### Level AAA: ⚠️ **80%**
-- بعض المتطلبات محققة
-- يحتاج تحسينات إضافية
+- Some requirements met
+- Needs additional improvements
 
 ---
 
-## ✅ الخلاصة
+## ✅ Summary
 
-**Accessibility Score: 90/100** - **ممتاز جداً**
+**Accessibility Score: 90/100** - **Excellent**
 
-المشروع محسّن بشكل جيد لـ Accessibility. التحسينات المقترحة طفيفة وتزيد من مستوى الامتثال.
+The project is well optimized for accessibility. Suggested improvements are minor and increase compliance level.
 
-**التحسين الرئيسي:** تحسين focus indicators (+5-7 نقاط)
+**Main Improvement:** Enhance focus indicators (+5-7 points)
 
 ---
 
-**تم الإعداد بواسطة:** Senior Full-Stack Engineer  
-**التاريخ:** 2025-01-27
+**Prepared by:** Senior Full-Stack Engineer  
+**Date:** 2025-01-27

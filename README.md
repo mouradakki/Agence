@@ -1,103 +1,103 @@
-# AGENCE Fouad ABI - وكالة فؤاد ABI للتأمين
+# AGENCE Fouad ABI - Insurance Agency
 
-موقع إلكتروني احترافي لوكالة تأمين معتمدة من Atlanta Sanad يقدم خدمات التأمين للسيارات والشاحنات والشركات والسفر.
+Professional website for an Atlanta Sanad authorized insurance agency offering car, truck, company, and travel insurance services.
 
-## 🚀 التقنيات المستخدمة
+## 🚀 Technologies Used
 
-هذا المشروع مبني باستخدام أحدث التقنيات:
+This project is built with the latest technologies:
 
-- **Next.js 15** - إطار عمل React للإنتاج
-- **TypeScript** - لغة البرمجة الآمنة
-- **React 18** - مكتبة واجهة المستخدم
-- **shadcn/ui** - مكونات واجهة المستخدم الاحترافية
-- **Tailwind CSS** - إطار عمل CSS
-- **Framer Motion** - للحركات والانتقالات السلسة
-- **Radix UI** - مكونات UI قابلة للوصول
+- **Next.js 15** - React framework for production
+- **TypeScript** - Type-safe programming language
+- **React 18** - UI library
+- **shadcn/ui** - Professional UI components
+- **Tailwind CSS** - CSS framework
+- **Framer Motion** - Smooth animations and transitions
+- **Radix UI** - Accessible UI components
 
-## 📋 متطلبات التشغيل
+## 📋 Requirements
 
-- Node.js (الإصدار 18 أو أحدث)
-- npm أو yarn أو pnpm
+- Node.js (Version 18 or later)
+- npm, yarn, or pnpm
 
-## 🛠️ التثبيت والتشغيل
+## 🛠️ Installation & Setup
 
 ```sh
-# تثبيت المكتبات المطلوبة
+# Install required dependencies
 npm install
 
-# تشغيل خادم التطوير (على المنفذ 3005)
+# Run development server (on port 3005)
 npm run dev
 
-# بناء المشروع للإنتاج
+# Build for production
 npm run build
 
-# تشغيل النسخة الإنتاجية
+# Run production version
 npm start
 ```
 
-## ✨ الميزات
+## ✨ Features
 
-- ✅ دعم متعدد اللغات (العربية والفرنسية) مع تبديل سلس
-- ✅ تصميم متجاوب (Responsive Design) لجميع الأجهزة
-- ✅ واجهة مستخدم حديثة وجذابة مع animations
-- ✅ دعم RTL/LTR كامل مع تبديل تلقائي
-- ✅ SEO محسّن مع Structured Data (Schema.org)
-- ✅ أداء عالي مع Static Export
-- ✅ إمكانية الوصول (Accessibility)
-- ✅ Sitemap.xml و robots.txt
+- ✅ Multi-language support (Arabic & French) with smooth switching
+- ✅ Responsive design for all devices
+- ✅ Modern and attractive UI with animations
+- ✅ Full RTL/LTR support with automatic switching
+- ✅ SEO optimized with Structured Data (Schema.org)
+- ✅ High performance with Static Export
+- ✅ Accessibility support
+- ✅ Sitemap.xml and robots.txt
 
-## 📁 البنية
+## 📁 Structure
 
 ```
 ├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Layout الرئيسي
-│   ├── page.tsx           # الصفحة الرئيسية
-│   └── globals.css        # الأنماط العامة
+│   ├── layout.tsx         # Main layout
+│   ├── page.tsx           # Home page
+│   └── globals.css        # Global styles
 ├── src/
-│   ├── components/        # مكونات React
+│   ├── components/        # React components
 │   │   ├── Header.tsx
 │   │   ├── Footer.tsx
 │   │   ├── HeroSection.tsx
 │   │   └── ...
 │   ├── contexts/          # React Contexts
 │   │   └── LanguageContext.tsx
-│   └── lib/               # مكتبات مساعدة
-├── public/                # الملفات الثابتة
+│   └── lib/               # Helper libraries
+├── public/                # Static files
 │   ├── logo-1.png
 │   ├── robots.txt
 │   └── sitemap.xml
 └── package.json
 ```
 
-## 🔧 متغيرات البيئة
+## 🔧 Environment Variables
 
-أنشئ ملف `.env.local` (اختياري):
+Create a `.env.local` file (optional):
 
 ```env
 NEXT_PUBLIC_SITE_URL=https://agence-lovabel.ma
 ```
 
-## 📱 الصفحات والأقسام
+## 📱 Pages & Sections
 
-- **Header** - شريط التنقل مع تبديل اللغة
-- **Hero Section** - القسم الرئيسي
-- **Services** - خدمات التأمين
-- **Advantages** - المميزات
-- **Testimonials** - آراء العملاء
-- **Contact** - معلومات التواصل
-- **Location** - الموقع على الخريطة
-- **FAQ** - الأسئلة الشائعة
-- **Footer** - التذييل
+- **Header** - Navigation bar with language toggle
+- **Hero Section** - Main section
+- **Services** - Insurance services
+- **Advantages** - Features
+- **Testimonials** - Customer reviews
+- **Contact** - Contact information
+- **Location** - Location on map
+- **FAQ** - Frequently asked questions
+- **Footer** - Footer
 
 ## 🌐 SEO
 
-- Structured Data (Schema.org) للوكالة
-- Meta tags محسّنة
+- Structured Data (Schema.org) for agency
+- Optimized meta tags
 - Sitemap.xml
 - robots.txt
 - Open Graph tags
 - Twitter Cards
 
-## 📄 الترخيص
+## 📄 License
 
-هذا المشروع خاص بوكالة فؤاد ABI للتأمين - معتمدة من Atlanta Sanad.
+This project is proprietary to AGENCE Fouad ABI Insurance - Authorized by Atlanta Sanad.

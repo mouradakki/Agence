@@ -1,21 +1,21 @@
-# تقرير الأمان الشامل - Security Audit Report
+# Security Audit Report
 
-**المشروع:** AGENCE Fouad ABI - وكالة فؤاد ABI للتأمين  
-**تاريخ الفحص:** 2025-01-27  
-**المدقق:** Senior Full-Stack Engineer
+**Project:** AGENCE Fouad ABI - Insurance Agency  
+**Audit Date:** 2025-01-27  
+**Auditor:** Senior Full-Stack Engineer
 
 ---
 
-## 📊 النتيجة الإجمالية: **92/100**
+## 📊 Overall Score: **92/100**
 
 ---
 
 ## ✅ 1. External Links Security
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**الفحص:**
-تم فحص جميع الروابط الخارجية:
+**Verification:**
+All external links checked:
 
 1. ✅ `https://wa.me/212535383218` - `rel="noopener noreferrer"` ✅
 2. ✅ `https://www.facebook.com` - `rel="noopener noreferrer"` ✅
@@ -24,162 +24,162 @@
 5. ✅ `https://www.twitter.com` - `rel="noopener noreferrer"` ✅
 6. ✅ `https://www.google.com/maps` - `rel="noopener noreferrer"` ✅
 
-**الإجمالي:** 7/7 روابط آمنة ✅
+**Total:** 7/7 links secure ✅
 
-**النتيجة:** 20/20 ✅
+**Score:** 20/20 ✅
 
 ---
 
 ## ✅ 2. Secrets & Sensitive Data
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**الفحص:**
-- ✅ لا توجد API keys في الكود
-- ✅ لا توجد passwords
-- ✅ لا توجد tokens
-- ✅ Environment variables محمية
-- ✅ فقط `NEXT_PUBLIC_*` variables مستخدمة (آمنة للعميل)
+**Verification:**
+- ✅ No API keys in code
+- ✅ No passwords
+- ✅ No tokens
+- ✅ Environment variables protected
+- ✅ Only `NEXT_PUBLIC_*` variables used (safe for client)
 
-**النتيجة:** 20/20 ✅
+**Score:** 20/20 ✅
 
 ---
 
 ## ✅ 3. XSS (Cross-Site Scripting) Protection
 
-### الحالة: ✅ **جيد جداً**
+### Status: ✅ **Very Good**
 
-**الفحص:**
-- ✅ React escapes بشكل تلقائي
-- ✅ `dangerouslySetInnerHTML` مستخدم فقط في Structured Data (آمن)
-- ✅ JSON.stringify للـ structured data (آمن)
+**Verification:**
+- ✅ React escapes automatically
+- ✅ `dangerouslySetInnerHTML` used only in Structured Data (safe)
+- ✅ JSON.stringify for structured data (safe)
 
-**التحقق:**
+**Verification:**
 ```tsx
 dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
 ```
-- ✅ JSON.stringify يمنع XSS
-- ✅ Structured data من مصدر موثوق
+- ✅ JSON.stringify prevents XSS
+- ✅ Structured data from trusted source
 
-**النتيجة:** 18/20 ✅
+**Score:** 18/20 ✅
 
-**التحسين المقترح:**
-- ⚠️ يمكن إضافة sanitization library للمستقبل إذا لزم الأمر
+**Suggested Improvement:**
+- ⚠️ Can add sanitization library for future if needed
 
 ---
 
 ## ✅ 4. Content Security Policy (CSP)
 
-### الحالة: ⚠️ **غير موجود**
+### Status: ⚠️ **Not present**
 
-**السبب:**
-- Next.js static export لا يدعم headers() function
+**Reason:**
+- Next.js static export does not support headers() function
 
-**الحل:**
-يجب إضافة CSP في:
+**Solution:**
+Must add CSP at:
 - Server level (Apache/Nginx)
 - CDN level (Cloudflare, etc.)
 - Hosting provider level
 
-**الاقتراح:**
+**Suggestion:**
 ```http
 Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://maps.google.com;
 ```
 
-**النتيجة:** 15/20 ⚠️
+**Score:** 15/20 ⚠️
 
 ---
 
 ## ✅ 5. HTTPS
 
-### الحالة: ✅ **مفترض (يجب التأكد في Production)**
+### Status: ✅ **Assumed (must verify in Production)**
 
-**التحقق:**
-- ✅ جميع URLs تستخدم `https://`
-- ✅ لا توجد mixed content
-- ⚠️ يجب التأكد من HTTPS في production
+**Verification:**
+- ✅ All URLs use `https://`
+- ✅ No mixed content
+- ⚠️ Must verify HTTPS in production
 
-**النتيجة:** 18/20 ✅
+**Score:** 18/20 ✅
 
 ---
 
 ## ✅ 6. Iframe Security
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**الموقع:** `src/components/LocationSection.tsx`
+**Location:** `src/components/LocationSection.tsx`
 
 ```tsx
 <iframe
   src="https://maps.google.com/maps?..."
   referrerPolicy="no-referrer-when-downgrade"
-  title="موقع الوكالة - خنيفرة، حي أمالو"
+  title="Agency Location - Khenifra, Amalo"
 />
 ```
 
-**التقييم:**
-- ✅ `referrerPolicy` موجود
-- ✅ `title` موجود للـ accessibility
-- ✅ Source موثوق (Google Maps)
+**Assessment:**
+- ✅ `referrerPolicy` present
+- ✅ `title` present for accessibility
+- ✅ Source trusted (Google Maps)
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
-**التحسين المقترح:**
-- ⚠️ يمكن إضافة `sandbox` attribute إذا لزم الأمر
+**Suggested Improvement:**
+- ⚠️ Can add `sandbox` attribute if needed
 
 ---
 
 ## ✅ 7. Environment Variables
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**الفحص:**
-- ✅ فقط `NEXT_PUBLIC_*` variables مستخدمة
-- ✅ Fallback values موجودة
-- ✅ لا توجد server-side secrets مكشوفة
+**Verification:**
+- ✅ Only `NEXT_PUBLIC_*` variables used
+- ✅ Fallback values present
+- ✅ No server-side secrets exposed
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
 ---
 
 ## ✅ 8. Dependencies Security
 
-### الحالة: ✅ **ممتاز**
+### Status: ✅ **Excellent**
 
-**الفحص:**
+**Verification:**
 ```bash
 npm audit
 ```
 
-**النتيجة من npm install:**
+**Result from npm install:**
 ```
 found 0 vulnerabilities
 ```
 
-**النتيجة:** 10/10 ✅
+**Score:** 10/10 ✅
 
 ---
 
 ## ✅ 9. Input Validation
 
-### الحالة: ✅ **N/A (لا توجد forms حالياً)**
+### Status: ✅ **N/A (No forms currently)**
 
-**الملاحظة:**
-- Form components جاهزة مع validation (react-hook-form + zod)
-- يمكن استخدامها عند الحاجة
+**Note:**
+- Form components ready with validation (react-hook-form + zod)
+- Can be used when needed
 
-**النتيجة:** N/A
+**Score:** N/A
 
 ---
 
 ## ✅ 10. Headers Security
 
-### الحالة: ⚠️ **يحتاج إضافة في Server/CDN**
+### Status: ⚠️ **Needs addition at Server/CDN**
 
-**السبب:**
-- Next.js static export لا يدعم headers() function
+**Reason:**
+- Next.js static export does not support headers() function
 
-**الاقتراح (Server/CDN):**
+**Suggestion (Server/CDN):**
 ```http
 X-Content-Type-Options: nosniff
 X-Frame-Options: DENY
@@ -188,21 +188,21 @@ Referrer-Policy: strict-origin-when-cross-origin
 Permissions-Policy: geolocation=(), microphone=(), camera=()
 ```
 
-**النتيجة:** 10/20 ⚠️
+**Score:** 10/20 ⚠️
 
 ---
 
-## ⚠️ التحسينات المقترحة
+## ⚠️ Suggested Improvements
 
-### 1. إضافة Security Headers (عالي الأولوية)
+### 1. Add Security Headers (High Priority)
 
-**المطلوب:**
-- إضافة headers في:
+**Required:**
+- Add headers at:
   - Apache/Nginx config
   - CDN settings (Cloudflare, etc.)
   - Hosting provider settings
 
-**الاقتراح:**
+**Suggestion:**
 ```nginx
 # Nginx example
 add_header X-Content-Type-Options "nosniff" always;
@@ -214,9 +214,9 @@ add_header Content-Security-Policy "default-src 'self'; ..." always;
 
 ---
 
-### 2. إضافة CSP (متوسط الأولوية)
+### 2. Add CSP (Medium Priority)
 
-**الاقتراح:**
+**Suggestion:**
 ```http
 Content-Security-Policy: 
   default-src 'self';
@@ -230,9 +230,9 @@ Content-Security-Policy:
 
 ---
 
-### 3. إضافة .env.example (منخفض الأولوية)
+### 3. Add .env.example (Low Priority)
 
-**الاقتراح:**
+**Suggestion:**
 ```env
 # .env.example
 NEXT_PUBLIC_SITE_URL=https://agence-lovabel.ma
@@ -240,15 +240,15 @@ NEXT_PUBLIC_SITE_URL=https://agence-lovabel.ma
 
 ---
 
-### 4. Rate Limiting (للمستقبل)
+### 4. Rate Limiting (Future)
 
-إذا أضفت API endpoints، أضف rate limiting.
+If API endpoints are added, add rate limiting.
 
 ---
 
-## 📊 النتيجة النهائية
+## 📊 Final Score
 
-### النقاط:
+### Points:
 - External Links: 20/20 (100%) ✅
 - Secrets: 20/20 (100%) ✅
 - XSS Protection: 18/20 (90%) ✅
@@ -259,32 +259,32 @@ NEXT_PUBLIC_SITE_URL=https://agence-lovabel.ma
 - Dependencies: 10/10 (100%) ✅
 - Security Headers: 10/20 (50%) ⚠️
 
-**المجموع: 92/100** ⭐⭐⭐⭐⭐
+**Total: 92/100** ⭐⭐⭐⭐⭐
 
 ---
 
-## ✅ الخلاصة
+## ✅ Summary
 
-**Security Score: 92/100** - **ممتاز**
+**Security Score: 92/100** - **Excellent**
 
-المشروع آمن بشكل جيد. التحسينات المطلوبة تتعلق بـ server/CDN configuration وليست في الكود نفسه.
+The project is secure. Required improvements relate to server/CDN configuration, not the code itself.
 
-**التحسين الرئيسي:** إضافة Security Headers في Server/CDN (+8 نقاط)
+**Main Improvement:** Add Security Headers at Server/CDN (+8 points)
 
 ---
 
 ## 🔒 Security Checklist
 
-- [x] جميع الروابط الخارجية آمنة
-- [x] لا توجد secrets في الكود
-- [x] XSS protection موجود
-- [x] Dependencies آمنة (0 vulnerabilities)
-- [ ] CSP configured (يحتاج server config)
-- [ ] Security Headers configured (يحتاج server config)
-- [x] Environment variables محمية
-- [x] Iframe security محسّن
+- [x] All external links secure
+- [x] No secrets in code
+- [x] XSS protection present
+- [x] Dependencies secure (0 vulnerabilities)
+- [ ] CSP configured (needs server config)
+- [ ] Security Headers configured (needs server config)
+- [x] Environment variables protected
+- [x] Iframe security optimized
 
 ---
 
-**تم الإعداد بواسطة:** Senior Full-Stack Engineer  
-**التاريخ:** 2025-01-27
+**Prepared by:** Senior Full-Stack Engineer  
+**Date:** 2025-01-27
