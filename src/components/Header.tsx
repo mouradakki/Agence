@@ -122,11 +122,11 @@ const Header = memo(() => {
                 style={{ transform: "rotate(0deg)" }}
               />
             </div>
-            <div className="hidden sm:block">
+            <div className="hidden sm:block px-3 py-2 rounded-lg group-hover:bg-primary/10 transition-all duration-200">
               <p className="font-bold text-lg transition-colors duration-200 text-black group-hover:text-primary">
                 {t("header.brandName")}
               </p>
-              <p className="text-xs transition-colors duration-200 text-gray-700">
+              <p className="text-xs transition-colors duration-200 text-gray-700 group-hover:text-primary/80">
                 {t("header.approvedAgency")}
               </p>
             </div>
@@ -145,7 +145,9 @@ const Header = memo(() => {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
-                    isActive ? "text-primary" : "text-black hover:text-primary"
+                    isActive 
+                      ? "text-primary bg-primary/10" 
+                      : "text-black hover:text-primary hover:bg-primary/10"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
@@ -173,7 +175,7 @@ const Header = memo(() => {
           <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-4">
             <motion.a
               href="tel:0535383218"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-black hover:text-primary hover:bg-primary/10"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 text-black hover:text-primary hover:bg-primary/15 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
@@ -185,7 +187,7 @@ const Header = memo(() => {
               href="https://wa.me/212662640525"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-[#25D366] hover:bg-[#25D366]/10"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 text-[#25D366] hover:bg-[#25D366]/15 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0662640525`}
@@ -288,7 +290,7 @@ const Header = memo(() => {
                       className={`px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
                         isActive
                           ? "text-primary bg-primary/10"
-                          : "text-black hover:text-primary hover:bg-primary/5"
+                          : "text-black hover:text-primary hover:bg-primary/15"
                       }`}
                     >
                       {link.label}
