@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، Atlanta Sanad، المغرب، الدار البيضاء",
   authors: [{ name: "وكالة أتلانتا سند للتأمين" }],
   icons: {
-    icon: "/logo-1.png",
-    apple: "/logo-1.png",
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
   },
   openGraph: {
     title:
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       {
         url: `${
           process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
-        }/logo-1.png`,
+        }/logo.jpeg`,
         width: 1200,
         height: 630,
         alt: "AGENCE Fouad ABI - وكالة تأمين معتمدة",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     images: [
       `${
         process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
-      }/logo-1.png`,
+      }/logo.jpeg`,
     ],
   },
   alternates: {

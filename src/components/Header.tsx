@@ -112,7 +112,7 @@ const Header = memo(() => {
           >
             <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
               <Image
-                src="/logo-1.png"
+                src="/logo.jpeg"
                 alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
                 width={48}
                 height={48}

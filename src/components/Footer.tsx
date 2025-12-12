@@ -24,7 +24,7 @@ const Footer = memo(() => {
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white">
                 <Image
-                  src="/logo-1.png"
+                  src="/logo.jpeg"
                   alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
                   width={48}
                   height={48}
