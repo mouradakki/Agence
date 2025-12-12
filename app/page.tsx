@@ -10,10 +10,11 @@ import ContactSection from "@/components/ContactSection";
 import LocationSection from "@/components/LocationSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import Script from "next/script";
 
 export default function Home() {
-  const { dir } = useLanguage();
+  const { dir, t } = useLanguage();
 
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma";
@@ -66,15 +67,21 @@ export default function Home() {
   };
 
   return (
-    <>
+    <ErrorBoundary>
       <Script
         id="structured-data"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:font-semibold"
+      >
+        {t("skipToContent") || "تخطي إلى المحتوى الرئيسي | Skip to main content"}
+      </a>
       <div className="min-h-screen m-0 p-0" dir={dir}>
         <Header />
-        <main>
+        <main id="main-content" role="main">
           <HeroSection />
           <ServicesSection />
           <AdvantagesSection />
@@ -85,6 +92,6 @@ export default function Home() {
         </main>
         <Footer />
       </div>
-    </>
+    </ErrorBoundary>
   );
 }

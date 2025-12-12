@@ -32,6 +32,7 @@ const ContactSection = () => {
               <a
                 href="tel:0535383218"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/20 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
               >
                 <div className="w-12 h-12 rounded-lg hero-gradient flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Phone className="w-6 h-6 text-primary-foreground" />
@@ -54,6 +55,7 @@ const ContactSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#25D366]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0535383218`}
               >
                 <div className="w-12 h-12 rounded-lg bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <MessageCircle className="w-6 h-6 text-white" />
@@ -74,6 +76,7 @@ const ContactSection = () => {
               <a
                 href="mailto:ag.assuranceskhenifra@atlantasanad.ma"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#EA4335]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                aria-label={`${t("contact.emailLabel") || "Email"}: ag.assuranceskhenifra@atlantasanad.ma`}
               >
                 <div className="w-12 h-12 rounded-lg bg-[#EA4335] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <Mail className="w-6 h-6 text-white" />

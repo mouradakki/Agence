@@ -1,13 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Shield,
-  CheckCircle2,
-  ArrowLeft,
-  Check,
-  BadgeCheck,
-} from "lucide-react";
+import { Shield, ArrowLeft, BadgeCheck } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";

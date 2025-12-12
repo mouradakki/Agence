@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { memo, useState, useEffect, useCallback, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageToggle from "./LanguageToggle";
 
-const Header = () => {
+const Header = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
@@ -47,37 +47,40 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleNavClick = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-    const sectionId = href.replace("#", "");
-    const element = document.getElementById(sectionId);
+      const sectionId = href.replace("#", "");
+      const element = document.getElementById(sectionId);
 
-    if (element) {
-      const headerHeight = 80;
-      const elementTop = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementTop - headerHeight;
+      if (element) {
+        const headerHeight = 80;
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementTop - headerHeight;
 
-      window.scrollTo({
-        top: Math.max(0, offsetPosition),
-        behavior: "smooth",
-      });
-    }
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: "smooth",
+        });
+      }
 
-    setIsMobileMenuOpen(false);
-  };
+      setIsMobileMenuOpen(false);
+    },
+    []
+  );
 
-  const navLinks = [
-    { href: "#services", label: t("nav.services") },
-    { href: "#advantages", label: t("nav.advantages") },
-    { href: "#testimonials", label: t("nav.testimonials") },
-    { href: "#contact", label: t("nav.contact") },
-    { href: "#faq", label: t("nav.faq") },
-  ];
+  const navLinks = useMemo(
+    () => [
+      { href: "#services", label: t("nav.services") },
+      { href: "#advantages", label: t("nav.advantages") },
+      { href: "#testimonials", label: t("nav.testimonials") },
+      { href: "#contact", label: t("nav.contact") },
+      { href: "#faq", label: t("nav.faq") },
+    ],
+    [t]
+  );
 
   return (
     <header
@@ -105,15 +108,12 @@ const Header = () => {
             className="flex items-center gap-3 group flex-shrink-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={(e) => {
-              e.preventDefault();
-              window.location.reload();
-            }}
+            aria-label={t("header.brandName")}
           >
             <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
               <Image
                 src="/logo-1.png"
-                alt="Logo"
+                alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
                 width={48}
                 height={48}
                 className="object-contain"
@@ -132,7 +132,11 @@ const Header = () => {
             </div>
           </motion.a>
 
-          <nav className="hidden lg:flex items-center gap-1 flex-1 justify-end">
+          <nav
+            className="hidden lg:flex items-center gap-1 flex-1 justify-end"
+            role="navigation"
+            aria-label={t("nav.mainNavigation") || "Main navigation"}
+          >
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
               return (
@@ -143,6 +147,7 @@ const Header = () => {
                   className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
                     isActive ? "text-primary" : "text-black hover:text-primary"
                   }`}
+                  aria-current={isActive ? "page" : undefined}
                 >
                   {link.label}
                   {isActive && (
@@ -171,6 +176,7 @@ const Header = () => {
               className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-black hover:text-primary hover:bg-primary/10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
             >
               <Phone className="w-5 h-5" />
               <span className="hidden xl:inline">0535383218</span>
@@ -182,6 +188,7 @@ const Header = () => {
               className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-[#25D366] hover:bg-[#25D366]/10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0535383218`}
             >
               <MessageCircle className="w-5 h-5" />
               <span className="hidden xl:inline">0535383218</span>
@@ -194,7 +201,13 @@ const Header = () => {
           <motion.button
             className="lg:hidden p-2 rounded-lg transition-colors duration-200 text-black hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={
+              isMobileMenuOpen
+                ? t("nav.closeMenu") || "Close menu"
+                : t("nav.openMenu") || "Open menu"
+            }
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-navigation"
             whileTap={{ scale: 0.95 }}
           >
             <AnimatePresence mode="wait">
@@ -247,6 +260,9 @@ const Header = () => {
               className={`lg:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white/[0.95] to-blue-500/15 backdrop-blur-[20px] border-b border-pink-500/10 ${
                 dir === "rtl" ? "right-0" : "left-0"
               }`}
+              id="mobile-navigation"
+              role="navigation"
+              aria-label={t("nav.mobileNavigation") || "Mobile navigation"}
             >
               <nav className="container-custom pt-2 pb-6 flex flex-col gap-2">
                 <div className="flex items-center justify-between mb-4 gap-4">
@@ -289,6 +305,9 @@ const Header = () => {
                     href="tel:0535383218"
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-primary font-semibold bg-primary/10 hover:bg-primary/20 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label={`${
+                      t("contact.phoneLabel") || "Phone"
+                    }: 0535383218`}
                   >
                     <Phone className="w-5 h-5" />
                     <span>0535383218</span>
@@ -299,6 +318,9 @@ const Header = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-[#25D366] font-semibold bg-[#25D366]/10 hover:bg-[#25D366]/20 transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label={`${
+                      t("contact.whatsapp") || "WhatsApp"
+                    }: 0535383218`}
                   >
                     <MessageCircle className="w-5 h-5" />
                     <span>0535383218</span>
@@ -311,6 +333,8 @@ const Header = () => {
       </AnimatePresence>
     </header>
   );
-};
+});
+
+Header.displayName = "Header";
 
 export default Header;

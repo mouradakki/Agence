@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import {
   Phone,
   Mail,
@@ -11,7 +12,7 @@ import {
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const Footer = () => {
+const Footer = memo(() => {
   const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
@@ -24,7 +25,7 @@ const Footer = () => {
               <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white">
                 <Image
                   src="/logo-1.png"
-                  alt="Logo"
+                  alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
                   width={48}
                   height={48}
                   className="object-contain"
@@ -43,21 +44,27 @@ const Footer = () => {
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5 text-white" />
               </a>
               <a
-                href="#"
+                href="https://www.tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="TikTok"
               >
@@ -71,7 +78,9 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label="Twitter"
               >
@@ -139,6 +148,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-background/70 hover:text-primary transition-colors"
+                  aria-label={`${t("location.openMaps") || "Open location in Google Maps"}: ${t("location.addressValue")}`}
                 >
                   {t("location.addressValue")}
                   {t("location.addressValue2") &&
@@ -165,6 +175,7 @@ const Footer = () => {
                   href="tel:0535383218"
                   className="text-background/70 hover:text-primary transition-colors"
                   dir="ltr"
+                  aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
                 >
                   0535383218
                 </a>
@@ -174,6 +185,7 @@ const Footer = () => {
                 <a
                   href="mailto:ag.assuranceskhenifra@atlantasanad.ma"
                   className="text-background/70 hover:text-primary transition-colors"
+                  aria-label={`${t("contact.emailLabel") || "Email"}: ag.assuranceskhenifra@atlantasanad.ma`}
                 >
                   ag.assuranceskhenifra@atlantasanad.ma
                 </a>
@@ -194,6 +206,8 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = "Footer";
 
 export default Footer;
