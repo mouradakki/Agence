@@ -23,12 +23,12 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
 
       <div className="container-custom relative z-10 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-primary-foreground"
+            className="text-primary-foreground w-full lg:order-1"
           >
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -48,6 +48,75 @@ const HeroSection = () => {
                 {t("hero.subtitle")}
               </span>
             </h1>
+
+            {/* الصورة تظهر هنا في الشاشات الصغيرة */}
+            <div className="lg:hidden mb-8">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, x: 30 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  x: 0,
+                }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="relative w-full"
+              >
+                <div>
+                  <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl z-0" />
+                  <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary-foreground/10 rounded-full blur-2xl z-0" />
+
+                  <div className="relative z-10">
+                    <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary-foreground/20 to-transparent rounded-2xl blur-xl -z-10" />
+
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary-foreground/30 bg-primary-foreground/5 backdrop-blur-sm group hover:shadow-3xl transition-all duration-300">
+                      <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
+
+                      <Image
+                        src="/profile-Fouad.jpg"
+                        priority
+                        alt="Fouad ABI - وكالة تأمين معتمدة"
+                        width={600}
+                        height={800}
+                        className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                      />
+
+                      <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-accent via-primary to-accent z-20" />
+                    </div>
+
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.8, duration: 0.6 }}
+                      className="absolute -bottom-4 -left-4 bg-primary-foreground rounded-xl p-3 shadow-xl border-2 border-accent/30 z-20 max-w-[calc(100%-2rem)]"
+                    >
+                      <div className="flex items-center gap-2">
+                        <div
+                          className="w-10 h-10 rounded-lg flex items-center justify-center shadow-lg flex-shrink-0"
+                          style={{
+                            background:
+                              "linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)",
+                          }}
+                        >
+                          <FontAwesomeIcon
+                            icon={faCheckCircle}
+                            className="w-5 h-5 text-white"
+                          />
+                        </div>
+                        <div className="min-w-0">
+                          <p className="font-bold text-foreground text-xs truncate">
+                            {t("advantages.approved")}
+                          </p>
+                          <p className="text-xs text-muted-foreground truncate">
+                            AtlantaSanad
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
 
             <p className="text-lg sm:text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-xl">
               {t("hero.description")}
@@ -98,6 +167,7 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+          {/* الصورة في الشاشات الكبيرة */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 30 }}
             animate={{
@@ -106,7 +176,7 @@ const HeroSection = () => {
               x: 0,
             }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-full mt-8 lg:mt-0"
+            className="relative w-full hidden lg:block lg:order-2"
           >
             <div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl z-0" />
