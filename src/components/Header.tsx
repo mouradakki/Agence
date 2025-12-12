@@ -110,7 +110,7 @@ const Header = memo(() => {
             whileTap={{ scale: 0.98 }}
             aria-label={t("header.brandName")}
           >
-            <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
+            <div className="w-12 h-12 overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
               <Image
                 src="/logo.jpeg"
                 alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
