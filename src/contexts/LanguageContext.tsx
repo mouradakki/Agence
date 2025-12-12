@@ -120,9 +120,9 @@ const translations: Record<Language, Record<string, string>> = {
     "advantages.compensationGuaranteed": "تسليم التعويضات بضمان",
     "advantages.compensationGuaranteedDesc":
       "تسليم التعويضات عبر الشركة الأم Atlanta Sanad بكل موثوقية وشفافية.",
-    "advantages.customerService": "خدمة عملاء على مدار الساعة",
+    "advantages.customerService": "خدمة عملاء من 9 صباحاً إلى 7 مساءً",
     "advantages.customerServiceDesc":
-      "نحن متاحون دائماً للإجابة على استفساراتكم ومساعدتكم في أي وقت.",
+      "نحن متاحون من 9 صباحاً إلى 7 مساءً للإجابة على استفساراتكم ومساعدتكم.",
     "advantages.diverseCoverage": "تغطية شاملة ومتنوعة",
     "advantages.diverseCoverageDesc":
       "نوفر لك باقات تأمينية متكاملة تلبي جميع احتياجاتك وبأسعار تنافسية.",
@@ -364,9 +364,9 @@ const translations: Record<Language, Record<string, string>> = {
     "advantages.compensationGuaranteed": "Indemnisation garantie",
     "advantages.compensationGuaranteedDesc":
       "Indemnisations via la société mère Atlanta Sanad avec toute fiabilité et transparence.",
-    "advantages.customerService": "Service client 24/7",
+    "advantages.customerService": "Service client 9h - 7h",
     "advantages.customerServiceDesc":
-      "Nous sommes toujours disponibles pour répondre à vos questions et vous aider à tout moment.",
+      "Nous sommes disponibles de 9h à 7h pour répondre à vos questions et vous aider.",
     "advantages.diverseCoverage": "Couverture complète et diversifiée",
     "advantages.diverseCoverageDesc":
       "Nous vous proposons des packages d'assurance intégrés qui répondent à tous vos besoins à des prix compétitifs.",

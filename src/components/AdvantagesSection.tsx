@@ -77,7 +77,7 @@ const AdvantagesSection = () => {
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-3xl font-bold text-primary">24/7</p>
+                <p className="text-3xl font-bold text-primary">9:00 - 18:00</p>
                 <p className="text-sm text-muted-foreground">
                   {t("advantages.stats.support")}
                 </p>
