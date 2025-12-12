@@ -62,18 +62,18 @@ const translations: Record<Language, Record<string, string>> = {
     "services.adminServices": "خدمات إدارية",
     "services.adminDesc":
       "مساعدة في إجراءات التأمين والوثائق الإدارية المتعلقة بالسفر والمركبات.",
-    "services.carInsurance": "تأمين السيارات",
-    "services.carInsuranceDesc":
-      "حماية شاملة لسيارتك ضد جميع المخاطر. تغطية الحوادث والسرقة والأضرار الطبيعية.",
-    "services.truckInsurance": "تأمين الشاحنات",
-    "services.truckInsuranceDesc":
-      "تأمين متخصص للشاحنات ومركبات النقل. حماية أسطولكم التجاري بأفضل الأسعار.",
+    "services.vehiclesInsurance": "تأمين المركبات",
+    "services.vehiclesInsuranceDesc":
+      "حماية شاملة لسياراتك وشاحناتك ضد جميع المخاطر. تغطية الحوادث والسرقة والأضرار الطبيعية. حماية أسطولكم التجاري بأفضل الأسعار.",
     "services.homeInsurance": "تأمين السكن",
     "services.homeInsuranceDesc":
       "حماية شاملة لمنزلك وممتلكاتك. تغطية ضد الحرائق والسرقة والأضرار الطبيعية والمسؤولية المدنية.",
     "services.travelInsurance": "تأمين السفر للخارج",
     "services.travelInsuranceDesc":
       "تأمين السفر وخدمات جواز السفر. سفر آمن مع تغطية طبية وحماية الأمتعة.",
+    "services.workAccidentInsurance": "تأمين حوادث الشغل",
+    "services.workAccidentInsuranceDesc":
+      "حماية شاملة للموظفين ضد حوادث العمل. تغطية الإصابات والأمراض المهنية والتعويضات المالية.",
     "services.healthInsurance": "التأمين الصحي",
     "services.healthInsuranceDesc":
       "تغطية صحية شاملة لك ولعائلتك. الوصول لأفضل المستشفيات والأطباء.",
@@ -306,18 +306,18 @@ const translations: Record<Language, Record<string, string>> = {
     "services.adminServices": "Services Administratifs",
     "services.adminDesc":
       "Aide dans les démarches d'assurance et les documents administratifs liés aux voyages et véhicules.",
-    "services.carInsurance": "Assurance Auto",
-    "services.carInsuranceDesc":
-      "Protection complète pour votre véhicule contre tous les risques. Couverture accidents, vol et dommages naturels.",
-    "services.truckInsurance": "Assurance Camions",
-    "services.truckInsuranceDesc":
-      "Assurance spécialisée pour camions et véhicules de transport. Protégez votre flotte commerciale aux meilleurs prix.",
+    "services.vehiclesInsurance": "Assurance Véhicules",
+    "services.vehiclesInsuranceDesc":
+      "Protection complète pour vos voitures et camions contre tous les risques. Couverture accidents, vol et dommages naturels. Protégez votre flotte commerciale aux meilleurs prix.",
     "services.homeInsurance": "Assurance Habitation",
     "services.homeInsuranceDesc":
       "Protection complète pour votre maison et vos biens. Couverture contre les incendies, le vol, les dommages naturels et la responsabilité civile.",
     "services.travelInsurance": "Services Voyage",
     "services.travelInsuranceDesc":
       "Assurance voyage et services passeport. Voyagez en toute sécurité avec couverture médicale et protection bagages.",
+    "services.workAccidentInsurance": "Assurance Accidents du Travail",
+    "services.workAccidentInsuranceDesc":
+      "Protection complète pour les employés contre les accidents du travail. Couverture des blessures, maladies professionnelles et indemnités financières.",
     "services.healthInsurance": "Assurance Santé",
     "services.healthInsuranceDesc":
       "Couverture santé complète pour vous et votre famille. Accès aux meilleurs hôpitaux et médecins.",

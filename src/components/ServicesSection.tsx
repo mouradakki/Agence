@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import {
   Car,
-  Truck,
   Home,
   Plane,
   Heart,
   FileCheck,
+  HardHat,
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -17,18 +17,18 @@ const ServicesSection = () => {
   const services = [
     {
       icon: Car,
-      title: t("services.carInsurance"),
-      description: t("services.carInsuranceDesc"),
-    },
-    {
-      icon: Truck,
-      title: t("services.truckInsurance"),
-      description: t("services.truckInsuranceDesc"),
+      title: t("services.vehiclesInsurance"),
+      description: t("services.vehiclesInsuranceDesc"),
     },
     {
       icon: Home,
       title: t("services.homeInsurance"),
       description: t("services.homeInsuranceDesc"),
+    },
+    {
+      icon: HardHat,
+      title: t("services.workAccidentInsurance"),
+      description: t("services.workAccidentInsuranceDesc"),
     },
     {
       icon: Plane,
