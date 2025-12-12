@@ -7,8 +7,9 @@ import {
   MapPin,
   Facebook,
   Instagram,
-  MessageCircle,
 } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -65,10 +66,10 @@ const Footer = memo(() => {
                 href="https://wa.me/212662640525"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-[#25D366] flex items-center justify-center hover:scale-110 hover:bg-[#20BA5A] transition-all duration-300"
+                className="w-10 h-10 rounded-lg bg-background/10 flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0662640525`}
               >
-                <MessageCircle className="w-5 h-5 text-white" />
+                <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>

@@ -14,10 +14,11 @@ import Image from "next/image";
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden border-none outline-none">
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary-foreground rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
+    <section className="relative min-h-screen flex items-center hero-gradient overflow-x-hidden border-none outline-none">
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 right-10 w-72 h-72 bg-white rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 left-10 w-96 h-96 bg-white rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/30 rounded-full blur-[150px]" />
       </div>
 
       <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
@@ -72,7 +73,7 @@ const HeroSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                       <Image
-                        src="/Agent-photo.png"
+                        src="/agent-fouad-photo.jpg"
                         priority
                         alt="Fouad ABI - وكالة تأمين معتمدة"
                         width={600}
@@ -125,7 +126,7 @@ const HeroSection = () => {
             <div className="flex flex-wrap gap-4 mb-12">
               <Button variant="hero" size="lg" asChild>
                 <a href="#contact">
-                  {t("hero.getQuote")}
+                  {t("nav.contact")}
                   <ArrowLeft className="w-5 h-5" />
                 </a>
               </Button>
@@ -189,7 +190,7 @@ const HeroSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                   <Image
-                    src="/Agent-photo.png"
+                    src="/agent-fouad-photo.jpg"
                     priority
                     alt="Fouad ABI - وكالة تأمين معتمدة"
                     width={600}
@@ -236,17 +237,25 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 border-none outline-none">
+      {/* Wave Divider */}
+      <div className="absolute bottom-0 left-0 right-0 w-full overflow-hidden">
         <svg
-          viewBox="0 0 1440 120"
+          className="relative block w-full h-20 sm:h-24 lg:h-32"
+          preserveAspectRatio="none"
+          viewBox="0 0 1200 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="block"
         >
           <path
-            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            d="M0,60 C300,100 600,20 900,60 C1050,80 1150,40 1200,60 L1200,120 L0,120 Z"
             fill="hsl(var(--background))"
-            className="stroke-none"
+            className="transition-colors duration-300"
+          />
+          <path
+            d="M0,80 C300,120 600,40 900,80 C1050,100 1150,60 1200,80 L1200,120 L0,120 Z"
+            fill="hsl(var(--background))"
+            fillOpacity="0.8"
+            className="transition-colors duration-300"
           />
         </svg>
       </div>

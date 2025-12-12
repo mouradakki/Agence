@@ -5,7 +5,22 @@ import { Phone, Clock, Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  // رسالة الواتساب حسب اللغة
+  const whatsappMessage = language === "ar" 
+    ? "مرحباً، أريد الاستفسار عن خدمات التأمين"
+    : "Bonjour, je souhaite me renseigner sur vos services d'assurance";
+
+  // موضوع ورسالة البريد الإلكتروني حسب اللغة
+  const emailSubject = language === "ar"
+    ? "استفسار عن خدمات التأمين"
+    : "Demande d'information sur les services d'assurance";
+  
+  const emailBody = language === "ar"
+    ? "مرحباً،\n\nأريد الاستفسار عن خدمات التأمين المتاحة.\n\nشكراً لكم"
+    : "Bonjour,\n\nJ'aimerais me renseigner sur les services d'assurance disponibles.\n\nMerci";
+
 
   return (
     <section id="contact" className="section-padding bg-background">
@@ -51,7 +66,7 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="https://wa.me/212662640525"
+                href={`https://wa.me/212662640525?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#25D366]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
@@ -74,8 +89,25 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="mailto:ag.assuranceskhenifra@atlantasanad.ma"
-                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#EA4335]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
+                href={`mailto:ag.assuranceskhenifra@atlantasanad.ma?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`}
+                onClick={(e) => {
+                  // التأكد من فتح رابط البريد الإلكتروني
+                  const email = "ag.assuranceskhenifra@atlantasanad.ma";
+                  const subject = encodeURIComponent(emailSubject);
+                  const body = encodeURIComponent(emailBody);
+                  const mailtoLink = `mailto:${email}?subject=${subject}&body=${body}`;
+                  
+                  // محاولة فتح الرابط
+                  const link = document.createElement('a');
+                  link.href = mailtoLink;
+                  link.click();
+                  
+                  // كبديل، استخدم window.location
+                  setTimeout(() => {
+                    window.location.href = mailtoLink;
+                  }, 50);
+                }}
+                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#EA4335]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group cursor-pointer"
                 aria-label={`${t("contact.emailLabel") || "Email"}: ag.assuranceskhenifra@atlantasanad.ma`}
               >
                 <div className="w-12 h-12 rounded-lg bg-[#EA4335] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">

@@ -9,23 +9,24 @@ const TestimonialsSection = () => {
 
   const testimonials = [
     {
-      name: language === "ar" ? "أحمد المنصوري" : "Ahmed Mansouri",
-      city: language === "ar" ? "الدار البيضاء" : "Casablanca",
+      name: language === "ar" ? "مراد عكي" : "Mourad Akki",
+      city: language === "ar" ? "خنيفرة" : "Khenifra",
       rating: 5,
       text: t("testimonials.testimonial1"),
-      avatar: language === "ar" ? "أ" : "A",
+      avatar: language === "ar" ? "م" : "M",
+      email: "akkimourad177@gmail.com",
     },
     {
       name:
         language === "ar" ? "فاطمة الزهراء بنعيسى" : "Fatima Zahra Benaissa",
-      city: language === "ar" ? "الرباط" : "Rabat",
+      city: language === "ar" ? "خنيفرة" : "Khenifra",
       rating: 5,
       text: t("testimonials.testimonial2"),
       avatar: language === "ar" ? "ف" : "F",
     },
     {
       name: language === "ar" ? "محمد العلوي" : "Mohamed Alaoui",
-      city: language === "ar" ? "مراكش" : "Marrakech",
+      city: language === "ar" ? "خنيفرة" : "Khenifra",
       rating: 5,
       text: t("testimonials.testimonial3"),
       avatar: language === "ar" ? "م" : "M",
@@ -87,6 +88,11 @@ const TestimonialsSection = () => {
                   <p className="text-sm text-muted-foreground">
                     {testimonial.city}
                   </p>
+                  {testimonial.email && (
+                    <p className="text-xs text-muted-foreground/70 mt-1">
+                      {testimonial.email}
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>

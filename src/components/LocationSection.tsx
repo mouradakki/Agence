@@ -122,7 +122,7 @@ const LocationSection = () => {
           >
             <div className="bg-card rounded-2xl overflow-hidden card-shadow border border-border">
               <iframe
-                src="https://maps.google.com/maps?q=Khenifra+Amalo+Morocco&t=&z=15&ie=UTF8&iwloc=&output=embed&hl=ar"
+                src="https://www.google.com/maps?q=32.9377269,-5.6561542&hl=ar&z=18&output=embed"
                 width="100%"
                 height="500"
                 className="w-full border-0 block"
