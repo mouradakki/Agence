@@ -18,6 +18,7 @@ export default function Home() {
 
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma";
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "InsuranceAgency",
@@ -66,32 +67,37 @@ export default function Home() {
     },
   };
 
+  const structuredDataString = JSON.stringify(structuredData, null, 0);
+
   return (
-    <ErrorBoundary>
+    <>
       <Script
         id="structured-data"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={{ __html: structuredDataString }}
       />
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:font-semibold"
-      >
-        {t("skipToContent") || "تخطي إلى المحتوى الرئيسي | Skip to main content"}
-      </a>
-      <div className="min-h-screen m-0 p-0" dir={dir}>
-        <Header />
-        <main id="main-content" role="main">
-          <HeroSection />
-          <ServicesSection />
-          <AdvantagesSection />
-          <TestimonialsSection />
-          <ContactSection />
-          <LocationSection />
-          <FAQSection />
-        </main>
-        <Footer />
-      </div>
-    </ErrorBoundary>
+      <ErrorBoundary>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-lg focus:font-semibold"
+        >
+          {t("skipToContent") ||
+            "تخطي إلى المحتوى الرئيسي | Skip to main content"}
+        </a>
+        <div className="min-h-screen m-0 p-0" dir={dir}>
+          <Header />
+          <main id="main-content" role="main">
+            <HeroSection />
+            <ServicesSection />
+            <AdvantagesSection />
+            <TestimonialsSection />
+            <ContactSection />
+            <LocationSection />
+            <FAQSection />
+          </main>
+          <Footer />
+        </div>
+      </ErrorBoundary>
+    </>
   );
 }
