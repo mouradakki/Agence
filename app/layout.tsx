@@ -30,13 +30,40 @@ export const metadata: Metadata = {
       "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات.",
     type: "website",
     locale: "ar_MA",
-    images: ["/placeholder.svg"],
+    alternateLocale: "fr_MA",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma",
+    siteName: "AGENCE Fouad ABI",
+    images: [
+      {
+        url: `${
+          process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
+        }/logo-1.png`,
+        width: 1200,
+        height: 630,
+        alt: "AGENCE Fouad ABI - وكالة تأمين معتمدة",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "وكالة تأمين معتمدة – Atlanta Sanad",
     description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad.",
-    images: ["/placeholder.svg"],
+    images: [
+      `${
+        process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
+      }/logo-1.png`,
+    ],
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma",
+    languages: {
+      ar: `${
+        process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
+      }/?lang=ar`,
+      fr: `${
+        process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"
+      }/?lang=fr`,
+    },
   },
 };
 

@@ -1,0 +1,4 @@
+Contact: mailto:ag.assuranceskhenifra@atlantasanad.ma
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: ar, fr
+Canonical: https://agence-lovabel.ma/.well-known/security.txt
