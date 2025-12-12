@@ -33,10 +33,6 @@ const FAQSection = () => {
       question: t("faq.q5"),
       answer: t("faq.a5"),
     },
-    {
-      question: t("faq.q6"),
-      answer: t("faq.a6"),
-    },
   ];
   return (
     <section id="faq" className="bg-background pt-8 md:pt-10 lg:pt-12 pb-0">

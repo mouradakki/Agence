@@ -102,7 +102,7 @@ const Header = memo(() => {
       }
     >
       <div className="container-custom">
-        <div className="flex items-center h-20">
+        <div className="flex items-center justify-between lg:justify-start h-20">
           <motion.a
             href="/"
             className="flex items-center gap-3 group flex-shrink-0"
@@ -133,7 +133,7 @@ const Header = memo(() => {
           </motion.a>
 
           <nav
-            className="hidden lg:flex items-center gap-1 flex-1 justify-end"
+            className="hidden md:flex items-center gap-1 flex-1 justify-end"
             role="navigation"
             aria-label={t("nav.mainNavigation") || "Main navigation"}
           >
@@ -144,9 +144,9 @@ const Header = memo(() => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-200 group ${
-                    isActive 
-                      ? "text-primary bg-primary/10" 
+                  className={`relative px-3 md:px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-200 group ${
+                    isActive
+                      ? "text-primary bg-primary/10"
                       : "text-black hover:text-primary hover:bg-primary/10"
                   }`}
                   aria-current={isActive ? "page" : undefined}
@@ -165,34 +165,34 @@ const Header = memo(() => {
                     />
                   )}
                   {!isActive && (
-                    <span className="absolute bottom-0 left-4 right-4 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
+                    <span className="absolute bottom-0 left-3 md:left-4 right-3 md:right-4 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
                   )}
                 </a>
               );
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-4">
+          <div className="hidden md:flex items-center gap-2 md:gap-3 flex-shrink-0 ml-2 md:ml-4">
             <motion.a
               href="tel:0535383218"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all duration-200 text-black hover:text-primary hover:bg-primary/15 backdrop-blur-sm"
+              className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-lg font-semibold text-sm md:text-base transition-all duration-200 text-black hover:text-primary hover:bg-primary/15 backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
             >
-              <Phone className="w-5 h-5" />
-              <span className="hidden xl:inline">0535383218</span>
+              <Phone className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="hidden lg:inline">0535383218</span>
             </motion.a>
             <motion.a
               href="https://wa.me/212662640525"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded-lg font-bold transition-all duration-200 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-md hover:shadow-lg backdrop-blur-sm"
+              className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-md hover:shadow-lg backdrop-blur-sm"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0662640525`}
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
               <span className="hidden lg:inline">0662640525</span>
             </motion.a>
             <div className="[&_button]:border-gray-300 [&_button]:text-black [&_button]:hover:bg-gray-100">
@@ -201,7 +201,7 @@ const Header = memo(() => {
           </div>
 
           <motion.button
-            className="lg:hidden p-2 rounded-lg transition-colors duration-200 text-black hover:bg-primary/10"
+            className="md:hidden p-2 rounded-lg transition-colors duration-200 text-black hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={
               isMobileMenuOpen
@@ -246,7 +246,7 @@ const Header = memo(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-lg z-40 lg:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-xl z-40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -259,7 +259,7 @@ const Header = memo(() => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`lg:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white/[0.95] to-blue-500/15 backdrop-blur-[20px] border-b border-pink-500/10 ${
+              className={`md:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white/[0.98] to-blue-500/20 backdrop-blur-[30px] border-b border-pink-500/10 ${
                 dir === "rtl" ? "right-0" : "left-0"
               }`}
               id="mobile-navigation"
