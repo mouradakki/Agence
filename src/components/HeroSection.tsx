@@ -41,7 +41,7 @@ const HeroSection = () => {
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {t("hero.title")}
-              <span className="block mt-2 text-accent">
+              <span className="block mt-2" style={{ color: "#e40050" }}>
                 {t("hero.subtitle")}
               </span>
             </h1>
@@ -76,10 +76,17 @@ const HeroSection = () => {
                   className="flex items-center gap-2"
                 >
                   <div className="relative w-7 h-7 shrink-0 flex items-center justify-center">
-                    <div className="absolute inset-0 rounded-full border-2 border-accent bg-accent"></div>
+                    <div
+                      className="absolute inset-0 rounded-full border-2"
+                      style={{
+                        borderColor: "#15803d", // أخضر غامق
+                        backgroundColor: "#86efac", // أخضر فاتح
+                      }}
+                    ></div>
                     <FontAwesomeIcon
                       icon={faCircleCheck}
-                      className="relative z-10 w-4 h-4 text-accent-foreground"
+                      className="relative z-10 w-4 h-4"
+                      style={{ color: "#15803d" }} // أخضر غامق للعلامة
                     />
                   </div>
                   <span className="text-sm font-medium">{point}</span>
