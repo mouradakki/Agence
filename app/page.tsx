@@ -24,7 +24,7 @@ export default function Home() {
     "@type": "InsuranceAgency",
     name: "وكالة أتلانتا سند للتأمين",
     description:
-      "وكالة تأمين معتمدة من Atlanta Sanad. خدمات تأمين السيارات والشاحنات والشركات والسفر.",
+      "وكالة تأمين معتمدة من Atlanta Sanad. خدمات تأمين السيارات والشاحنات والشركات وتأمين السفر للخارج.",
     url: siteUrl,
     logo: `${siteUrl}/logo.jpeg`,
     image: `${siteUrl}/agence-photo.jpg`,

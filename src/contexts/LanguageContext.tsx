@@ -29,7 +29,7 @@ const translations: Record<Language, Record<string, string>> = {
     "hero.title": "حماية ما يهمّك",
     "hero.subtitle": "وكالة تأمين معتمدة من Atlanta Sanad",
     "hero.description":
-      "تأمين السيارات، الشاحنات، الشركات، وخدمات السفر — حلول موثوقة وسريعة في مدينتكم.",
+      "تأمين السيارات، الشاحنات، الشركات، وتأمين السفر للخارج — حلول موثوقة وسريعة في مدينتكم.",
     "hero.getQuote": "احصل على عرض سعر",
     "hero.discoverServices": "تعرّف على خدماتنا",
     "hero.approvedBadge": "وكالة محلية معتمدة من Atlanta Sanad",
@@ -71,7 +71,7 @@ const translations: Record<Language, Record<string, string>> = {
     "services.companyInsurance": "تأمين الشركات",
     "services.companyInsuranceDesc":
       "حلول تأمينية متكاملة للشركات والمؤسسات. حماية الأصول والموظفين والمسؤولية المدنية.",
-    "services.travelInsurance": "خدمات السفر",
+    "services.travelInsurance": "تأمين السفر للخارج",
     "services.travelInsuranceDesc":
       "تأمين السفر وخدمات جواز السفر. سفر آمن مع تغطية طبية وحماية الأمتعة.",
     "services.healthInsurance": "التأمين الصحي",
@@ -182,7 +182,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.carInsurance": "تأمين السيارات",
     "contact.truckInsurance": "تأمين الشاحنات",
     "contact.companyInsurance": "تأمين الشركات",
-    "contact.travelInsurance": "خدمات السفر",
+    "contact.travelInsurance": "تأمين السفر للخارج",
     "contact.healthInsurance": "التأمين الصحي",
     "contact.message": "رسالتك",
     "contact.messagePlaceholder": "اكتب رسالتك هنا...",
@@ -243,7 +243,7 @@ const translations: Record<Language, Record<string, string>> = {
     "footer.services.car": "تأمين السيارات",
     "footer.services.truck": "تأمين الشاحنات",
     "footer.services.company": "تأمين الشركات",
-    "footer.services.travel": "خدمات السفر",
+    "footer.services.travel": "تأمين السفر للخارج",
     "footer.services.health": "التأمين الصحي",
     "footer.services.admin": "خدمات إدارية",
     "notFound.message": "الصفحة غير موجودة",
