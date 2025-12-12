@@ -8,7 +8,7 @@ const nextConfig = {
   },
   // Disable 404 page generation for static export
   generateBuildId: async () => {
-    return 'build-' + Date.now();
+    return "build-" + Date.now();
   },
   // Note: Security headers cannot be set via Next.js headers() function in static export mode.
   // Headers must be configured at the hosting provider level (server, CDN, etc.).
