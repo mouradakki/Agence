@@ -98,7 +98,7 @@ const ContactSection = () => {
                 href={`mailto:ag.assuranceskhenifra@atlantasanad.ma?subject=${encodeURIComponent(
                   emailSubject
                 )}&body=${encodeURIComponent(emailBody)}`}
-                onClick={(e) => {
+                onClick={() => {
                   // التأكد من فتح رابط البريد الإلكتروني
                   const email = "ag.assuranceskhenifra@atlantasanad.ma";
                   const subject = encodeURIComponent(emailSubject);
