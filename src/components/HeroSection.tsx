@@ -20,7 +20,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
 
       <div className="container-custom relative z-10 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -103,16 +103,16 @@ const HeroSection = () => {
               x: 0,
             }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative hidden lg:block"
+            className="relative w-full mt-8 lg:mt-0"
           >
             <div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl z-0" />
               <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary-foreground/10 rounded-full blur-2xl z-0" />
 
               <div className="relative z-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary-foreground/20 to-transparent rounded-3xl blur-xl -z-10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary-foreground/20 to-transparent rounded-2xl lg:rounded-3xl blur-xl -z-10" />
 
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-primary-foreground/30 bg-primary-foreground/5 backdrop-blur-sm group">
+                <div className="relative rounded-2xl lg:rounded-3xl overflow-hidden shadow-2xl border-2 lg:border-4 border-primary-foreground/30 bg-primary-foreground/5 backdrop-blur-sm group hover:shadow-3xl transition-all duration-300">
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                   <Image
@@ -122,6 +122,7 @@ const HeroSection = () => {
                     width={600}
                     height={800}
                     className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
                   />
 
                   <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-accent via-primary to-accent z-20" />
@@ -131,25 +132,25 @@ const HeroSection = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.8, duration: 0.6 }}
-                  className="absolute -bottom-6 -left-6 bg-primary-foreground rounded-2xl p-4 shadow-xl border-2 border-accent/30 z-20"
+                  className="absolute -bottom-4 lg:-bottom-6 -left-4 lg:-left-6 bg-primary-foreground rounded-xl lg:rounded-2xl p-3 lg:p-4 shadow-xl border-2 border-accent/30 z-20 max-w-[calc(100%-2rem)] lg:max-w-none"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 lg:gap-3">
                     <div 
-                      className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg"
+                      className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0"
                       style={{
                         background: 'linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)'
                       }}
                     >
                       <FontAwesomeIcon
                         icon={faCheckCircle}
-                        className="w-6 h-6 text-white"
+                        className="w-5 h-5 lg:w-6 lg:h-6 text-white"
                       />
                     </div>
-                    <div>
-                      <p className="font-bold text-foreground text-sm">
+                    <div className="min-w-0">
+                      <p className="font-bold text-foreground text-xs lg:text-sm truncate">
                         {t("advantages.approved")}
                       </p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-xs text-muted-foreground truncate">
                         Atlanta Sanad
                       </p>
                     </div>

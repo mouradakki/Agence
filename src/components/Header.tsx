@@ -137,12 +137,12 @@ const Header = memo(() => {
         <div className="flex items-center justify-between lg:justify-start h-20">
           <motion.a
             href="/"
-            className="flex items-center gap-2 sm:gap-3 group flex-shrink-0 relative z-10"
+            className="flex items-center gap-1 sm:gap-2 group flex-shrink-0 relative z-10"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             aria-label={t("header.brandName")}
           >
-            <div className="w-16 h-16 sm:w-14 sm:h-14 md:w-12 md:h-12 flex-shrink-0 relative bg-white rounded-lg shadow-lg group-hover:shadow-xl transition-shadow duration-300 flex items-center justify-center overflow-hidden">
+            <div className="w-16 h-16 sm:w-14 sm:h-14 md:w-12 md:h-12 flex-shrink-0 relative bg-white shadow-lg group-hover:shadow-xl transition-shadow duration-300 flex items-center justify-center overflow-hidden">
               <Image
                 src="/logo.jpeg"
                 alt={`${t("header.brandName")} - ${t("header.approvedAgency")}`}
