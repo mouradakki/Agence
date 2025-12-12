@@ -68,9 +68,9 @@ const translations: Record<Language, Record<string, string>> = {
     "services.truckInsurance": "تأمين الشاحنات",
     "services.truckInsuranceDesc":
       "تأمين متخصص للشاحنات ومركبات النقل. حماية أسطولكم التجاري بأفضل الأسعار.",
-    "services.companyInsurance": "تأمين الشركات",
-    "services.companyInsuranceDesc":
-      "حلول تأمينية متكاملة للشركات والمؤسسات. حماية الأصول والموظفين والمسؤولية المدنية.",
+    "services.homeInsurance": "تأمين السكن",
+    "services.homeInsuranceDesc":
+      "حماية شاملة لمنزلك وممتلكاتك. تغطية ضد الحرائق والسرقة والأضرار الطبيعية والمسؤولية المدنية.",
     "services.travelInsurance": "تأمين السفر للخارج",
     "services.travelInsuranceDesc":
       "تأمين السفر وخدمات جواز السفر. سفر آمن مع تغطية طبية وحماية الأمتعة.",
@@ -181,7 +181,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.selectType": "اختر نوع التأمين",
     "contact.carInsurance": "تأمين السيارات",
     "contact.truckInsurance": "تأمين الشاحنات",
-    "contact.companyInsurance": "تأمين الشركات",
+    "contact.homeInsurance": "تأمين السكن",
     "contact.travelInsurance": "تأمين السفر للخارج",
     "contact.healthInsurance": "التأمين الصحي",
     "contact.message": "رسالتك",
@@ -312,9 +312,9 @@ const translations: Record<Language, Record<string, string>> = {
     "services.truckInsurance": "Assurance Camions",
     "services.truckInsuranceDesc":
       "Assurance spécialisée pour camions et véhicules de transport. Protégez votre flotte commerciale aux meilleurs prix.",
-    "services.companyInsurance": "Assurance Entreprises",
-    "services.companyInsuranceDesc":
-      "Solutions d'assurance intégrées pour entreprises. Protection des actifs, employés et responsabilité civile.",
+    "services.homeInsurance": "Assurance Habitation",
+    "services.homeInsuranceDesc":
+      "Protection complète pour votre maison et vos biens. Couverture contre les incendies, le vol, les dommages naturels et la responsabilité civile.",
     "services.travelInsurance": "Services Voyage",
     "services.travelInsuranceDesc":
       "Assurance voyage et services passeport. Voyagez en toute sécurité avec couverture médicale et protection bagages.",
@@ -429,7 +429,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.selectType": "Choisir le type d'assurance",
     "contact.carInsurance": "Assurance Auto",
     "contact.truckInsurance": "Assurance Camions",
-    "contact.companyInsurance": "Assurance Entreprises",
+    "contact.homeInsurance": "Assurance Habitation",
     "contact.travelInsurance": "Services Voyage",
     "contact.healthInsurance": "Assurance Santé",
     "contact.message": "Votre message",

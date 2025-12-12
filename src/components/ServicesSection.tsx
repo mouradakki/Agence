@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   Car,
   Truck,
-  Building2,
+  Home,
   Plane,
   Heart,
   FileCheck,
@@ -26,9 +26,9 @@ const ServicesSection = () => {
       description: t("services.truckInsuranceDesc"),
     },
     {
-      icon: Building2,
-      title: t("services.companyInsurance"),
-      description: t("services.companyInsuranceDesc"),
+      icon: Home,
+      title: t("services.homeInsurance"),
+      description: t("services.homeInsuranceDesc"),
     },
     {
       icon: Plane,
