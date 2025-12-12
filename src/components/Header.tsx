@@ -134,10 +134,10 @@ const Header = memo(() => {
       }
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between lg:justify-start h-20">
+        <div className="flex items-center justify-between h-20 gap-2 sm:gap-4 overflow-hidden">
           <motion.a
             href="/"
-            className="flex items-center gap-1 sm:gap-2 group flex-shrink-0 relative z-10"
+            className="flex items-center gap-1 sm:gap-2 group flex-shrink-0 relative z-10 min-w-0"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             aria-label={t("header.brandName")}
@@ -163,18 +163,18 @@ const Header = memo(() => {
                 }}
               />
             </div>
-            <div className="hidden min-[380px]:block px-2 sm:px-3 py-2 rounded-lg group-hover:bg-primary/10 transition-all duration-200">
-              <p className="font-bold text-sm min-[380px]:text-base sm:text-lg transition-colors duration-200 text-black group-hover:text-primary whitespace-nowrap">
+            <div className="hidden min-[380px]:block px-2 sm:px-3 py-2 rounded-lg group-hover:bg-primary/10 transition-all duration-200 min-w-0">
+              <p className="font-bold text-sm min-[380px]:text-base sm:text-lg transition-colors duration-200 text-black group-hover:text-primary whitespace-nowrap truncate">
                 {t("header.brandName")}
               </p>
-              <p className="hidden sm:block text-xs transition-colors duration-200 text-gray-700 group-hover:text-primary/80">
+              <p className="hidden sm:block text-xs transition-colors duration-200 text-gray-700 group-hover:text-primary/80 truncate">
                 {t("header.approvedAgency")}
               </p>
             </div>
           </motion.a>
 
           <nav
-            className="hidden md:flex items-center gap-1 flex-1 justify-end"
+            className="hidden md:flex items-center gap-0.5 md:gap-1 lg:gap-2 flex-1 justify-end min-w-0 overflow-hidden"
             role="navigation"
             aria-label={t("nav.mainNavigation") || "Main navigation"}
           >
@@ -185,14 +185,14 @@ const Header = memo(() => {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`relative px-3 md:px-4 py-2 rounded-lg font-medium text-sm md:text-base transition-all duration-200 group ${
+                  className={`relative px-2 md:px-3 lg:px-4 py-2 rounded-lg font-medium text-xs md:text-sm lg:text-base transition-all duration-200 group flex-shrink-0 ${
                     isActive
                       ? "text-primary bg-primary/10"
                       : "text-black hover:text-primary hover:bg-primary/10"
                   }`}
                   aria-current={isActive ? "page" : undefined}
                 >
-                  {link.label}
+                  <span className="whitespace-nowrap">{link.label}</span>
                   {isActive && (
                     <motion.div
                       className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-primary"
@@ -206,37 +206,37 @@ const Header = memo(() => {
                     />
                   )}
                   {!isActive && (
-                    <span className="absolute bottom-0 left-3 md:left-4 right-3 md:right-4 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
+                    <span className="absolute bottom-0 left-2 md:left-3 lg:left-4 right-2 md:right-3 lg:right-4 h-0.5 bg-primary rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-center" />
                   )}
                 </a>
               );
             })}
           </nav>
 
-          <div className="hidden md:flex items-center gap-2 md:gap-3 flex-shrink-0 ml-2 md:ml-4">
+          <div className="hidden md:flex items-center gap-1 md:gap-2 lg:gap-3 flex-shrink-0 ml-1 md:ml-2 lg:ml-4">
             <motion.a
               href="tel:0535383218"
-              className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-lg font-semibold text-sm md:text-base transition-all duration-200 text-black hover:text-primary hover:bg-primary/15 backdrop-blur-sm"
+              className="flex items-center gap-1 md:gap-2 px-2 md:px-3 lg:px-4 py-2 rounded-lg font-semibold text-xs md:text-sm lg:text-base transition-all duration-200 text-black hover:text-primary hover:bg-primary/15 backdrop-blur-sm flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.phoneLabel") || "Phone"}: 0535383218`}
             >
-              <Phone className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="hidden lg:inline">0535383218</span>
+              <Phone className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+              <span className="hidden lg:inline whitespace-nowrap">0535383218</span>
             </motion.a>
             <motion.a
               href="https://wa.me/212662640525"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 rounded-lg font-bold text-sm md:text-base transition-all duration-200 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-md hover:shadow-lg backdrop-blur-sm"
+              className="flex items-center gap-1 md:gap-2 px-2 md:px-3 lg:px-4 py-2 rounded-lg font-bold text-xs md:text-sm lg:text-base transition-all duration-200 bg-[#25D366] text-white hover:bg-[#20BA5A] shadow-md hover:shadow-lg backdrop-blur-sm flex-shrink-0"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0662640525`}
             >
-              <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="hidden lg:inline">0662640525</span>
+              <MessageCircle className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" />
+              <span className="hidden lg:inline whitespace-nowrap">0662640525</span>
             </motion.a>
-            <div className="[&_button]:border-gray-300 [&_button]:text-black [&_button]:hover:bg-gray-100">
+            <div className="[&_button]:border-gray-300 [&_button]:text-black [&_button]:hover:bg-gray-100 flex-shrink-0">
               <LanguageToggle />
             </div>
           </div>

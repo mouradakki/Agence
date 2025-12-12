@@ -27,7 +27,7 @@ export default function Home() {
       "وكالة تأمين معتمدة من AtlantaSanad. خدمات تأمين السيارات والشاحنات والشركات وتأمين السفر للخارج.",
     url: siteUrl,
     logo: `${siteUrl}/logo.jpeg`,
-    image: `${siteUrl}/agence-photo.jpg`,
+    image: `${siteUrl}/Agent-photo.png`,
     telephone: "0535383218",
     email: "ag.assuranceskhenifra@atlantasanad.ma",
     address: {

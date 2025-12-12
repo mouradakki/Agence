@@ -72,7 +72,7 @@ const HeroSection = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                       <Image
-                        src="/profile-Fouad.jpg"
+                        src="/Agent-photo.png"
                         priority
                         alt="Fouad ABI - وكالة تأمين معتمدة"
                         width={600}
@@ -189,7 +189,7 @@ const HeroSection = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                   <Image
-                    src="/profile-Fouad.jpg"
+                    src="/Agent-photo.png"
                     priority
                     alt="Fouad ABI - وكالة تأمين معتمدة"
                     width={600}
