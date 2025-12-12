@@ -3,7 +3,10 @@
 import { motion } from "framer-motion";
 import { Shield, ArrowLeft } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCircleCheck,
+  faCheckCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
@@ -135,10 +138,11 @@ const HeroSection = () => {
                   className="absolute -bottom-4 lg:-bottom-6 -left-4 lg:-left-6 bg-primary-foreground rounded-xl lg:rounded-2xl p-3 lg:p-4 shadow-xl border-2 border-accent/30 z-20 max-w-[calc(100%-2rem)] lg:max-w-none"
                 >
                   <div className="flex items-center gap-2 lg:gap-3">
-                    <div 
+                    <div
                       className="w-10 h-10 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl flex items-center justify-center shadow-lg flex-shrink-0"
                       style={{
-                        background: 'linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)'
+                        background:
+                          "linear-gradient(to bottom right, hsl(220 100% 52%), #e40050)",
                       }}
                     >
                       <FontAwesomeIcon
@@ -151,7 +155,7 @@ const HeroSection = () => {
                         {t("advantages.approved")}
                       </p>
                       <p className="text-xs text-muted-foreground truncate">
-                        Atlanta Sanad
+                        AtlantaSanad
                       </p>
                     </div>
                   </div>

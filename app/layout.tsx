@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005"
   ),
-  title: "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
+  title: "وكالة تأمين معتمدة – AtlantaSanad | خدمات السيارات والسفر والشركات",
   description:
-    "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات، مع تأمين السفر للخارج وجوازات السفر. تواصل معنا الآن.",
+    "أحصل على أفضل حلول التأمين من وكالة معتمدة من AtlantaSanad. تأمين سيارات وشاحنات وشركات، مع تأمين السفر للخارج وجوازات السفر. تواصل معنا الآن.",
   keywords:
-    "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، Atlanta Sanad، المغرب، الدار البيضاء",
+    "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، AtlantaSanad، المغرب، الدار البيضاء",
   authors: [{ name: "وكالة أتلانتا سند للتأمين" }],
   icons: {
     icon: "/logo.jpeg",
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
+      "وكالة تأمين معتمدة – AtlantaSanad | خدمات السيارات والسفر والشركات",
     description:
-      "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات.",
+      "أحصل على أفضل حلول التأمين من وكالة معتمدة من AtlantaSanad. تأمين سيارات وشاحنات وشركات.",
     type: "website",
     locale: "ar_MA",
     alternateLocale: "fr_MA",
@@ -46,8 +46,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "وكالة تأمين معتمدة – Atlanta Sanad",
-    description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad.",
+    title: "وكالة تأمين معتمدة – AtlantaSanad",
+    description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من AtlantaSanad.",
     images: [
       `${
         process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma"

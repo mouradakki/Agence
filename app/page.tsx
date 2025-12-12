@@ -24,7 +24,7 @@ export default function Home() {
     "@type": "InsuranceAgency",
     name: "وكالة أتلانتا سند للتأمين",
     description:
-      "وكالة تأمين معتمدة من Atlanta Sanad. خدمات تأمين السيارات والشاحنات والشركات وتأمين السفر للخارج.",
+      "وكالة تأمين معتمدة من AtlantaSanad. خدمات تأمين السيارات والشاحنات والشركات وتأمين السفر للخارج.",
     url: siteUrl,
     logo: `${siteUrl}/logo.jpeg`,
     image: `${siteUrl}/agence-photo.jpg`,
@@ -33,7 +33,7 @@ export default function Home() {
     address: {
       "@type": "PostalAddress",
       streetAddress:
-        "شارع أمالو, مقابل بريد أمالو : لافتة Atlanta sanad",
+        "شارع أمالو, مقابل بريد أمالو : لافتة AtlantaSanad",
       addressLocality: "الدار البيضاء",
       addressCountry: "MA",
     },
@@ -58,7 +58,7 @@ export default function Home() {
     ],
     parentOrganization: {
       "@type": "Organization",
-      name: "Atlanta Sanad",
+      name: "AtlantaSanad",
     },
     priceRange: "$$",
     areaServed: {

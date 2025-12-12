@@ -27,12 +27,12 @@ const translations: Record<Language, Record<string, string>> = {
     "header.approvedAgency": "وكالة معتمدة",
     "header.brandName": "Agent Generale Fouad ABI",
     "hero.title": "حماية ما يهمّك",
-    "hero.subtitle": "وكالة تأمين معتمدة من Atlanta Sanad",
+    "hero.subtitle": "وكالة تأمين معتمدة من AtlantaSanad",
     "hero.description":
       "تأمين السيارات، الشاحنات، الشركات، وتأمين السفر للخارج — حلول موثوقة وسريعة في مدينتكم.",
     "hero.getQuote": "احصل على عرض سعر",
     "hero.discoverServices": "تعرّف على خدماتنا",
-    "hero.approvedBadge": "وكالة محلية معتمدة من Atlanta Sanad",
+    "hero.approvedBadge": "وكالة محلية معتمدة من AtlantaSanad",
     "hero.trustedClients": "أكثر من 5000 عميل يثقون بنا",
     "services.title": "خدماتنا التأمينية",
     "services.subtitle":
@@ -119,7 +119,7 @@ const translations: Record<Language, Record<string, string>> = {
     "advantages.stats.support": "دعم متاح",
     "advantages.compensationGuaranteed": "تسليم التعويضات بضمان",
     "advantages.compensationGuaranteedDesc":
-      "تسليم التعويضات عبر الشركة الأم Atlanta Sanad بكل موثوقية وشفافية.",
+      "تسليم التعويضات عبر الشركة الأم AtlantaSanad بكل موثوقية وشفافية.",
     "advantages.customerService": "خدمة عملاء من 9 صباحاً إلى 7 مساءً",
     "advantages.customerServiceDesc":
       "نحن متاحون من 9 صباحاً إلى 7 مساءً للإجابة على استفساراتكم ومساعدتكم.",
@@ -128,7 +128,7 @@ const translations: Record<Language, Record<string, string>> = {
       "نوفر لك باقات تأمينية متكاملة تلبي جميع احتياجاتك وبأسعار تنافسية.",
     "advantages.approved": "وكالة معتمدة رسمياً",
     "advantages.approvedDesc":
-      "وكالة معتمدة رسمياً من Atlanta Sanad مع جميع التراخيص والشهادات المطلوبة",
+      "وكالة معتمدة رسمياً من AtlantaSanad مع جميع التراخيص والشهادات المطلوبة",
     "advantages.fast": "إجراءات سريعة وواضحة",
     "advantages.fastDesc":
       "إجراءات مبسطة وسريعة مع الشفافية الكاملة في جميع المراحل",
@@ -137,7 +137,7 @@ const translations: Record<Language, Record<string, string>> = {
       "فريق دعم محلي متاح لمساعدتك ومرافقتك في جميع الإجراءات",
     "advantages.compensation": "تسليم التعويضات السريع",
     "advantages.compensationDesc":
-      "تعويضات سريعة ومضمونة عبر الشركة الأم Atlanta Sanad",
+      "تعويضات سريعة ومضمونة عبر الشركة الأم AtlantaSanad",
     "advantages.prices": "أسعار تنافسية",
     "advantages.pricesDesc":
       "أفضل الأسعار في السوق مع خيارات دفع مرنة تناسب الجميع",
@@ -200,7 +200,7 @@ const translations: Record<Language, Record<string, string>> = {
       "نرحب بكم في مكتبنا للحصول على استشارة مجانية ومباشرة",
     "location.address": "العنوان",
     "location.addressValue":
-      "شارع أمالو, مقابل بريد أمالو : لافتة Atlanta sanad",
+      "شارع أمالو, مقابل بريد أمالو : لافتة AtlantaSanad",
     "location.addressValue2": "",
     "location.addressValue3": "",
     "location.workingHours": "ساعات العمل",
@@ -234,7 +234,7 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a6":
       "نعم، نقدم حلول تأمينية متكاملة للشركات تشمل: تأمين الممتلكات، تأمين الموظفين، المسؤولية المهنية، وتأمين أسطول المركبات. نصمم باقات مخصصة حسب حجم ونشاط شركتك.",
     "footer.description":
-      "وكالة تأمين معتمدة من Atlanta Sanad. نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.",
+      "وكالة تأمين معتمدة من AtlantaSanad. نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.",
     "footer.quickLinks": "روابط سريعة",
     "footer.ourServices": "خدماتنا",
     "footer.contactUs": "تواصل معنا",
@@ -271,12 +271,12 @@ const translations: Record<Language, Record<string, string>> = {
     "header.approvedAgency": "Agence agréée",
     "header.brandName": "Agent Generale Fouad ABI",
     "hero.title": "Protégez ce qui compte",
-    "hero.subtitle": "Agence d'assurance agréée par Atlanta Sanad",
+    "hero.subtitle": "Agence d'assurance agréée par AtlantaSanad",
     "hero.description":
       "Assurance auto, camions, entreprises et services de voyage — des solutions fiables et rapides dans votre ville.",
     "hero.getQuote": "Demander un devis",
     "hero.discoverServices": "Découvrir nos services",
-    "hero.approvedBadge": "Agence locale agréée par Atlanta Sanad",
+    "hero.approvedBadge": "Agence locale agréée par AtlantaSanad",
     "hero.trustedClients": "Plus de 5000 clients nous font confiance",
     "services.title": "Nos Services d'Assurance",
     "services.subtitle":
@@ -364,7 +364,7 @@ const translations: Record<Language, Record<string, string>> = {
     "advantages.stats.support": "support disponible",
     "advantages.compensationGuaranteed": "Indemnisation garantie",
     "advantages.compensationGuaranteedDesc":
-      "Indemnisations via la société mère Atlanta Sanad avec toute fiabilité et transparence.",
+      "Indemnisations via la société mère AtlantaSanad avec toute fiabilité et transparence.",
     "advantages.customerService": "Service client 9h - 7h",
     "advantages.customerServiceDesc":
       "Nous sommes disponibles de 9h à 7h pour répondre à vos questions et vous aider.",
@@ -373,7 +373,7 @@ const translations: Record<Language, Record<string, string>> = {
       "Nous vous proposons des packages d'assurance intégrés qui répondent à tous vos besoins à des prix compétitifs.",
     "advantages.approved": "Agence officiellement agréée",
     "advantages.approvedDesc":
-      "Agence officiellement agréée par Atlanta Sanad avec toutes les licences et certifications requises",
+      "Agence officiellement agréée par AtlantaSanad avec toutes les licences et certifications requises",
     "advantages.fast": "Procédures rapides et claires",
     "advantages.fastDesc":
       "Procédures simplifiées et rapides avec transparence totale à toutes les étapes",
@@ -382,7 +382,7 @@ const translations: Record<Language, Record<string, string>> = {
       "Équipe de support local disponible pour vous aider et vous accompagner dans toutes les démarches",
     "advantages.compensation": "Indemnisation rapide",
     "advantages.compensationDesc":
-      "Indemnisations rapides et garanties via la société mère Atlanta Sanad",
+      "Indemnisations rapides et garanties via la société mère AtlantaSanad",
     "advantages.prices": "Prix compétitifs",
     "advantages.pricesDesc":
       "Les meilleurs prix du marché avec des options de paiement flexibles pour tous",
@@ -483,7 +483,7 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a6":
       "Oui, nous proposons des solutions d'assurance intégrées pour les entreprises comprenant : l'assurance des biens, l'assurance des employés, la responsabilité professionnelle et l'assurance de la flotte de véhicules. Nous concevons des packages personnalisés selon la taille et l'activité de votre entreprise.",
     "footer.description":
-      "Agence d'assurance agréée par Atlanta Sanad. Nous proposons des solutions d'assurance complètes et fiables pour les particuliers et les entreprises.",
+      "Agence d'assurance agréée par AtlantaSanad. Nous proposons des solutions d'assurance complètes et fiables pour les particuliers et les entreprises.",
     "footer.quickLinks": "Liens Rapides",
     "footer.ourServices": "Nos Services",
     "footer.contactUs": "Contactez-nous",
