@@ -81,26 +81,83 @@ const Header = memo(() => {
 
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-      e.preventDefault();
-      e.stopPropagation();
+      try {
+        e.preventDefault();
+        e.stopPropagation();
 
-      const sectionId = href.replace("#", "");
-      const element = document.getElementById(sectionId);
+        const sectionId = href.replace("#", "");
 
-      if (element) {
-        const headerHeight = 80;
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementTop - headerHeight;
+        // إغلاق القائمة المحمولة
+        setIsMobileMenuOpen(false);
 
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: "smooth",
-        });
+        // دالة للتمرير مع إعادة المحاولة
+        const scrollToElement = (retries = 5): void => {
+          try {
+            const element = document.getElementById(sectionId);
+
+            if (element) {
+              const headerHeight = 80;
+
+              // طريقة 1: استخدام scrollTo
+              try {
+                const elementPosition =
+                  element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerHeight;
+                window.scrollTo({
+                  top: Math.max(0, offsetPosition),
+                  behavior: "smooth",
+                });
+              } catch (scrollError) {
+                // طريقة 2: استخدام scrollIntoView كحل بديل
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+                // تعديل الموضع بعد التمرير لمراعاة ارتفاع الهيدر
+                setTimeout(() => {
+                  window.scrollBy({
+                    top: -headerHeight,
+                    behavior: "smooth",
+                  });
+                }, 100);
+              }
+            } else if (retries > 0) {
+              // إعادة المحاولة إذا لم يتم العثور على العنصر
+              setTimeout(() => scrollToElement(retries - 1), 100);
+            } else {
+              // إذا فشلت جميع المحاولات، استخدم hash مباشرة
+              window.location.hash = href;
+              // محاولة أخيرة بعد تحديث hash
+              setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                  const headerHeight = 80;
+                  const elementPosition =
+                    element.getBoundingClientRect().top + window.pageYOffset;
+                  const offsetPosition = elementPosition - headerHeight;
+                  window.scrollTo({
+                    top: Math.max(0, offsetPosition),
+                    behavior: "smooth",
+                  });
+                }
+              }, 100);
+            }
+          } catch (error) {
+            console.error("Error scrolling to section:", error);
+            // كحل أخير، استخدم hash مباشرة
+            window.location.hash = href;
+          }
+        };
+
+        // بدء التمرير بعد تأخير صغير لضمان إغلاق القائمة المحمولة
+        const delay = isMobileMenuOpen ? 150 : 0;
+        setTimeout(() => {
+          scrollToElement();
+        }, delay);
+      } catch (error) {
+        console.error("Error in handleNavClick:", error);
+        // في حالة الخطأ، اسمح للرابط بالعمل بشكل طبيعي
+        window.location.hash = href;
       }
-
-      setIsMobileMenuOpen(false);
     },
-    []
+    [isMobileMenuOpen]
   );
 
   const navLinks = useMemo(
@@ -153,11 +210,11 @@ const Header = memo(() => {
                 className="object-contain"
                 priority
                 unoptimized
-                style={{ 
+                style={{
                   width: "100%",
                   height: "100%",
                   objectFit: "contain",
-                  display: "block"
+                  display: "block",
                 }}
                 onError={(e) => {
                   console.error("Failed to load logo image");

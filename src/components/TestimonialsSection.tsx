@@ -52,7 +52,7 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 items-stretch">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.name}
@@ -60,7 +60,7 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15 }}
-              className="bg-card rounded-2xl p-8 card-shadow border border-border relative"
+              className="bg-card rounded-2xl p-8 card-shadow border border-border relative h-full flex flex-col"
             >
               <div className="absolute top-6 left-6">
                 <Quote className="w-10 h-10 text-primary/10" />
@@ -72,26 +72,21 @@ const TestimonialsSection = () => {
                 ))}
               </div>
 
-              <p className="text-foreground/80 leading-relaxed mb-8 text-lg">
+              <p className="text-foreground/80 leading-relaxed mb-8 text-lg flex-1">
                 "{testimonial.text}"
               </p>
 
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full hero-gradient flex items-center justify-center text-primary-foreground font-bold text-lg">
+              <div className="flex items-center gap-4 mt-auto">
+                <div className="w-12 h-12 rounded-full hero-gradient flex items-center justify-center text-primary-foreground font-bold text-lg flex-shrink-0">
                   {testimonial.avatar}
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="font-bold text-foreground">
                     {testimonial.name}
                   </p>
                   <p className="text-sm text-muted-foreground">
                     {testimonial.city}
                   </p>
-                  {testimonial.email && (
-                    <p className="text-xs text-muted-foreground/70 mt-1">
-                      {testimonial.email}
-                    </p>
-                  )}
                 </div>
               </div>
             </motion.div>
