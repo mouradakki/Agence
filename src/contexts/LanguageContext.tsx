@@ -25,7 +25,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.closeMenu": "إغلاق القائمة",
     "header.getQuote": "احصل على عرض سعر",
     "header.approvedAgency": "وكالة معتمدة",
-    "header.brandName": "AGENCE Fouad ABI",
+    "header.brandName": "Agent Generale Fouad ABI",
     "hero.title": "حماية ما يهمّك",
     "hero.subtitle": "وكالة تأمين معتمدة من Atlanta Sanad",
     "hero.description":
@@ -268,7 +268,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.closeMenu": "Fermer le menu",
     "header.getQuote": "Demander un devis",
     "header.approvedAgency": "Agence agréée",
-    "header.brandName": "AGENCE Fouad ABI",
+    "header.brandName": "Agent Generale Fouad ABI",
     "hero.title": "Protégez ce qui compte",
     "hero.subtitle": "Agence d'assurance agréée par Atlanta Sanad",
     "hero.description":

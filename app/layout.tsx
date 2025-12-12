@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     locale: "ar_MA",
     alternateLocale: "fr_MA",
     url: process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma",
-    siteName: "AGENCE Fouad ABI",
+    siteName: "Agent Generale Fouad ABI",
     images: [
       {
         url: `${
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         }/logo.jpeg`,
         width: 1200,
         height: 630,
-        alt: "AGENCE Fouad ABI - وكالة تأمين معتمدة",
+        alt: "Agent Generale Fouad ABI - وكالة تأمين معتمدة",
       },
     ],
   },

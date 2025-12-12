@@ -51,11 +51,11 @@ const ContactSection = () => {
               </a>
 
               <a
-                href="https://wa.me/212535383218"
+                href="https://wa.me/212662640525"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#25D366]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
-                aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0535383218`}
+                aria-label={`${t("contact.whatsapp") || "WhatsApp"}: 0662640525`}
               >
                 <div className="w-12 h-12 rounded-lg bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   <MessageCircle className="w-6 h-6 text-white" />
@@ -68,7 +68,7 @@ const ContactSection = () => {
                     className="text-muted-foreground break-all group-hover:text-foreground/80 transition-colors"
                     dir="ltr"
                   >
-                    0535383218
+                    0662640525
                   </p>
                 </div>
               </a>
