@@ -171,7 +171,7 @@ const Footer = memo(() => {
 
       <div className="border-t border-background/10">
         <div className="container-custom py-6">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-background/60">
             <p>
               © {currentYear} {t("header.brandName")}. {t("footer.allRights")}.
             </p>
