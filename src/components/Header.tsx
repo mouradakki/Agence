@@ -246,7 +246,7 @@ const Header = memo(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/70 backdrop-blur-xl z-40 md:hidden"
+              className="fixed inset-0 bg-black/70 backdrop-blur-xl z-[50] md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -259,14 +259,18 @@ const Header = memo(() => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`md:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white/[0.98] to-blue-500/20 backdrop-blur-[30px] border-b border-pink-500/10 ${
+              className={`md:hidden fixed top-0 bottom-0 h-screen w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white via-white/95 to-blue-50/90 backdrop-blur-[80px] border-b border-pink-500/10 ${
                 dir === "rtl" ? "right-0" : "left-0"
               }`}
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.97)",
+                backdropFilter: "blur(80px) saturate(180%)",
+              }}
               id="mobile-navigation"
               role="navigation"
               aria-label={t("nav.mobileNavigation") || "Mobile navigation"}
             >
-              <nav className="container-custom pt-2 pb-6 flex flex-col gap-2">
+              <nav className="container-custom pt-2 pb-6 flex flex-col gap-2 h-full overflow-y-auto">
                 <div className="flex items-center justify-between mb-4 gap-4">
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
