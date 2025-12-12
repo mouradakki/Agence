@@ -9,7 +9,6 @@ const LocationSection = () => {
   return (
     <section id="location" className="section-padding bg-muted/30">
       <div className="container-custom">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -29,7 +28,6 @@ const LocationSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-5">
-          {/* Info Cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -115,7 +113,6 @@ const LocationSection = () => {
             </div>
           </motion.div>
 
-          {/* Google Maps */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -128,11 +125,10 @@ const LocationSection = () => {
                 src="https://maps.google.com/maps?q=Khenifra+Amalo+Morocco&t=&z=15&ie=UTF8&iwloc=&output=embed&hl=ar"
                 width="100%"
                 height="500"
-                style={{ border: 0, display: "block" }}
+                className="w-full border-0 block"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full"
                 title="موقع الوكالة - خنيفرة، حي أمالو"
               />
             </div>

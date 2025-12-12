@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const TestimonialsSection = () => {
   const { t, language } = useLanguage();
-  
+
   const testimonials = [
     {
       name: language === "ar" ? "أحمد المنصوري" : "Ahmed Mansouri",
@@ -16,7 +16,8 @@ const TestimonialsSection = () => {
       avatar: language === "ar" ? "أ" : "A",
     },
     {
-      name: language === "ar" ? "فاطمة الزهراء بنعيسى" : "Fatima Zahra Benaissa",
+      name:
+        language === "ar" ? "فاطمة الزهراء بنعيسى" : "Fatima Zahra Benaissa",
       city: language === "ar" ? "الرباط" : "Rabat",
       rating: 5,
       text: t("testimonials.testimonial2"),
@@ -33,7 +34,6 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="section-padding bg-muted/30">
       <div className="container-custom">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,6 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((testimonial, index) => (
             <motion.div
@@ -63,31 +62,31 @@ const TestimonialsSection = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               className="bg-card rounded-2xl p-8 card-shadow border border-border relative"
             >
-              {/* Quote Icon */}
               <div className="absolute top-6 left-6">
                 <Quote className="w-10 h-10 text-primary/10" />
               </div>
 
-              {/* Rating */}
               <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-accent text-accent" />
                 ))}
               </div>
 
-              {/* Text */}
               <p className="text-foreground/80 leading-relaxed mb-8 text-lg">
                 "{testimonial.text}"
               </p>
 
-              {/* Author */}
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full hero-gradient flex items-center justify-center text-primary-foreground font-bold text-lg">
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <p className="font-bold text-foreground">{testimonial.name}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.city}</p>
+                  <p className="font-bold text-foreground">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.city}
+                  </p>
                 </div>
               </div>
             </motion.div>

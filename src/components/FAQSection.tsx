@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQSection = () => {
   const { t, dir } = useLanguage();
-  
+
   const faqs = [
     {
       question: t("faq.q1"),
@@ -42,7 +42,6 @@ const FAQSection = () => {
     <section id="faq" className="bg-background pt-8 md:pt-10 lg:pt-12 pb-0">
       <div className="container-custom pb-8 md:pb-10 lg:pb-12">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-          {/* Header */}
           <motion.div
             initial={{ opacity: 0, x: dir === "rtl" ? 30 : -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -57,10 +56,10 @@ const FAQSection = () => {
             </p>
 
             <div className="p-6 bg-primary/5 rounded-2xl border border-primary/10">
-              <h3 className="font-bold text-foreground mb-2">{t("faq.haveQuestion")}</h3>
-              <p className="text-muted-foreground mb-4">
-                {t("faq.teamReady")}
-              </p>
+              <h3 className="font-bold text-foreground mb-2">
+                {t("faq.haveQuestion")}
+              </h3>
+              <p className="text-muted-foreground mb-4">{t("faq.teamReady")}</p>
               <a
                 href="#contact"
                 className="text-primary font-semibold hover:underline flex items-center gap-2"
@@ -71,7 +70,6 @@ const FAQSection = () => {
             </div>
           </motion.div>
 
-          {/* FAQ Accordion */}
           <motion.div
             initial={{ opacity: 0, x: dir === "rtl" ? -30 : 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -85,10 +83,18 @@ const FAQSection = () => {
                   value={`item-${index}`}
                   className="bg-card rounded-xl border border-border px-6 data-[state=open]:shadow-lg transition-shadow"
                 >
-                  <AccordionTrigger className={`${dir === "rtl" ? "text-right" : "text-left"} font-bold text-foreground py-5 text-base cursor-pointer hover:no-underline`}>
+                  <AccordionTrigger
+                    className={`${
+                      dir === "rtl" ? "text-right" : "text-left"
+                    } font-bold text-foreground py-5 text-base cursor-pointer hover:no-underline`}
+                  >
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className={`${dir === "rtl" ? "text-right" : "text-left"} text-muted-foreground pb-5 leading-relaxed`}>
+                  <AccordionContent
+                    className={`${
+                      dir === "rtl" ? "text-right" : "text-left"
+                    } text-muted-foreground pb-5 leading-relaxed`}
+                  >
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -97,7 +103,6 @@ const FAQSection = () => {
           </motion.div>
         </div>
       </div>
-      {/* Mountain-like wave shape at the bottom */}
       <div className="relative">
         <svg
           viewBox="0 0 1440 120"
@@ -122,4 +127,3 @@ const FAQSection = () => {
 };
 
 export default FAQSection;
-

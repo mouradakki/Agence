@@ -110,7 +110,6 @@
 
   body {
     @apply bg-background text-foreground font-cairo antialiased;
-    direction: rtl;
     margin: 0 !important;
     padding: 0 !important;
     height: 100%;
@@ -185,17 +184,24 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
-  /* Remove any borders from hero section */
+  /* Hero section styles */
   section.hero-gradient {
     border: none !important;
-    border-bottom: none !important;
     outline: none !important;
   }
 
-  /* Remove stroke from SVG wave divider */
+  section.hero-gradient svg {
+    display: block;
+  }
+
   section.hero-gradient svg path {
     stroke: none !important;
-    stroke-width: 0 !important;
+  }
+
+  /* Ensure logo is not tilted */
+  img[alt="Logo"],
+  img[alt="Logo"] ~ * {
+    transform: none !important;
   }
 }
 

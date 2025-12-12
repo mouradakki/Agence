@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, CheckCircle2, ArrowLeft } from "lucide-react";
+import {
+  Shield,
+  CheckCircle2,
+  ArrowLeft,
+  Check,
+  BadgeCheck,
+} from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
@@ -9,35 +17,22 @@ import Image from "next/image";
 const HeroSection = () => {
   const { t } = useLanguage();
   return (
-    <section
-      className="relative min-h-screen flex items-center hero-gradient overflow-hidden"
-      style={{ border: "none", outline: "none" }}
-    >
-      {/* Background Pattern */}
+    <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden border-none outline-none">
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary-foreground rounded-full blur-3xl" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
       </div>
 
-      {/* Grid Pattern */}
-      <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "50px 50px",
-        }}
-      />
+      <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
 
       <div className="container-custom relative z-10 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-primary-foreground"
           >
-            {/* Trust Badge */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -50,7 +45,6 @@ const HeroSection = () => {
               </span>
             </motion.div>
 
-            {/* Headline */}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {t("hero.title")}
               <span className="block mt-2 text-accent">
@@ -58,12 +52,10 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            {/* Sub-headline */}
             <p className="text-lg sm:text-xl text-primary-foreground/80 mb-8 leading-relaxed max-w-xl">
               {t("hero.description")}
             </p>
 
-            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-12">
               <Button variant="hero" size="lg" asChild>
                 <a href="#contact">
@@ -76,7 +68,6 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Trust Points */}
             <div className="flex flex-wrap gap-6">
               {[
                 t("advantages.fast"),
@@ -90,14 +81,19 @@ const HeroSection = () => {
                   transition={{ delay: 0.5 + index * 0.1 }}
                   className="flex items-center gap-2"
                 >
-                  <CheckCircle2 className="w-5 h-5 text-accent" />
+                  <div className="relative w-7 h-7 shrink-0 flex items-center justify-center">
+                    <div className="absolute inset-0 rounded-full border-2 border-accent bg-accent"></div>
+                    <FontAwesomeIcon
+                      icon={faCircleCheck}
+                      className="relative z-10 w-4 h-4 text-accent-foreground"
+                    />
+                  </div>
                   <span className="text-sm font-medium">{point}</span>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Profile Image - Welcome Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, x: 30 }}
             animate={{
@@ -108,28 +104,14 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative hidden lg:block"
           >
-            <motion.div
-              animate={{
-                y: [0, -20, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              {/* Decorative Elements */}
+            <div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-accent/20 rounded-full blur-2xl z-0" />
               <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-primary-foreground/10 rounded-full blur-2xl z-0" />
 
-              {/* Main Image Container */}
               <div className="relative z-10">
-                {/* Outer Glow Effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/30 via-primary-foreground/20 to-transparent rounded-3xl blur-xl -z-10" />
 
-                {/* Image Frame */}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-primary-foreground/30 bg-primary-foreground/5 backdrop-blur-sm group">
-                  {/* Gradient Overlay for better integration */}
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent z-10 pointer-events-none" />
 
                   <Image
@@ -141,11 +123,9 @@ const HeroSection = () => {
                     className="object-cover w-full h-auto transition-transform duration-700 group-hover:scale-105"
                   />
 
-                  {/* Bottom Accent Bar */}
                   <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-accent via-primary to-accent z-20" />
                 </div>
 
-                {/* Floating Badge */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -154,7 +134,11 @@ const HeroSection = () => {
                 >
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-gradient-to-br from-accent to-primary rounded-xl flex items-center justify-center shadow-lg">
-                      <Shield className="w-6 h-6 text-accent-foreground" />
+                      <BadgeCheck
+                        className="w-6 h-6 text-white"
+                        strokeWidth={2.5}
+                        fill="white"
+                      />
                     </div>
                     <div>
                       <p className="font-bold text-foreground text-sm">
@@ -167,26 +151,22 @@ const HeroSection = () => {
                   </div>
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
 
-      {/* Wave Divider */}
-      <div
-        className="absolute bottom-0 left-0 right-0"
-        style={{ border: "none", outline: "none" }}
-      >
+      <div className="absolute bottom-0 left-0 right-0 border-none outline-none">
         <svg
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ display: "block" }}
+          className="block"
         >
           <path
             d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
             fill="hsl(var(--background))"
-            style={{ stroke: "none" }}
+            className="stroke-none"
           />
         </svg>
       </div>

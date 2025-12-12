@@ -12,15 +12,13 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
-  const currentYear = 2026;
+  const currentYear = new Date().getFullYear();
   const { t } = useLanguage();
 
   return (
     <footer className="bg-foreground text-background">
-      {/* Main Footer */}
       <div className="container-custom py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center bg-white">
@@ -30,6 +28,7 @@ const Footer = () => {
                   width={48}
                   height={48}
                   className="object-contain"
+                  style={{ transform: "rotate(0deg)" }}
                 />
               </div>
               <div>
@@ -42,7 +41,6 @@ const Footer = () => {
             <p className="text-background/70 leading-relaxed mb-6">
               {t("footer.description")}
             </p>
-            {/* Social Links */}
             <div className="flex gap-3">
               <a
                 href="#"
@@ -82,7 +80,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="font-bold text-lg mb-6">{t("footer.quickLinks")}</h3>
             <ul className="space-y-3">
@@ -105,7 +102,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services */}
           <div>
             <h3 className="font-bold text-lg mb-6">
               {t("footer.ourServices")}
@@ -131,7 +127,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="font-bold text-lg mb-6">
               {t("footer.contactInfo")}
@@ -188,14 +183,12 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-background/10">
         <div className="container-custom py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
             <p>
               © {currentYear} {t("header.brandName")}. {t("footer.allRights")}.
             </p>
-            <p className="text-xs">{t("footer.license")}: XXX-XXXX-XXXX</p>
           </div>
         </div>
       </div>

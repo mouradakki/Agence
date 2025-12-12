@@ -10,18 +10,24 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3005"
+  ),
   title: "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
-  description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات، مع خدمات السفر وجوازات السفر. تواصل معنا الآن.",
-  keywords: "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، Atlanta Sanad، المغرب، الدار البيضاء",
+  description:
+    "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات، مع خدمات السفر وجوازات السفر. تواصل معنا الآن.",
+  keywords:
+    "تأمين السيارات، تأمين الشاحنات، تأمين الشركات، تأمين السفر، Atlanta Sanad، المغرب، الدار البيضاء",
   authors: [{ name: "وكالة أتلانتا سند للتأمين" }],
   icons: {
     icon: "/logo-1.png",
     apple: "/logo-1.png",
   },
   openGraph: {
-    title: "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
-    description: "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات.",
+    title:
+      "وكالة تأمين معتمدة – Atlanta Sanad | خدمات السيارات والسفر والشركات",
+    description:
+      "أحصل على أفضل حلول التأمين من وكالة معتمدة من Atlanta Sanad. تأمين سيارات وشاحنات وشركات.",
     type: "website",
     locale: "ar_MA",
     images: ["/placeholder.svg"],
@@ -49,11 +55,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className={cairo.variable} suppressHydrationWarning>
-      <body className="font-cairo antialiased" suppressHydrationWarning style={{ margin: 0, padding: 0 }}>
+    <html lang="ar" className={cairo.variable} suppressHydrationWarning>
+      <body className="font-cairo antialiased m-0 p-0" suppressHydrationWarning>
         <Providers>{children}</Providers>
       </body>
     </html>
   );
 }
-

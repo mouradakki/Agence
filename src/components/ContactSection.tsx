@@ -1,10 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone, faClock } from "@fortawesome/free-solid-svg-icons";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
+import { Phone, Clock, Mail, MessageCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const ContactSection = () => {
@@ -14,7 +11,6 @@ const ContactSection = () => {
     <section id="contact" className="section-padding bg-background">
       <div className="container-custom">
         <div className="max-w-4xl mx-auto">
-          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,17 +28,13 @@ const ContactSection = () => {
               {t("contact.mainSubtitle")}
             </p>
 
-            {/* Contact Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
               <a
                 href="tel:0535383218"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/20 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-lg hero-gradient flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <FontAwesomeIcon
-                    icon={faPhone}
-                    className="w-6 h-6 text-primary-foreground"
-                  />
+                  <Phone className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-foreground group-hover:text-primary transition-colors">
@@ -64,10 +56,7 @@ const ContactSection = () => {
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#25D366]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <FontAwesomeIcon
-                    icon={faWhatsapp}
-                    className="w-6 h-6 text-white"
-                  />
+                  <MessageCircle className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-foreground group-hover:text-[#25D366] transition-colors">
@@ -87,10 +76,7 @@ const ContactSection = () => {
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-[#EA4335]/30 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group"
               >
                 <div className="w-12 h-12 rounded-lg bg-[#EA4335] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    className="w-6 h-6 text-white"
-                  />
+                  <Mail className="w-6 h-6 text-white" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-foreground group-hover:text-[#EA4335] transition-colors">
@@ -104,10 +90,7 @@ const ContactSection = () => {
 
               <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/20 hover:shadow-lg card-shadow hover:card-shadow-hover transition-all duration-300 group">
                 <div className="w-12 h-12 rounded-lg hero-gradient flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <FontAwesomeIcon
-                    icon={faClock}
-                    className="w-6 h-6 text-primary-foreground"
-                  />
+                  <Clock className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-bold text-foreground group-hover:text-primary transition-colors">

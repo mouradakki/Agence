@@ -13,7 +13,6 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   ar: {
-    // Header
     "nav.services": "خدماتنا",
     "nav.howItWorks": "كيف نعمل",
     "nav.advantages": "مميزاتنا",
@@ -23,22 +22,21 @@ const translations: Record<Language, Record<string, string>> = {
     "header.getQuote": "احصل على عرض سعر",
     "header.approvedAgency": "وكالة معتمدة",
     "header.brandName": "AGENCE Fouad ABI",
-    
-    // Hero
     "hero.title": "حماية ما يهمّك",
     "hero.subtitle": "وكالة تأمين معتمدة من Atlanta Sanad",
-    "hero.description": "تأمين السيارات، الشاحنات، الشركات، وخدمات السفر — حلول موثوقة وسريعة في مدينتكم.",
+    "hero.description":
+      "تأمين السيارات، الشاحنات، الشركات، وخدمات السفر — حلول موثوقة وسريعة في مدينتكم.",
     "hero.getQuote": "احصل على عرض سعر",
     "hero.discoverServices": "تعرّف على خدماتنا",
     "hero.approvedBadge": "وكالة محلية معتمدة من Atlanta Sanad",
     "hero.trustedClients": "أكثر من 5000 عميل يثقون بنا",
-    
-    // Services
     "services.title": "خدماتنا التأمينية",
-    "services.subtitle": "نقدم لكم مجموعة شاملة من حلول التأمين المصممة لتلبية احتياجاتكم",
+    "services.subtitle":
+      "نقدم لكم مجموعة شاملة من حلول التأمين المصممة لتلبية احتياجاتكم",
     "services.badge": "خدماتنا",
     "services.mainTitle": "حلول تأمينية شاملة",
-    "services.mainSubtitle": "نقدم مجموعة متكاملة من خدمات التأمين المصممة لحماية ما يهمك أكثر",
+    "services.mainSubtitle":
+      "نقدم مجموعة متكاملة من خدمات التأمين المصممة لحماية ما يهمك أكثر",
     "services.requestQuote": "اطلب عرض سعر",
     "services.feature1": "تغطية الأضرار",
     "services.feature2": "المسؤولية المدنية",
@@ -58,90 +56,108 @@ const translations: Record<Language, Record<string, string>> = {
     "services.feature16": "تجديد العقود",
     "services.feature17": "متابعة الملفات",
     "services.adminServices": "خدمات إدارية",
-    "services.adminDesc": "مساعدة في إجراءات التأمين والوثائق الإدارية المتعلقة بالسفر والمركبات.",
+    "services.adminDesc":
+      "مساعدة في إجراءات التأمين والوثائق الإدارية المتعلقة بالسفر والمركبات.",
     "services.carInsurance": "تأمين السيارات",
-    "services.carInsuranceDesc": "حماية شاملة لسيارتك ضد جميع المخاطر. تغطية الحوادث والسرقة والأضرار الطبيعية.",
+    "services.carInsuranceDesc":
+      "حماية شاملة لسيارتك ضد جميع المخاطر. تغطية الحوادث والسرقة والأضرار الطبيعية.",
     "services.truckInsurance": "تأمين الشاحنات",
-    "services.truckInsuranceDesc": "تأمين متخصص للشاحنات ومركبات النقل. حماية أسطولكم التجاري بأفضل الأسعار.",
+    "services.truckInsuranceDesc":
+      "تأمين متخصص للشاحنات ومركبات النقل. حماية أسطولكم التجاري بأفضل الأسعار.",
     "services.companyInsurance": "تأمين الشركات",
-    "services.companyInsuranceDesc": "حلول تأمينية متكاملة للشركات والمؤسسات. حماية الأصول والموظفين والمسؤولية المدنية.",
+    "services.companyInsuranceDesc":
+      "حلول تأمينية متكاملة للشركات والمؤسسات. حماية الأصول والموظفين والمسؤولية المدنية.",
     "services.travelInsurance": "خدمات السفر",
-    "services.travelInsuranceDesc": "تأمين السفر وخدمات جواز السفر. سفر آمن مع تغطية طبية وحماية الأمتعة.",
+    "services.travelInsuranceDesc":
+      "تأمين السفر وخدمات جواز السفر. سفر آمن مع تغطية طبية وحماية الأمتعة.",
     "services.healthInsurance": "التأمين الصحي",
-    "services.healthInsuranceDesc": "تغطية صحية شاملة لك ولعائلتك. الوصول لأفضل المستشفيات والأطباء.",
+    "services.healthInsuranceDesc":
+      "تغطية صحية شاملة لك ولعائلتك. الوصول لأفضل المستشفيات والأطباء.",
     "services.familyInsurance": "التأمين العائلي",
-    "services.familyInsuranceDesc": "حماية شاملة لجميع أفراد العائلة. راحة البال مع تغطية متعددة الجوانب.",
+    "services.familyInsuranceDesc":
+      "حماية شاملة لجميع أفراد العائلة. راحة البال مع تغطية متعددة الجوانب.",
     "services.moreDetails": "المزيد من التفاصيل",
-    
-    // Welcome Section
     "welcome.badge": "مرحباً بكم",
     "welcome.title": "مرحباً بكم في وكالتنا",
     "welcome.subtitle": "رسالة من صاحب الوكالة",
-    "welcome.message": "نحن سعداء بزيارتكم لموقعنا الإلكتروني. في وكالتنا، نلتزم بتقديم أفضل خدمات التأمين لعملائنا الكرام. نحن هنا لمساعدتكم في حماية ما يهمكم أكثر - سياراتكم، أعمالكم، وأسرتكم. فريقنا المحترف جاهز دائماً لتقديم الاستشارات والدعم الذي تحتاجونه.",
+    "welcome.message":
+      "نحن سعداء بزيارتكم لموقعنا الإلكتروني. في وكالتنا، نلتزم بتقديم أفضل خدمات التأمين لعملائنا الكرام. نحن هنا لمساعدتكم في حماية ما يهمكم أكثر - سياراتكم، أعمالكم، وأسرتكم. فريقنا المحترف جاهز دائماً لتقديم الاستشارات والدعم الذي تحتاجونه.",
     "welcome.commitment": "التزامنا تجاهكم",
-    "welcome.commitmentDesc": "نحن ملتزمون بتقديم خدمة متميزة، شفافية كاملة، وأسعار تنافسية لضمان رضاكم التام.",
+    "welcome.commitmentDesc":
+      "نحن ملتزمون بتقديم خدمة متميزة، شفافية كاملة، وأسعار تنافسية لضمان رضاكم التام.",
     "welcome.experience": "سنوات من الخبرة",
     "welcome.clients": "عميل راضٍ",
     "welcome.satisfaction": "معدل الرضا",
-    
-    // How it works
     "howItWorks.title": "كيف نعمل؟",
     "howItWorks.subtitle": "ثلاث خطوات بسيطة للحصول على تأمينك",
     "howItWorks.badge": "كيف نعمل",
     "howItWorks.mainTitle": "ثلاث خطوات بسيطة",
-    "howItWorks.mainSubtitle": "نجعل عملية الحصول على التأمين سهلة وسريعة من خلال ثلاث خطوات واضحة",
+    "howItWorks.mainSubtitle":
+      "نجعل عملية الحصول على التأمين سهلة وسريعة من خلال ثلاث خطوات واضحة",
     "howItWorks.step1Title": "التواصل معنا",
-    "howItWorks.step1Desc": "تواصل معنا عبر الهاتف أو الواتساب أو زيارة مكتبنا لمناقشة احتياجاتك التأمينية.",
+    "howItWorks.step1Desc":
+      "تواصل معنا عبر الهاتف أو الواتساب أو زيارة مكتبنا لمناقشة احتياجاتك التأمينية.",
     "howItWorks.step2Title": "الحصول على عرض سعر",
-    "howItWorks.step2Desc": "نقوم بدراسة متطلباتك ونقدم لك عرض سعر مفصل يناسب ميزانيتك واحتياجاتك.",
+    "howItWorks.step2Desc":
+      "نقوم بدراسة متطلباتك ونقدم لك عرض سعر مفصل يناسب ميزانيتك واحتياجاتك.",
     "howItWorks.step3Title": "إتمام العقد واستلام البوليصة",
-    "howItWorks.step3Desc": "بعد الموافقة، نقوم بإتمام الإجراءات وتسليمك وثيقة التأمين في أسرع وقت.",
-    
-    // Advantages
+    "howItWorks.step3Desc":
+      "بعد الموافقة، نقوم بإتمام الإجراءات وتسليمك وثيقة التأمين في أسرع وقت.",
     "advantages.title": "لماذا تختارنا؟",
     "advantages.subtitle": "مميزات تجعلنا الخيار الأفضل لاحتياجاتكم التأمينية",
     "advantages.badge": "لماذا تختارنا",
     "advantages.mainTitle": "مميزات تجعلنا",
     "advantages.mainTitleHighlight": "الخيار الأفضل",
-    "advantages.mainDesc": "نحرص على تقديم أفضل خدمات التأمين مع التزامنا بالجودة والشفافية في كل تعاملاتنا، مما يجعلنا الشريك الموثوق لآلاف العملاء.",
+    "advantages.mainDesc":
+      "نحرص على تقديم أفضل خدمات التأمين مع التزامنا بالجودة والشفافية في كل تعاملاتنا، مما يجعلنا الشريك الموثوق لآلاف العملاء.",
     "advantages.stats.clients": "عميل سعيد",
     "advantages.stats.experience": "سنة خبرة",
     "advantages.stats.support": "دعم متاح",
     "advantages.compensationGuaranteed": "تسليم التعويضات بضمان",
-    "advantages.compensationGuaranteedDesc": "تسليم التعويضات عبر الشركة الأم Atlanta Sanad بكل موثوقية وشفافية.",
+    "advantages.compensationGuaranteedDesc":
+      "تسليم التعويضات عبر الشركة الأم Atlanta Sanad بكل موثوقية وشفافية.",
     "advantages.customerService": "خدمة عملاء على مدار الساعة",
-    "advantages.customerServiceDesc": "نحن متاحون دائماً للإجابة على استفساراتكم ومساعدتكم في أي وقت.",
+    "advantages.customerServiceDesc":
+      "نحن متاحون دائماً للإجابة على استفساراتكم ومساعدتكم في أي وقت.",
     "advantages.diverseCoverage": "تغطية شاملة ومتنوعة",
-    "advantages.diverseCoverageDesc": "نوفر لك باقات تأمينية متكاملة تلبي جميع احتياجاتك وبأسعار تنافسية.",
+    "advantages.diverseCoverageDesc":
+      "نوفر لك باقات تأمينية متكاملة تلبي جميع احتياجاتك وبأسعار تنافسية.",
     "advantages.approved": "وكالة معتمدة رسمياً",
-    "advantages.approvedDesc": "وكالة معتمدة رسمياً من Atlanta Sanad مع جميع التراخيص والشهادات المطلوبة",
+    "advantages.approvedDesc":
+      "وكالة معتمدة رسمياً من Atlanta Sanad مع جميع التراخيص والشهادات المطلوبة",
     "advantages.fast": "إجراءات سريعة وواضحة",
-    "advantages.fastDesc": "إجراءات مبسطة وسريعة مع الشفافية الكاملة في جميع المراحل",
+    "advantages.fastDesc":
+      "إجراءات مبسطة وسريعة مع الشفافية الكاملة في جميع المراحل",
     "advantages.support": "دعم محلي متميز",
-    "advantages.supportDesc": "فريق دعم محلي متاح لمساعدتك ومرافقتك في جميع الإجراءات",
+    "advantages.supportDesc":
+      "فريق دعم محلي متاح لمساعدتك ومرافقتك في جميع الإجراءات",
     "advantages.compensation": "تسليم التعويضات السريع",
-    "advantages.compensationDesc": "تعويضات سريعة ومضمونة عبر الشركة الأم Atlanta Sanad",
+    "advantages.compensationDesc":
+      "تعويضات سريعة ومضمونة عبر الشركة الأم Atlanta Sanad",
     "advantages.prices": "أسعار تنافسية",
-    "advantages.pricesDesc": "أفضل الأسعار في السوق مع خيارات دفع مرنة تناسب الجميع",
+    "advantages.pricesDesc":
+      "أفضل الأسعار في السوق مع خيارات دفع مرنة تناسب الجميع",
     "advantages.coverage": "تغطية شاملة",
-    "advantages.coverageDesc": "تغطية تأمينية شاملة لجميع أنواع المخاطر والاحتياجات",
-    
-    // Testimonials
+    "advantages.coverageDesc":
+      "تغطية تأمينية شاملة لجميع أنواع المخاطر والاحتياجات",
     "testimonials.title": "آراء عملائنا",
     "testimonials.subtitle": "ماذا يقول عملاؤنا عن تجربتهم معنا",
     "testimonials.badge": "آراء العملاء",
     "testimonials.mainTitle": "ماذا يقول عملاؤنا",
     "testimonials.mainSubtitle": "ثقة عملائنا هي أكبر شهادة على جودة خدماتنا",
-    "testimonials.testimonial1": "تجربة ممتازة مع الوكالة. حصلت على تأمين سيارتي بسرعة وبسعر منافس جداً. الفريق محترف ومتعاون.",
-    "testimonials.testimonial2": "خدمة تأمين السفر كانت رائعة. ساعدوني في كل الإجراءات وكانوا متاحين للإجابة على استفساراتي.",
-    "testimonials.testimonial3": "أنصح بشدة بهذه الوكالة لتأمين الشاحنات. تعاملهم محترم وأسعارهم معقولة مقارنة بالمنافسين.",
-    
-    // Contact
+    "testimonials.testimonial1":
+      "تجربة ممتازة مع الوكالة. حصلت على تأمين سيارتي بسرعة وبسعر منافس جداً. الفريق محترف ومتعاون.",
+    "testimonials.testimonial2":
+      "خدمة تأمين السفر كانت رائعة. ساعدوني في كل الإجراءات وكانوا متاحين للإجابة على استفساراتي.",
+    "testimonials.testimonial3":
+      "أنصح بشدة بهذه الوكالة لتأمين الشاحنات. تعاملهم محترم وأسعارهم معقولة مقارنة بالمنافسين.",
     "contact.title": "تواصل معنا",
-    "contact.subtitle": "نحن هنا لمساعدتك. تواصل معنا للحصول على استشارة مجانية",
+    "contact.subtitle":
+      "نحن هنا لمساعدتك. تواصل معنا للحصول على استشارة مجانية",
     "contact.badge": "تواصل معنا",
     "contact.mainTitle": "نحن هنا لمساعدتك",
-    "contact.mainSubtitle": "لا تتردد في التواصل معنا للحصول على استشارة مجانية أو عرض سعر مخصص لاحتياجاتك التأمينية.",
+    "contact.mainSubtitle":
+      "لا تتردد في التواصل معنا للحصول على استشارة مجانية أو عرض سعر مخصص لاحتياجاتك التأمينية.",
     "contact.phoneLabel": "الهاتف",
     "contact.whatsappLabel": "واتساب",
     "contact.emailLabel": "البريد الإلكتروني",
@@ -172,13 +188,12 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.whatsapp": "واتساب",
     "contact.emailUs": "راسلنا",
     "contact.visitUs": "زورونا",
-    
-    // Location
     "location.title": "موقعنا",
     "location.subtitle": "يسعدنا استقبالكم في مكتبنا",
     "location.badge": "موقعنا",
     "location.mainTitle": "زورونا في مكتبنا",
-    "location.mainSubtitle": "نرحب بكم في مكتبنا للحصول على استشارة مجانية ومباشرة",
+    "location.mainSubtitle":
+      "نرحب بكم في مكتبنا للحصول على استشارة مجانية ومباشرة",
     "location.address": "العنوان",
     "location.addressValue": "شارع أمالو, مقابل لبوسطة أمالوا",
     "location.addressValue2": "إغريين، لافتة Atlas Sanad",
@@ -190,28 +205,31 @@ const translations: Record<Language, Record<string, string>> = {
     "location.phoneLabel": "الهاتف",
     "location.contactLabel": "للتواصل",
     "location.openMaps": "افتح في خرائط Google",
-    
-    // FAQ
     "faq.title": "الأسئلة الشائعة",
     "faq.subtitle": "إجابات على أكثر الأسئلة شيوعاً",
     "faq.haveQuestion": "لديك سؤال آخر؟",
     "faq.teamReady": "فريقنا جاهز للإجابة على جميع استفساراتك",
     "faq.contactNow": "تواصل معنا الآن",
     "faq.q1": "ما هي الوثائق المطلوبة للتأمين على السيارات؟",
-    "faq.a1": "تحتاج إلى بطاقة التسجيل (الكارت كريز)، بطاقة الهوية الوطنية، ورخصة السياقة. في بعض الحالات قد نطلب وثائق إضافية حسب نوع التأمين المطلوب.",
+    "faq.a1":
+      "تحتاج إلى بطاقة التسجيل (الكارت كريز)، بطاقة الهوية الوطنية، ورخصة السياقة. في بعض الحالات قد نطلب وثائق إضافية حسب نوع التأمين المطلوب.",
     "faq.q2": "كيف يتم احتساب أقساط التأمين؟",
-    "faq.a2": "يتم احتساب الأقساط بناءً على عدة عوامل منها: قيمة المركبة، عمرها، نوع الاستخدام، تاريخ السائق التأميني، والتغطيات المطلوبة. نقدم لك عرض سعر مفصل ومخصص لحالتك.",
+    "faq.a2":
+      "يتم احتساب الأقساط بناءً على عدة عوامل منها: قيمة المركبة، عمرها، نوع الاستخدام، تاريخ السائق التأميني، والتغطيات المطلوبة. نقدم لك عرض سعر مفصل ومخصص لحالتك.",
     "faq.q3": "هل يمكنني الحصول على تأمين للسفر في نفس اليوم؟",
-    "faq.a3": "نعم، نوفر خدمة تأمين السفر الفوري. يمكنك الحصول على وثيقة التأمين في نفس يوم الطلب مع تغطية تبدأ فوراً.",
+    "faq.a3":
+      "نعم، نوفر خدمة تأمين السفر الفوري. يمكنك الحصول على وثيقة التأمين في نفس يوم الطلب مع تغطية تبدأ فوراً.",
     "faq.q4": "ما هي التغطيات المتوفرة لتأمين الشاحنات؟",
-    "faq.a4": "نوفر تغطية شاملة للشاحنات تشمل: الأضرار المادية، المسؤولية المدنية، تأمين البضائع المنقولة، الحماية القانونية، وخدمات المساعدة على الطريق.",
+    "faq.a4":
+      "نوفر تغطية شاملة للشاحنات تشمل: الأضرار المادية، المسؤولية المدنية، تأمين البضائع المنقولة، الحماية القانونية، وخدمات المساعدة على الطريق.",
     "faq.q5": "كيف أقدم مطالبة تعويض؟",
-    "faq.a5": "يمكنك تقديم مطالبة التعويض من خلال زيارة مكتبنا أو الاتصال بنا. نحتاج إلى التصريح بالحادث، صور الأضرار، والوثائق الداعمة. فريقنا سيرافقك في جميع مراحل المطالبة.",
+    "faq.a5":
+      "يمكنك تقديم مطالبة التعويض من خلال زيارة مكتبنا أو الاتصال بنا. نحتاج إلى التصريح بالحادث، صور الأضرار، والوثائق الداعمة. فريقنا سيرافقك في جميع مراحل المطالبة.",
     "faq.q6": "هل تقدمون خدمات لتأمين الشركات والمؤسسات؟",
-    "faq.a6": "نعم، نقدم حلول تأمينية متكاملة للشركات تشمل: تأمين الممتلكات، تأمين الموظفين، المسؤولية المهنية، وتأمين أسطول المركبات. نصمم باقات مخصصة حسب حجم ونشاط شركتك.",
-    
-    // Footer
-    "footer.description": "وكالة تأمين معتمدة من Atlanta Sanad. نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.",
+    "faq.a6":
+      "نعم، نقدم حلول تأمينية متكاملة للشركات تشمل: تأمين الممتلكات، تأمين الموظفين، المسؤولية المهنية، وتأمين أسطول المركبات. نصمم باقات مخصصة حسب حجم ونشاط شركتك.",
+    "footer.description":
+      "وكالة تأمين معتمدة من Atlanta Sanad. نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.",
     "footer.quickLinks": "روابط سريعة",
     "footer.ourServices": "خدماتنا",
     "footer.contactUs": "تواصل معنا",
@@ -236,22 +254,21 @@ const translations: Record<Language, Record<string, string>> = {
     "header.getQuote": "Demander un devis",
     "header.approvedAgency": "Agence agréée",
     "header.brandName": "AGENCE Fouad ABI",
-    
-    // Hero
     "hero.title": "Protégez ce qui compte",
     "hero.subtitle": "Agence d'assurance agréée par Atlanta Sanad",
-    "hero.description": "Assurance auto, camions, entreprises et services de voyage — des solutions fiables et rapides dans votre ville.",
+    "hero.description":
+      "Assurance auto, camions, entreprises et services de voyage — des solutions fiables et rapides dans votre ville.",
     "hero.getQuote": "Demander un devis",
     "hero.discoverServices": "Découvrir nos services",
     "hero.approvedBadge": "Agence locale agréée par Atlanta Sanad",
     "hero.trustedClients": "Plus de 5000 clients nous font confiance",
-    
-    // Services
     "services.title": "Nos Services d'Assurance",
-    "services.subtitle": "Nous vous proposons une gamme complète de solutions d'assurance adaptées à vos besoins",
+    "services.subtitle":
+      "Nous vous proposons une gamme complète de solutions d'assurance adaptées à vos besoins",
     "services.badge": "Nos Services",
     "services.mainTitle": "Solutions d'assurance complètes",
-    "services.mainSubtitle": "Nous proposons une gamme complète de services d'assurance conçus pour protéger ce qui compte le plus pour vous",
+    "services.mainSubtitle":
+      "Nous proposons une gamme complète de services d'assurance conçus pour protéger ce qui compte le plus pour vous",
     "services.requestQuote": "Demander un devis",
     "services.feature1": "Couverture des dommages",
     "services.feature2": "Responsabilité civile",
@@ -271,90 +288,111 @@ const translations: Record<Language, Record<string, string>> = {
     "services.feature16": "Renouvellement de contrats",
     "services.feature17": "Suivi des dossiers",
     "services.adminServices": "Services Administratifs",
-    "services.adminDesc": "Aide dans les démarches d'assurance et les documents administratifs liés aux voyages et véhicules.",
+    "services.adminDesc":
+      "Aide dans les démarches d'assurance et les documents administratifs liés aux voyages et véhicules.",
     "services.carInsurance": "Assurance Auto",
-    "services.carInsuranceDesc": "Protection complète pour votre véhicule contre tous les risques. Couverture accidents, vol et dommages naturels.",
+    "services.carInsuranceDesc":
+      "Protection complète pour votre véhicule contre tous les risques. Couverture accidents, vol et dommages naturels.",
     "services.truckInsurance": "Assurance Camions",
-    "services.truckInsuranceDesc": "Assurance spécialisée pour camions et véhicules de transport. Protégez votre flotte commerciale aux meilleurs prix.",
+    "services.truckInsuranceDesc":
+      "Assurance spécialisée pour camions et véhicules de transport. Protégez votre flotte commerciale aux meilleurs prix.",
     "services.companyInsurance": "Assurance Entreprises",
-    "services.companyInsuranceDesc": "Solutions d'assurance intégrées pour entreprises. Protection des actifs, employés et responsabilité civile.",
+    "services.companyInsuranceDesc":
+      "Solutions d'assurance intégrées pour entreprises. Protection des actifs, employés et responsabilité civile.",
     "services.travelInsurance": "Services Voyage",
-    "services.travelInsuranceDesc": "Assurance voyage et services passeport. Voyagez en toute sécurité avec couverture médicale et protection bagages.",
+    "services.travelInsuranceDesc":
+      "Assurance voyage et services passeport. Voyagez en toute sécurité avec couverture médicale et protection bagages.",
     "services.healthInsurance": "Assurance Santé",
-    "services.healthInsuranceDesc": "Couverture santé complète pour vous et votre famille. Accès aux meilleurs hôpitaux et médecins.",
+    "services.healthInsuranceDesc":
+      "Couverture santé complète pour vous et votre famille. Accès aux meilleurs hôpitaux et médecins.",
     "services.familyInsurance": "Assurance Familiale",
-    "services.familyInsuranceDesc": "Protection complète pour toute la famille. Tranquillité d'esprit avec une couverture multi-aspects.",
+    "services.familyInsuranceDesc":
+      "Protection complète pour toute la famille. Tranquillité d'esprit avec une couverture multi-aspects.",
     "services.moreDetails": "Plus de détails",
-    
-    // Welcome Section
     "welcome.badge": "Bienvenue",
     "welcome.title": "Bienvenue dans notre agence",
     "welcome.subtitle": "Message du propriétaire",
-    "welcome.message": "Nous sommes ravis de vous accueillir sur notre site web. Dans notre agence, nous nous engageons à fournir les meilleurs services d'assurance à nos clients précieux. Nous sommes là pour vous aider à protéger ce qui compte le plus pour vous - vos véhicules, vos entreprises et vos familles. Notre équipe professionnelle est toujours prête à vous offrir les conseils et le soutien dont vous avez besoin.",
+    "welcome.message":
+      "Nous sommes ravis de vous accueillir sur notre site web. Dans notre agence, nous nous engageons à fournir les meilleurs services d'assurance à nos clients précieux. Nous sommes là pour vous aider à protéger ce qui compte le plus pour vous - vos véhicules, vos entreprises et vos familles. Notre équipe professionnelle est toujours prête à vous offrir les conseils et le soutien dont vous avez besoin.",
     "welcome.commitment": "Notre engagement envers vous",
-    "welcome.commitmentDesc": "Nous nous engageons à fournir un service exceptionnel, une transparence totale et des prix compétitifs pour garantir votre satisfaction complète.",
+    "welcome.commitmentDesc":
+      "Nous nous engageons à fournir un service exceptionnel, une transparence totale et des prix compétitifs pour garantir votre satisfaction complète.",
     "welcome.experience": "Années d'expérience",
     "welcome.clients": "Clients satisfaits",
     "welcome.satisfaction": "Taux de satisfaction",
-    
-    // How it works
     "howItWorks.title": "Comment ça marche ?",
     "howItWorks.subtitle": "Trois étapes simples pour obtenir votre assurance",
     "howItWorks.badge": "Comment ça marche",
     "howItWorks.mainTitle": "Trois étapes simples",
-    "howItWorks.mainSubtitle": "Nous rendons le processus d'obtention d'assurance facile et rapide grâce à trois étapes claires",
+    "howItWorks.mainSubtitle":
+      "Nous rendons le processus d'obtention d'assurance facile et rapide grâce à trois étapes claires",
     "howItWorks.step1Title": "Contactez-nous",
-    "howItWorks.step1Desc": "Contactez-nous par téléphone, WhatsApp ou visitez notre bureau pour discuter de vos besoins d'assurance.",
+    "howItWorks.step1Desc":
+      "Contactez-nous par téléphone, WhatsApp ou visitez notre bureau pour discuter de vos besoins d'assurance.",
     "howItWorks.step2Title": "Recevez un devis",
-    "howItWorks.step2Desc": "Nous étudions vos besoins et vous proposons un devis détaillé adapté à votre budget et vos besoins.",
+    "howItWorks.step2Desc":
+      "Nous étudions vos besoins et vous proposons un devis détaillé adapté à votre budget et vos besoins.",
     "howItWorks.step3Title": "Finalisez le contrat et recevez la police",
-    "howItWorks.step3Desc": "Après accord, nous finalisons les démarches et vous remettons votre police d'assurance dans les plus brefs délais.",
-    
-    // Advantages
+    "howItWorks.step3Desc":
+      "Après accord, nous finalisons les démarches et vous remettons votre police d'assurance dans les plus brefs délais.",
     "advantages.title": "Pourquoi nous choisir ?",
-    "advantages.subtitle": "Des avantages qui font de nous le meilleur choix pour vos besoins d'assurance",
+    "advantages.subtitle":
+      "Des avantages qui font de nous le meilleur choix pour vos besoins d'assurance",
     "advantages.badge": "Pourquoi nous choisir",
     "advantages.mainTitle": "Des avantages qui font de nous",
     "advantages.mainTitleHighlight": "le meilleur choix",
-    "advantages.mainDesc": "Nous nous efforçons de fournir les meilleurs services d'assurance avec notre engagement envers la qualité et la transparence dans toutes nos transactions, ce qui fait de nous le partenaire de confiance de milliers de clients.",
+    "advantages.mainDesc":
+      "Nous nous efforçons de fournir les meilleurs services d'assurance avec notre engagement envers la qualité et la transparence dans toutes nos transactions, ce qui fait de nous le partenaire de confiance de milliers de clients.",
     "advantages.stats.clients": "clients satisfaits",
     "advantages.stats.experience": "années d'expérience",
     "advantages.stats.support": "support disponible",
     "advantages.compensationGuaranteed": "Indemnisation garantie",
-    "advantages.compensationGuaranteedDesc": "Indemnisations via la société mère Atlanta Sanad avec toute fiabilité et transparence.",
+    "advantages.compensationGuaranteedDesc":
+      "Indemnisations via la société mère Atlanta Sanad avec toute fiabilité et transparence.",
     "advantages.customerService": "Service client 24/7",
-    "advantages.customerServiceDesc": "Nous sommes toujours disponibles pour répondre à vos questions et vous aider à tout moment.",
+    "advantages.customerServiceDesc":
+      "Nous sommes toujours disponibles pour répondre à vos questions et vous aider à tout moment.",
     "advantages.diverseCoverage": "Couverture complète et diversifiée",
-    "advantages.diverseCoverageDesc": "Nous vous proposons des packages d'assurance intégrés qui répondent à tous vos besoins à des prix compétitifs.",
+    "advantages.diverseCoverageDesc":
+      "Nous vous proposons des packages d'assurance intégrés qui répondent à tous vos besoins à des prix compétitifs.",
     "advantages.approved": "Agence officiellement agréée",
-    "advantages.approvedDesc": "Agence officiellement agréée par Atlanta Sanad avec toutes les licences et certifications requises",
+    "advantages.approvedDesc":
+      "Agence officiellement agréée par Atlanta Sanad avec toutes les licences et certifications requises",
     "advantages.fast": "Procédures rapides et claires",
-    "advantages.fastDesc": "Procédures simplifiées et rapides avec transparence totale à toutes les étapes",
+    "advantages.fastDesc":
+      "Procédures simplifiées et rapides avec transparence totale à toutes les étapes",
     "advantages.support": "Support local dédié",
-    "advantages.supportDesc": "Équipe de support local disponible pour vous aider et vous accompagner dans toutes les démarches",
+    "advantages.supportDesc":
+      "Équipe de support local disponible pour vous aider et vous accompagner dans toutes les démarches",
     "advantages.compensation": "Indemnisation rapide",
-    "advantages.compensationDesc": "Indemnisations rapides et garanties via la société mère Atlanta Sanad",
+    "advantages.compensationDesc":
+      "Indemnisations rapides et garanties via la société mère Atlanta Sanad",
     "advantages.prices": "Prix compétitifs",
-    "advantages.pricesDesc": "Les meilleurs prix du marché avec des options de paiement flexibles pour tous",
+    "advantages.pricesDesc":
+      "Les meilleurs prix du marché avec des options de paiement flexibles pour tous",
     "advantages.coverage": "Couverture complète",
-    "advantages.coverageDesc": "Couverture d'assurance complète pour tous types de risques et besoins",
-    
-    // Testimonials
+    "advantages.coverageDesc":
+      "Couverture d'assurance complète pour tous types de risques et besoins",
     "testimonials.title": "Témoignages Clients",
-    "testimonials.subtitle": "Ce que nos clients disent de leur expérience avec nous",
+    "testimonials.subtitle":
+      "Ce que nos clients disent de leur expérience avec nous",
     "testimonials.badge": "Témoignages",
     "testimonials.mainTitle": "Ce que nos clients disent",
-    "testimonials.mainSubtitle": "La confiance de nos clients est le plus grand témoignage de la qualité de nos services",
-    "testimonials.testimonial1": "Excellente expérience avec l'agence. J'ai obtenu l'assurance de ma voiture rapidement et à un prix très compétitif. L'équipe est professionnelle et coopérative.",
-    "testimonials.testimonial2": "Le service d'assurance voyage était excellent. Ils m'ont aidé dans toutes les démarches et étaient disponibles pour répondre à mes questions.",
-    "testimonials.testimonial3": "Je recommande vivement cette agence pour l'assurance camions. Leur traitement est respectueux et leurs prix sont raisonnables par rapport aux concurrents.",
-    
-    // Contact
+    "testimonials.mainSubtitle":
+      "La confiance de nos clients est le plus grand témoignage de la qualité de nos services",
+    "testimonials.testimonial1":
+      "Excellente expérience avec l'agence. J'ai obtenu l'assurance de ma voiture rapidement et à un prix très compétitif. L'équipe est professionnelle et coopérative.",
+    "testimonials.testimonial2":
+      "Le service d'assurance voyage était excellent. Ils m'ont aidé dans toutes les démarches et étaient disponibles pour répondre à mes questions.",
+    "testimonials.testimonial3":
+      "Je recommande vivement cette agence pour l'assurance camions. Leur traitement est respectueux et leurs prix sont raisonnables par rapport aux concurrents.",
     "contact.title": "Contactez-nous",
-    "contact.subtitle": "Nous sommes là pour vous aider. Contactez-nous pour une consultation gratuite",
+    "contact.subtitle":
+      "Nous sommes là pour vous aider. Contactez-nous pour une consultation gratuite",
     "contact.badge": "Contact",
     "contact.mainTitle": "Nous sommes là pour vous aider",
-    "contact.mainSubtitle": "N'hésitez pas à nous contacter pour une consultation gratuite ou un devis personnalisé pour vos besoins d'assurance.",
+    "contact.mainSubtitle":
+      "N'hésitez pas à nous contacter pour une consultation gratuite ou un devis personnalisé pour vos besoins d'assurance.",
     "contact.phoneLabel": "Téléphone",
     "contact.whatsappLabel": "WhatsApp",
     "contact.emailLabel": "Email",
@@ -385,13 +423,13 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.whatsapp": "WhatsApp",
     "contact.emailUs": "Email",
     "contact.visitUs": "Rendez-nous visite",
-    
-    // Location
     "location.title": "Notre Emplacement",
-    "location.subtitle": "Nous serons ravis de vous accueillir dans notre bureau",
+    "location.subtitle":
+      "Nous serons ravis de vous accueillir dans notre bureau",
     "location.badge": "Notre Emplacement",
     "location.mainTitle": "Visitez notre bureau",
-    "location.mainSubtitle": "Nous vous accueillons dans notre bureau pour une consultation gratuite et directe",
+    "location.mainSubtitle":
+      "Nous vous accueillons dans notre bureau pour une consultation gratuite et directe",
     "location.address": "Adresse",
     "location.addressValue": "Rue Amalou, en face de la poste Amalou",
     "location.addressValue2": "Ighriben, panneau Atlas Sanad",
@@ -403,28 +441,33 @@ const translations: Record<Language, Record<string, string>> = {
     "location.phoneLabel": "Téléphone",
     "location.contactLabel": "Contact",
     "location.openMaps": "Ouvrir dans Google Maps",
-    
-    // FAQ
     "faq.title": "Questions Fréquentes",
     "faq.subtitle": "Réponses aux questions les plus courantes",
     "faq.haveQuestion": "Vous avez une autre question ?",
     "faq.teamReady": "Notre équipe est prête à répondre à toutes vos questions",
     "faq.contactNow": "Contactez-nous maintenant",
     "faq.q1": "Quels documents sont requis pour l'assurance auto ?",
-    "faq.a1": "Vous avez besoin de la carte grise, de la carte d'identité nationale et du permis de conduire. Dans certains cas, nous pouvons demander des documents supplémentaires selon le type d'assurance requis.",
+    "faq.a1":
+      "Vous avez besoin de la carte grise, de la carte d'identité nationale et du permis de conduire. Dans certains cas, nous pouvons demander des documents supplémentaires selon le type d'assurance requis.",
     "faq.q2": "Comment sont calculées les primes d'assurance ?",
-    "faq.a2": "Les primes sont calculées en fonction de plusieurs facteurs : la valeur du véhicule, son âge, le type d'utilisation, l'historique d'assurance du conducteur et les couvertures requises. Nous vous proposons un devis détaillé et personnalisé pour votre situation.",
+    "faq.a2":
+      "Les primes sont calculées en fonction de plusieurs facteurs : la valeur du véhicule, son âge, le type d'utilisation, l'historique d'assurance du conducteur et les couvertures requises. Nous vous proposons un devis détaillé et personnalisé pour votre situation.",
     "faq.q3": "Puis-je obtenir une assurance voyage le jour même ?",
-    "faq.a3": "Oui, nous proposons un service d'assurance voyage instantané. Vous pouvez obtenir votre police d'assurance le jour même de la demande avec une couverture qui commence immédiatement.",
-    "faq.q4": "Quelles sont les couvertures disponibles pour l'assurance camions ?",
-    "faq.a4": "Nous offrons une couverture complète pour les camions comprenant : les dommages matériels, la responsabilité civile, l'assurance des marchandises transportées, la protection juridique et les services d'assistance routière.",
+    "faq.a3":
+      "Oui, nous proposons un service d'assurance voyage instantané. Vous pouvez obtenir votre police d'assurance le jour même de la demande avec une couverture qui commence immédiatement.",
+    "faq.q4":
+      "Quelles sont les couvertures disponibles pour l'assurance camions ?",
+    "faq.a4":
+      "Nous offrons une couverture complète pour les camions comprenant : les dommages matériels, la responsabilité civile, l'assurance des marchandises transportées, la protection juridique et les services d'assistance routière.",
     "faq.q5": "Comment puis-je déposer une réclamation ?",
-    "faq.a5": "Vous pouvez déposer une réclamation en visitant notre bureau ou en nous contactant. Nous avons besoin de la déclaration d'accident, des photos des dommages et des documents justificatifs. Notre équipe vous accompagnera à toutes les étapes de la réclamation.",
-    "faq.q6": "Proposez-vous des services d'assurance pour les entreprises et institutions ?",
-    "faq.a6": "Oui, nous proposons des solutions d'assurance intégrées pour les entreprises comprenant : l'assurance des biens, l'assurance des employés, la responsabilité professionnelle et l'assurance de la flotte de véhicules. Nous concevons des packages personnalisés selon la taille et l'activité de votre entreprise.",
-    
-    // Footer
-    "footer.description": "Agence d'assurance agréée par Atlanta Sanad. Nous proposons des solutions d'assurance complètes et fiables pour les particuliers et les entreprises.",
+    "faq.a5":
+      "Vous pouvez déposer une réclamation en visitant notre bureau ou en nous contactant. Nous avons besoin de la déclaration d'accident, des photos des dommages et des documents justificatifs. Notre équipe vous accompagnera à toutes les étapes de la réclamation.",
+    "faq.q6":
+      "Proposez-vous des services d'assurance pour les entreprises et institutions ?",
+    "faq.a6":
+      "Oui, nous proposons des solutions d'assurance intégrées pour les entreprises comprenant : l'assurance des biens, l'assurance des employés, la responsabilité professionnelle et l'assurance de la flotte de véhicules. Nous concevons des packages personnalisés selon la taille et l'activité de votre entreprise.",
+    "footer.description":
+      "Agence d'assurance agréée par Atlanta Sanad. Nous proposons des solutions d'assurance complètes et fiables pour les particuliers et les entreprises.",
     "footer.quickLinks": "Liens Rapides",
     "footer.ourServices": "Nos Services",
     "footer.contactUs": "Contactez-nous",
@@ -440,7 +483,9 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [language, setLanguage] = useState<Language>("ar");

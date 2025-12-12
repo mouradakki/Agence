@@ -15,7 +15,6 @@ import Script from "next/script";
 export default function Home() {
   const { dir } = useLanguage();
 
-  // JSON-LD Structured Data for Local Business
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL || "https://agence-lovabel.ma";
   const structuredData = {
@@ -55,12 +54,6 @@ export default function Home() {
         closes: "13:00",
       },
     ],
-    sameAs: [
-      // Add your social media links here when available
-      // "https://www.facebook.com/yourpage",
-      // "https://www.instagram.com/yourpage",
-      // "https://www.linkedin.com/company/yourcompany",
-    ],
     parentOrganization: {
       "@type": "Organization",
       name: "Atlanta Sanad",
@@ -79,7 +72,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
-      <div className="min-h-screen" dir={dir} style={{ margin: 0, padding: 0 }}>
+      <div className="min-h-screen m-0 p-0" dir={dir}>
         <Header />
         <main>
           <HeroSection />

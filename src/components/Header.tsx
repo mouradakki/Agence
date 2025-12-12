@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import LanguageToggle from "./LanguageToggle";
 
@@ -19,7 +18,6 @@ const Header = () => {
       const scrolled = window.scrollY > 10;
       setIsScrolled(scrolled);
 
-      // Detect active section
       const sections = [
         "services",
         "advantages",
@@ -45,7 +43,7 @@ const Header = () => {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check on mount
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -56,67 +54,18 @@ const Header = () => {
     e.preventDefault();
     e.stopPropagation();
 
-    // Extract the ID from href (e.g., "#services" -> "services")
     const sectionId = href.replace("#", "");
+    const element = document.getElementById(sectionId);
 
-    // Function to scroll to section
-    const scrollToSection = () => {
-      // Try getElementById first
-      let element = document.getElementById(sectionId);
+    if (element) {
+      const headerHeight = 80;
+      const elementTop = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementTop - headerHeight;
 
-      if (!element) {
-        // Try querySelector as fallback
-        element = document.querySelector(href) as HTMLElement;
-      }
-
-      if (element) {
-        const headerHeight = 80;
-
-        // Method 1: Use scrollIntoView with offset
-        // First, scroll to element
-        element.scrollIntoView({ behavior: "smooth", block: "start" });
-
-        // Then adjust for header height
-        setTimeout(() => {
-          const currentScroll =
-            window.pageYOffset || document.documentElement.scrollTop;
-          window.scrollTo({
-            top: Math.max(0, currentScroll - headerHeight),
-            behavior: "smooth",
-          });
-        }, 100);
-
-        // Method 2: Direct calculation (as backup)
-        const rect = element.getBoundingClientRect();
-        const scrollTop =
-          window.pageYOffset || document.documentElement.scrollTop || 0;
-        const elementTop = rect.top + scrollTop;
-        const offsetPosition = elementTop - headerHeight;
-
-        // Try direct scroll as well
-        setTimeout(() => {
-          window.scrollTo({
-            top: Math.max(0, offsetPosition),
-            behavior: "smooth",
-          });
-        }, 200);
-
-        return true;
-      } else {
-        return false;
-      }
-    };
-
-    // Try immediately
-    if (!scrollToSection()) {
-      // If not found, try again after delays (for React hydration)
-      setTimeout(() => {
-        if (!scrollToSection()) {
-          setTimeout(() => {
-            scrollToSection();
-          }, 300);
-        }
-      }, 100);
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
     }
 
     setIsMobileMenuOpen(false);
@@ -132,26 +81,25 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        isScrolled ? "shadow-xl border-b border-border/40" : "shadow-md"
+      className={`fixed top-0 left-0 right-0 z-[100] m-0 p-0 w-full transition-all duration-300 ${
+        isScrolled
+          ? "border-b border-border/40 bg-gradient-to-br from-white/[0.98] to-blue-500/20 backdrop-blur-[20px]"
+          : "bg-gradient-to-br from-white/50 to-blue-500/5 backdrop-blur-[8px]"
       }`}
-      style={{
-        margin: 0,
-        padding: 0,
-        width: "100%",
-        background: isScrolled
-          ? "linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(59, 130, 246, 0.2) 100%)"
-          : "linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(59, 130, 246, 0.05) 100%)",
-        backdropFilter: isScrolled ? "blur(20px)" : "blur(8px)",
-        WebkitBackdropFilter: isScrolled ? "blur(20px)" : "blur(8px)",
-        boxShadow: isScrolled
-          ? "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)"
-          : "0 4px 20px -5px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
-      }}
+      style={
+        isScrolled
+          ? {
+              boxShadow:
+                "0 10px 40px -10px rgba(0, 0, 0, 0.15), 0 4px 6px -2px rgba(0, 0, 0, 0.1)",
+            }
+          : {
+              boxShadow:
+                "0 4px 20px -5px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            }
+      }
     >
       <div className="container-custom">
         <div className="flex items-center h-20">
-          {/* Logo */}
           <motion.a
             href="/"
             className="flex items-center gap-3 group flex-shrink-0"
@@ -162,11 +110,7 @@ const Header = () => {
               window.location.reload();
             }}
           >
-            <motion.div
-              className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white"
-              whileHover={{ rotate: [0, -5, 5, -5, 0] }}
-              transition={{ duration: 0.5 }}
-            >
+            <div className="w-12 h-12 rounded-xl overflow-hidden flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300 bg-white">
               <Image
                 src="/logo-1.png"
                 alt="Logo"
@@ -175,8 +119,9 @@ const Header = () => {
                 className="object-contain"
                 loading="eager"
                 unoptimized
+                style={{ transform: "rotate(0deg)" }}
               />
-            </motion.div>
+            </div>
             <div className="hidden sm:block">
               <p className="font-bold text-lg transition-colors duration-200 text-black group-hover:text-primary">
                 {t("header.brandName")}
@@ -187,7 +132,6 @@ const Header = () => {
             </div>
           </motion.a>
 
-          {/* Desktop Navigation - Takes full right side */}
           <nav className="hidden lg:flex items-center gap-1 flex-1 justify-end">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href;
@@ -221,7 +165,6 @@ const Header = () => {
             })}
           </nav>
 
-          {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3 flex-shrink-0 ml-4">
             <motion.a
               href="tel:0535383218"
@@ -236,11 +179,7 @@ const Header = () => {
               href="https://wa.me/212535383218"
               target="_blank"
               rel="noopener noreferrer"
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 ${
-                isScrolled
-                  ? "text-[#25D366] hover:bg-[#25D366]/10"
-                  : "text-[#25D366] hover:bg-[#25D366]/10"
-              }`}
+              className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors duration-200 text-[#25D366] hover:bg-[#25D366]/10"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -252,7 +191,6 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <motion.button
             className="lg:hidden p-2 rounded-lg transition-colors duration-200 text-black hover:bg-primary/10"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -286,7 +224,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -307,18 +244,12 @@ const Header = () => {
                 stiffness: 300,
                 damping: 30,
               }}
-              className="lg:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl"
-              style={{
-                [dir === "rtl" ? "right" : "left"]: 0,
-                background:
-                  "linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(59, 130, 246, 0.15) 100%)",
-                backdropFilter: "blur(20px)",
-                WebkitBackdropFilter: "blur(20px)",
-                borderBottom: "1px solid rgba(214, 32, 91, 0.1)",
-              }}
+              className={`lg:hidden fixed top-0 w-full max-w-sm z-[60] shadow-xl bg-gradient-to-br from-white/[0.95] to-blue-500/15 backdrop-blur-[20px] border-b border-pink-500/10 ${
+                dir === "rtl" ? "right-0" : "left-0"
+              }`}
             >
               <nav className="container-custom pt-2 pb-6 flex flex-col gap-2">
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center justify-between mb-4 gap-4">
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="p-2 rounded-lg text-black hover:bg-primary/10 hover:text-primary transition-colors"
@@ -327,7 +258,6 @@ const Header = () => {
                     <X className="w-5 h-5" />
                   </button>
                   <LanguageToggle />
-                  <div className="w-9"></div>
                 </div>
                 {navLinks.map((link, index) => {
                   const isActive = activeSection === link.href;
