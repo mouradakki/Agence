@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, ArrowLeft } from "lucide-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
-import { byPrefixAndName } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { faCircleCheck, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Image from "next/image";
@@ -142,7 +141,7 @@ const HeroSection = () => {
                       }}
                     >
                       <FontAwesomeIcon
-                        icon={byPrefixAndName.fas['cloud-check']}
+                        icon={faCheckCircle}
                         className="w-6 h-6 text-white"
                       />
                     </div>
