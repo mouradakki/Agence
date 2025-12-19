@@ -44,8 +44,7 @@ const HeroSection = () => {
             </motion.div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              {t("hero.title")}
-              <span className="block mt-2" style={{ color: "#e40050" }}>
+              <span className="block" style={{ color: "#e40050" }}>
                 {t("hero.subtitle")}
               </span>
             </h1>
@@ -152,14 +151,14 @@ const HeroSection = () => {
                     <div
                       className="absolute inset-0 rounded-full border-2"
                       style={{
-                        borderColor: "#15803d", // أخضر غامق
-                        backgroundColor: "#86efac", // أخضر فاتح
+                        borderColor: "#9ca3af", // رمادي
+                        backgroundColor: "#ffffff", // أبيض
                       }}
                     ></div>
                     <FontAwesomeIcon
                       icon={faCircleCheck}
                       className="relative z-10 w-4 h-4"
-                      style={{ color: "#15803d" }} // أخضر غامق للعلامة
+                      style={{ color: "#6b7280" }} // رمادي غامق للعلامة
                     />
                   </div>
                   <span className="text-sm font-medium">{point}</span>

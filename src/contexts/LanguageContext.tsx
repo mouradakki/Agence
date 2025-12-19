@@ -26,19 +26,19 @@ const translations: Record<Language, Record<string, string>> = {
     "header.getQuote": "احصل على عرض سعر",
     "header.approvedAgency": "وكالة معتمدة",
     "header.brandName": "Agent Generale Fouad ABI",
-    "hero.title": "حماية ما يهمّك",
+    "hero.title": "",
     "hero.subtitle": "وكالة تأمين معتمدة من AtlantaSanad",
     "hero.description":
-      "تأمين السيارات، الشاحنات، الشركات، وتأمين السفر للخارج — حلول موثوقة وسريعة في مدينتكم.",
+      "عروض متنوعة تشمل جميع عروض التأمينات",
     "hero.getQuote": "احصل على عرض سعر",
     "hero.discoverServices": "تعرّف على خدماتنا",
-    "hero.approvedBadge": "وكالة محلية معتمدة من AtlantaSanad",
+    "hero.approvedBadge": "عروض متنوعة تشمل جميع عروض التأمينات",
     "hero.trustedClients": "أكثر من 5000 عميل يثقون بنا",
     "services.title": "خدماتنا التأمينية",
     "services.subtitle":
       "نقدم لكم مجموعة شاملة من حلول التأمين المصممة لتلبية احتياجاتكم",
     "services.badge": "خدماتنا",
-    "services.mainTitle": "حلول تأمينية شاملة",
+    "services.mainTitle": "خدمات تأمين شاملة ومتكاملة",
     "services.mainSubtitle":
       "نقدم مجموعة متكاملة من خدمات التأمين المصممة لحماية ما يهمك أكثر",
     "services.requestQuote": "اطلب عرض سعر",
@@ -234,7 +234,7 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a6":
       "نعم، نقدم حلول تأمينية متكاملة للشركات تشمل: تأمين الممتلكات، تأمين الموظفين، المسؤولية المهنية، وتأمين أسطول المركبات. نصمم باقات مخصصة حسب حجم ونشاط شركتك.",
     "footer.description":
-      "وكالة تأمين معتمدة من AtlantaSanad. نقدم حلول تأمينية شاملة وموثوقة للأفراد والشركات.",
+      "وكالة تأمين معتمدة من AtlantaSanad. نقدم خدمات تأمين شاملة ومتكاملة وموثوقة للأفراد والشركات.",
     "footer.quickLinks": "روابط سريعة",
     "footer.ourServices": "خدماتنا",
     "footer.contactUs": "تواصل معنا",
@@ -270,19 +270,19 @@ const translations: Record<Language, Record<string, string>> = {
     "header.getQuote": "Demander un devis",
     "header.approvedAgency": "Agence agréée",
     "header.brandName": "Agent Generale Fouad ABI",
-    "hero.title": "Protégez ce qui compte",
+    "hero.title": "",
     "hero.subtitle": "Agence d'assurance agréée par AtlantaSanad",
     "hero.description":
-      "Assurance auto, camions, entreprises et services de voyage — des solutions fiables et rapides dans votre ville.",
+      "Offres variées couvrant tous les types d'assurances",
     "hero.getQuote": "Demander un devis",
     "hero.discoverServices": "Découvrir nos services",
-    "hero.approvedBadge": "Agence locale agréée par AtlantaSanad",
+    "hero.approvedBadge": "Offres variées couvrant tous les types d'assurances",
     "hero.trustedClients": "Plus de 5000 clients nous font confiance",
     "services.title": "Nos Services d'Assurance",
     "services.subtitle":
       "Nous vous proposons une gamme complète de solutions d'assurance adaptées à vos besoins",
     "services.badge": "Nos Services",
-    "services.mainTitle": "Solutions d'assurance complètes",
+    "services.mainTitle": "Services d'assurance complets et intégrés",
     "services.mainSubtitle":
       "Nous proposons une gamme complète de services d'assurance conçus pour protéger ce qui compte le plus pour vous",
     "services.requestQuote": "Demander un devis",
@@ -483,7 +483,7 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a6":
       "Oui, nous proposons des solutions d'assurance intégrées pour les entreprises comprenant : l'assurance des biens, l'assurance des employés, la responsabilité professionnelle et l'assurance de la flotte de véhicules. Nous concevons des packages personnalisés selon la taille et l'activité de votre entreprise.",
     "footer.description":
-      "Agence d'assurance agréée par AtlantaSanad. Nous proposons des solutions d'assurance complètes et fiables pour les particuliers et les entreprises.",
+      "Agence d'assurance agréée par AtlantaSanad. Nous proposons des services d'assurance complets, intégrés et fiables pour les particuliers et les entreprises.",
     "footer.quickLinks": "Liens Rapides",
     "footer.ourServices": "Nos Services",
     "footer.contactUs": "Contactez-nous",
