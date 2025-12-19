@@ -23,7 +23,7 @@ const HeroSection = () => {
 
       <div className="absolute inset-0 opacity-5 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]" />
 
-      <div className="container-custom relative z-10 pt-24 pb-16">
+      <div className="container-custom relative z-10 pt-28 sm:pt-24 md:pt-24 lg:pt-8 pb-16">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
