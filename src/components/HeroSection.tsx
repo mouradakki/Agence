@@ -130,7 +130,7 @@ const HeroSection = () => {
                   <ArrowLeft className="w-5 h-5" />
                 </a>
               </Button>
-              <Button variant="heroOutline" size="lg" asChild>
+              <Button variant="hero" size="lg" asChild>
                 <a href="#services">{t("hero.discoverServices")}</a>
               </Button>
             </div>
